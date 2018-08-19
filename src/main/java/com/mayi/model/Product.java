@@ -1,14 +1,68 @@
 package com.mayi.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Product {
-    private String productName;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private String productID;
     private String productSku;
-    private int productQuantity;
-    private double productPrice;
+    private String productName;
     private String productDescription;
     private String productManufacturer;
     private String productType;
+    private String productSpeed;
+    private String productRange;
+    private String productWeight;
+    private String productRechargeTime;
+    private String productRentLimit;
+    private int productQuantity;
+    private double productPrice;
+
+    public String getProductSpeed() {
+        return productSpeed;
+    }
+
+    public void setProductSpeed(String productSpeed) {
+        this.productSpeed = productSpeed;
+    }
+
+    public String getProductRange() {
+        return productRange;
+    }
+
+    public void setProductRange(String productRange) {
+        this.productRange = productRange;
+    }
+
+    public String getProductWeight() {
+        return productWeight;
+    }
+
+    public void setProductWeight(String productWeight) {
+        this.productWeight = productWeight;
+    }
+
+    public String getProductRechargeTime() {
+        return productRechargeTime;
+    }
+
+    public void setProductRechargeTime(String productRechargeTime) {
+        this.productRechargeTime = productRechargeTime;
+    }
+
+    public String getProductRentLimit() {
+        return productRentLimit;
+    }
+
+    public void setProductRentLimit(String productRentLimit) {
+        this.productRentLimit = productRentLimit;
+    }
 
     public String getProductName() {
         return productName;
