@@ -2,7 +2,7 @@ package com.mayi.model;
 
 public class Product {
     private String productName;
-    private int productID;
+    private String productID;
     private String productSku;
     private int productQuantity;
     private double productPrice;
@@ -18,11 +18,11 @@ public class Product {
         this.productName = productName;
     }
 
-    public int getProductID() {
+    public String getProductID() {
         return productID;
     }
 
-    public void setProductID(int productID) {
+    public void setProductID(String productID) {
         this.productID = productID;
     }
 
