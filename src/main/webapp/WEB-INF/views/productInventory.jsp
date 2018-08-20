@@ -39,7 +39,9 @@
                     <td>${product.productSku}</td>
                     <td>${product.productPrice} USD</td>
                     <td><a href="<spring:url value="/productList/viewProduct/${product.productID}" />"
-                    ><span class="glyphicon glyphicon-info-sign"></span></a></td>
+                    ><span class="glyphicon glyphicon-info-sign"></span></a>
+                        <a href="<spring:url value="/admin/productInventory/deleteProduct/${product.productID}" />"
+                        >dlt</a></td>
                 </tr>
             </c:forEach>
         </table>

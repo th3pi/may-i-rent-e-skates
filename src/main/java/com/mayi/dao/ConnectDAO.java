@@ -1,7 +1,9 @@
 package com.mayi.dao;
 
 import java.sql.*;
-
+/*
+ *ConnectDAO deprecated USE HIBERNATE for sql queries
+ */
 public abstract class ConnectDAO {
     private final String url = "jdbc:oracle:thin:@localhost:1521:xe";
     private final String user = "tanjim";
