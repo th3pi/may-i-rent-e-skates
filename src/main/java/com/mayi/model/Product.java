@@ -1,11 +1,10 @@
 package com.mayi.model;
 
 import org.hibernate.annotations.GenericGenerator;
+import org.springframework.web.multipart.MultipartFile;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Product {
@@ -26,6 +25,20 @@ public class Product {
     private String productRentLimit;
     private int productQuantity;
     private double productPrice;
+
+    @Transient
+    private MultipartFile productImage;
+
+    @Transient
+    private List<MultipartFile> productImages;
+
+    public List<MultipartFile> getProductImages() {
+        return productImages;
+    }
+
+    public void setProductImages(List<MultipartFile> productImages) {
+        this.productImages = productImages;
+    }
 
     public String getProductSpeed() {
         return productSpeed;
@@ -129,5 +142,13 @@ public class Product {
 
     public void setProductPrice(double productPrice) {
         this.productPrice = productPrice;
+    }
+
+    public MultipartFile getProductImage() {
+        return productImage;
+    }
+
+    public void setProductImage(MultipartFile productImage) {
+        this.productImage = productImage;
     }
 }
