@@ -33,7 +33,7 @@
             </thead>
             <c:forEach items="${products}" var="product">
                 <tr>
-                    <td><%@include file="template/productImageAttr.jsp"%></td>
+                    <td><%@include file="template/productImgAttrProductInventory.jsp"%></td>
                     <td>${product.productName}</td>
                     <td>${product.productType}</td>
                     <td>${product.productSku}</td>

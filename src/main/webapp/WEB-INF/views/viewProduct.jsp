@@ -15,7 +15,7 @@
     </div>
     <div class="row">
         <div class="col-lg-6">
-            <img src="#" alt="image" style="width: 100%; height: 300px;" />
+            <%@include file="template/productImageAttrProductPage.jsp"%>
         </div>
         <div class="col-lg-6">
             <h4>${product.productSku}</h4>
