@@ -67,8 +67,11 @@
                             <h4 class="card-title">
                                 <a href="<spring:url value="/productList/viewProduct/${product.productID}"/>">${product.productName}</a>
                             </h4>
-                            <h5>$${product.productPrice}</h5>
-                            <p class="card-text">${product.productDescription}</p>
+                            <div class="alert alert-dark" role="alert">
+                            <h5 style="color: #1c7430">$${product.productPrice}</h5>
+                            <p class="card-text">Range: ${product.productRange} miles</p>
+                            <p class="card-text">Recharge time: ${product.productRechargeTime} minutes</p>
+                            </div>
                         </div>
                         <div class="card-footer">
                             <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>

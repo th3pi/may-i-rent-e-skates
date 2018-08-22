@@ -61,32 +61,32 @@
         </ol>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img class="first-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="First slide">
+                <img class="d-block w-auto"  style="height: 600px" src="<c:url value="../resources/img/bbbanner1.png"/>" alt="First slide">
                 <div class="container">
                     <div class="carousel-caption text-left">
-                        <h1>Example headline.</h1>
-                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                        <h1>FEED YOUR ADRENALINE</h1>
+                        <p>Only sky is the limit with the ultimate form of portable transportation - BE ANYWHERE.</p>
                         <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
                     </div>
                 </div>
             </div>
             <div class="carousel-item">
-                <img class="second-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Second slide">
+                <img class="second-slide" src="<c:url value="../resources/img/owbanner1.png"/>" alt="Second slide">
                 <div class="container">
-                    <div class="carousel-caption">
-                        <h1>Another example headline.</h1>
-                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                    <div class="carousel-caption text-right">
+                        <h1>Some say the float life is the best life</h1>
+                        <p>Why don't you put that to test? Start riding the all new OneWheel+ XR starting at $14.99 a day</p>
                         <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
                     </div>
                 </div>
             </div>
             <div class="carousel-item">
-                <img class="third-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Third slide">
+                <img class="third-slide" src="<c:url value="../resources/img/evbanner1.png"/>" alt="Third slide">
                 <div class="container">
-                    <div class="carousel-caption text-right">
-                        <h1>One more for good measure.</h1>
-                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                        <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
+                    <div class="carousel-caption text-left">
+                        <h1>Have you ever felt this much raw power?</h1>
+                        <p>Rent the all the new EVOLVE BAMBOO GTX - the most powerful skateboard ever.</p>
+                        <p><a class="btn btn-lg btn-primary" href="#" role="button">GET!</a></p>
                     </div>
                 </div>
             </div>

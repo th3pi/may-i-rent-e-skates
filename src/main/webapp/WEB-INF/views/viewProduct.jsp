@@ -15,18 +15,25 @@
         </div>
     </div>
     <div class="row" style="padding-left: 5%; padding-top: 2%; padding-bottom: 5%">
-        <div class="col-lg-6">
+        <div class="col-lg-6" style="padding-left: 10%; padding-top: 2%;">
             <%@include file="template/productImageAttrProductPage.jsp"%>
         </div>
-        <div class="col-lg-6">
+        <div class="col-lg-6" style="text-align: left;">
             <h1 class="display-3">${product.productType} Range</h1>
-            <h1 class="display-4" style="color: #b21f2d">${product.productRange}</h1>
-            <p style="width: 300px">${product.productDescription}</p>
-            <p>${product.productType} speed: ${product.productSpeed}</p>
-            <p>${product.productType} recharge time: ${product.productRechargeTime}</p>
-            <p>${product.productType} weight: ${product.productWeight}</p>
-            <p class="lead" style="color: #1e7e34; font-size: 300%;">RENT: $${product.productPrice} <span class="badge badge-secondary">NEW!</span> </p>
-            <div class="alert alert-primary" style="width: 50%;">Rent limit is <span style="color: #b21f2d">${product.productRentLimit}</span>!</div>
+            <h1 class="display-4" style="color: #b21f2d">${product.productRange} miles</h1>
+            <p style="width: 500px">${product.productDescription}</p>
+            <c:choose>
+                <c:when test="${product.productSpeed ge 20}">
+                    <h4 style="color: #b21f2d">Blazing fast speed of ${product.productSpeed}mph</h4>
+                </c:when>
+                <c:when test="${product.productSpeed le 19}">
+                    <h4 style="color: #1c7430"> Safe pace speed of ${product.productSpeed}mph</h4>
+                </c:when>
+            </c:choose>
+            <h4>${product.productType} recharge time: ${product.productRechargeTime} minutes</h4>
+            <h4>${product.productType} weight: ${product.productWeight}lbs</h4>
+            <h4 class="lead" style="color: #1e7e34; font-size: 300%;">RENT: $${product.productPrice}<span class="badge badge-secondary"> NEW!</h4>
+            <div class="alert alert-primary" style="width: 50%;">Rent limit is <span style="color: #b21f2d">${product.productRentLimit}</span> days!</div>
         </div>
     </div>
 </div>
