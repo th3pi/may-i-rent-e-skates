@@ -10,24 +10,33 @@
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="spring" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@include file="/WEB-INF/views/template/header.jsp"%>
-
+<style>
+    th {
+        color: #fff;
+    }
+</style>
 <%--TODO FIX THIS--%>
-<div class="container-wrapper">
-    <div class="container">
+<div class="container-fluid" style="padding-top: 4%">
+    <div class="container-fluid">
         <div class="page-header">
             <h1>All Products</h1>
 
-            <p class="lead">Checkout all the awesome products available now!</p>
+            <p class="lead">Add, customise or delete product details.</p>
         </div>
 
         <table class="table table-striped table-hover">
             <thead>
-            <tr class="bg-success">
+            <tr class="bg-dark">
                 <th>Photo Thumb</th>
                 <th>Product Name</th>
-                <th>Category</th>
-                <th>Condition</th>
+                <th>Type</th>
+                <th>Manufacturer</th>
+                <th>SKU</th>
                 <th>Price</th>
+                <th>Speed</th>
+                <th>Recharge Time</th>
+                <th>Rent Limit</th>
+                <th>Action</th>
                 <th></th>
             </tr>
             </thead>
@@ -36,8 +45,12 @@
                     <td><%@include file="template/productImgAttrProductInventory.jsp"%></td>
                     <td>${product.productName}</td>
                     <td>${product.productType}</td>
+                    <td>${product.productManufacturer}</td>
                     <td>${product.productSku}</td>
-                    <td>${product.productPrice} USD</td>
+                    <td>$${product.productPrice}</td>
+                    <td>${product.productSpeed}mph</td>
+                    <td>${product.productRechargeTime}mins</td>
+                    <td>${product.productRentLimit} days</td>
                     <td><a href="<spring:url value="/productList/viewProduct/${product.productID}" />">view</a>
                         <a href="<spring:url value="/admin/productInventory/deleteProduct/${product.productID}" />">dlt</a>
                         <a href="<spring:url value="/admin/productInventory/editProduct/${product.productID}" />">edt</a></td>
@@ -46,7 +59,7 @@
             </c:forEach>
         </table>
 
-        <a href="<spring:url value="/admin/productInventory/addProduct"/>">Add Product</a>
+        <button href="<spring:url value="/admin/productInventory/addProduct"/>">Add Product</button>
 
         <%@include file="/WEB-INF/views/template/footer.jsp" %>
 

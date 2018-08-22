@@ -32,7 +32,7 @@
             </c:choose>
             <h4>${product.productType} recharge time: ${product.productRechargeTime} minutes</h4>
             <h4>${product.productType} weight: ${product.productWeight}lbs</h4>
-            <h4 class="lead" style="color: #1e7e34; font-size: 300%;">RENT: $${product.productPrice}<span class="badge badge-secondary"> NEW!</h4>
+            <h4 class="lead" style="color: #1e7e34; font-size: 300%;">RENT: $${product.productPrice}<span class="badge badge-secondary" > NEW!</span></h4>
             <div class="alert alert-primary" style="width: 50%;">Rent limit is <span style="color: #b21f2d">${product.productRentLimit}</span> days!</div>
         </div>
     </div>
