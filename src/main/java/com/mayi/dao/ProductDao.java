@@ -13,4 +13,6 @@ public interface ProductDao {
     List<Product> getAllProducts() throws SQLException;
 
     void deleteProduct(String id);
+
+    void editProduct(Product product);
 }

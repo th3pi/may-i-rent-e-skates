@@ -15,7 +15,7 @@
         <property name="maxUploadSize" value="20848820"/>
     </bean>
     <mvc:resources mapping="/resources/**" location="/WEB-INF/resources/" />
-    <mvc:resources mapping="/image/**" location="/WEB-INF/resources/image" />
+    <!--<mvc:resources mapping="/image/**" location="/WEB-INF/resources/image" />-->
     <tx:annotation-driven/>
 
 </beans>
