@@ -14,16 +14,14 @@
     th {
         color: #fff;
     }
+
 </style>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
 <%--TODO FIX THIS--%>
 <div class="container-fluid" style="padding-top: 4%">
-    <div class="container-fluid">
-        <div class="page-header">
             <h1>All Products</h1>
-
             <p class="lead">Add, customise or delete product details.</p>
-        </div>
-
         <table class="table table-striped table-hover">
             <thead>
             <tr class="bg-dark">
@@ -51,15 +49,15 @@
                     <td>${product.productSpeed}mph</td>
                     <td>${product.productRechargeTime}mins</td>
                     <td>${product.productRentLimit} days</td>
-                    <td><a href="<spring:url value="/productList/viewProduct/${product.productID}" />">view</a>
-                        <a href="<spring:url value="/admin/productInventory/deleteProduct/${product.productID}" />">dlt</a>
-                        <a href="<spring:url value="/admin/productInventory/editProduct/${product.productID}" />">edt</a></td>
+                    <td><a href="<spring:url value="/productList/viewProduct/${product.productID}" />"><i class="material-icons">pageview</i></a>
+                        <a href="<spring:url value="/admin/productInventory/deleteProduct/${product.productID}" />"><i class="material-icons">clear</i></a>
+                        <a href="<spring:url value="/admin/productInventory/editProduct/${product.productID}" />"><i class="material-icons">edit</i></a></td>
 
                 </tr>
             </c:forEach>
         </table>
 
-        <button href="<spring:url value="/admin/productInventory/addProduct"/>">Add Product</button>
+    <a href="<spring:url value="/admin/productInventory/addProduct"/>" style="color: #fff; text-decoration: none;"><button type="button" class="btn btn-primary btn-lg btn-block">Add Product</button></a>
 
         <%@include file="/WEB-INF/views/template/footer.jsp" %>
 
