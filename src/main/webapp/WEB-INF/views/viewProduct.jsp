@@ -3,7 +3,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%--Header--%>
 <%@include file="template/header.jsp"%>
-
+<title>${product.productName} | Rent eSkates</title>
 <div class="container-fluid" style="">
     <div class="row bg-dark" style="padding-top: 8%; padding-left: 10%; padding-right: 10%; padding-bottom: 5%;">
         <div class="col-md-6">

@@ -17,10 +17,10 @@ public class ProductViewController {
     @Autowired
     private ProductDao productDao;
 
-    @RequestMapping("/")
-    public String home(){
-        return "home";
-    }
+//    @RequestMapping("/")
+//    public String home(){
+//        return "home";
+//    }
 
     @RequestMapping("/productList")
     public String getProducts(Model model) throws SQLException {

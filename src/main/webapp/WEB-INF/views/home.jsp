@@ -15,7 +15,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../../../favicon.ico">
 
-    <title>Rent a skate!</title>
+    <title>Welcome to Rent eSkates | May I, Inc.</title>
 
     <!-- Bootstrap core CSS -->
     <link href="<c:url value="/resources/css/bootstrap.min.css"/>" rel="stylesheet">
@@ -43,10 +43,13 @@
                     <a class="nav-link disabled" href="#">Disabled</a>
                 </li>
             </ul>
-            <form class="form-inline mt-2 mt-md-0">
-                <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
+            <ul class="navbar-nav right">
+                <a class="nav-link" href="<c:url value="/admin" />">Admin</a>
+            </ul>
+            <%--<form class="form-inline mt-2 mt-md-0">--%>
+                <%--<input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">--%>
+                <%--<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>--%>
+            <%--</form>--%>
         </div>
     </nav>
 </header>

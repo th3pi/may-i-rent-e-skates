@@ -1,39 +1,39 @@
-//package com.mayi.controller;
+package com.mayi.controller;
+
+import com.mayi.dao.ProductDao;
+import com.mayi.dao.impl.ProductDaoImpl;
+import com.mayi.model.Product;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
+
+import javax.servlet.http.HttpServletRequest;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 //
-//import com.mayi.dao.ProductDao;
-//import com.mayi.dao.impl.ProductDaoImpl;
-//import com.mayi.model.Product;
-//import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.stereotype.Controller;
-//import org.springframework.ui.Model;
-//import org.springframework.web.bind.annotation.ModelAttribute;
-//import org.springframework.web.bind.annotation.PathVariable;
-//import org.springframework.web.bind.annotation.RequestMapping;
-//import org.springframework.web.bind.annotation.RequestMethod;
-//import org.springframework.web.multipart.MultipartFile;
-//
-//import javax.servlet.http.HttpServletRequest;
-//import java.io.File;
-//import java.io.IOException;
-//import java.nio.file.Files;
-//import java.nio.file.Path;
-//import java.nio.file.Paths;
-//import java.sql.SQLException;
-//import java.util.ArrayList;
-//import java.util.List;
-//
-//@Controller
-//public class HomeController {
+@Controller
+public class HomeController {
 //
 //    private Path path;
 //
 ////    @Autowired
 ////    private ProductDao productDao;
 ////
-////    @RequestMapping("/")
-////    public String home(){
-////        return "home";
-////    }
+    @RequestMapping("/")
+    public String home(){
+        return "home";
+    }
 ////
 ////    @RequestMapping("/productList")
 ////    public String getProducts(Model model) throws SQLException {
@@ -139,4 +139,4 @@
 //        }
 //        return "redirect:/admin/productInventory";
 //    }
-//}
+}

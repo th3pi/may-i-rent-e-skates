@@ -34,7 +34,7 @@
                     <form:input id="img" path="productImage" type="file" class="form:input" />
                 </div>
                 <div class="form-group">
-                    <label for="name">Name</label>
+                    <label for="name">Name</label><form:errors path="productName" cssStyle="color: #b21f2d"/>
                     <form:input path="productName" id="name" class="form-control" value="${product.productName}"/>
                 </div>
 
@@ -53,7 +53,7 @@
                     <form:input path="productSku" id="sku" class="form-control" value="${product.productSku}"/>
                 </div>
                 <div class="form-group">
-                    <label for="price">Price</label>
+                    <label for="price">Price</label><form:errors path="productPrice" cssStyle="color: #b21f2d"/>
                     <form:input path="productPrice" id="price" class="form-control" value="${product.productPrice}"/>
                 </div>
                 <div class="form-group">
@@ -62,7 +62,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="qty">Quantity</label>
+                    <label for="qty">Quantity</label><form:errors path="productQuantity" cssStyle="color: #b21f2d"/>
                     <form:input path="productQuantity" id="qty" class="form-control" value="${product.productQuantity}"/>
                 </div>
                 <div class="form-group">

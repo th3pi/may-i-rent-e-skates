@@ -13,7 +13,7 @@
 <%--header--%>
 <%@include file="/WEB-INF/views/template/header.jsp"%>
 
-<div class="container" style="padding-top: 3%">
+<div class="container" style="padding-top: 5%">
     <div class="row">
         <div class="col-md">
             <h1>Add Products</h1>
@@ -28,12 +28,13 @@
             <%--Form to add product details--%>
             <form:form action="${pageContext.request.contextPath}/admin/productInventory/addProduct" method="post" commandName="product" enctype="multipart/form-data">
                 <div class="form-group">
-                    <label class="control-box" for="img">Upload Image</label>
+                    <label class="control-box" for="img">Upload Product Image</label>
+                    <br>
                     <%--<input type="file" name="img" multiple="multiple"/>--%>
                     <form:input id="img" path="productImage" type="file" class="form:input" />
                 </div>
                 <div class="form-group">
-                <label for="name">Name</label>
+                <label for="name">Name</label> <form:errors path="productName" cssStyle="color: #b21f2d"/>
                 <form:input path="productName" id="name" class="form-control"/>
                 </div>
 
@@ -52,7 +53,7 @@
                     <form:input path="productSku" id="sku" class="form-control"/>
                 </div>
                 <div class="form-group">
-                    <label for="price">Price</label>
+                    <label for="price">Price</label><form:errors path="productPrice" cssStyle="color: #b21f2d"/>
                     <form:input path="productPrice" id="price" class="form-control"/>
                 </div>
                 <div class="form-group">
@@ -61,7 +62,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="qty">Quantity</label>
+                    <label for="qty">Quantity</label><form:errors path="productQuantity" cssStyle="color: #b21f2d"/>
                     <form:input path="productQuantity" id="qty" class="form-control"/>
                 </div>
                 <div class="form-group">

@@ -4,6 +4,8 @@ import org.hibernate.annotations.GenericGenerator;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Entity
@@ -14,6 +16,8 @@ public class Product {
     @GenericGenerator(name="system-uuid", strategy = "uuid")
     private String productID;
     private String productSku;
+
+    @NotEmpty (message = "Product name required")
     private String productName;
     private String productDescription;
     private String productManufacturer;
@@ -23,8 +27,12 @@ public class Product {
     private String productWeight;
     private String productRechargeTime;
     private String productRentLimit;
-    private int productQuantity;
-    private double productPrice;
+
+    @NotEmpty (message = "Product quantity required")
+    private String productQuantity;
+
+    @NotEmpty (message = "Product price required")
+    private String productPrice;
 
     @Transient
     private MultipartFile productImage;
@@ -104,11 +112,11 @@ public class Product {
         this.productSku = productSku;
     }
 
-    public int getProductQuantity() {
+    public String getProductQuantity() {
         return productQuantity;
     }
 
-    public void setProductQuantity(int productQuantity) {
+    public void setProductQuantity(String productQuantity) {
         this.productQuantity = productQuantity;
     }
 
@@ -136,11 +144,11 @@ public class Product {
         this.productType = productType;
     }
 
-    public double getProductPrice() {
+    public String getProductPrice() {
         return productPrice;
     }
 
-    public void setProductPrice(double productPrice) {
+    public void setProductPrice(String productPrice) {
         this.productPrice = productPrice;
     }
 
