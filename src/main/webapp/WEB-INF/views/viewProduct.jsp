@@ -1,5 +1,6 @@
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="spring" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%--Header--%>
 <%@include file="template/header.jsp"%>
@@ -14,7 +15,7 @@
 
         </div>
     </div>
-    <div class="row" style="padding-left: 5%; padding-top: 2%; padding-bottom: 5%">
+    <div class="row" ng-app="cartApp" style="padding-left: 5%; padding-top: 2%; padding-bottom: 5%">
         <div class="col-lg-6" style="padding-left: 10%; padding-top: 2%;">
             <%@include file="template/productImageAttrProductPage.jsp"%>
         </div>
@@ -34,9 +35,26 @@
             <h4>${product.productType} weight: ${product.productWeight}lbs</h4>
             <h4 class="lead" style="color: #1e7e34; font-size: 300%;">RENT: $${product.productPrice}<span class="badge badge-secondary" > NEW!</span></h4>
             <div class="alert alert-primary" style="width: 50%;">Rent limit is <span style="color: #b21f2d">${product.productRentLimit}</span> days!</div>
+
+            <br>
+
+            <c:set var="role" scope="page" value="${param.role}" />
+            <c:set var="url" scope="page" value="/productList" />
+            <c:if test="${role='admin'}">
+                <c:set var="url" scope="page" value="/admin/productInventory" />
+            </c:if>
+
+            <p ng-controller="cartCtrl">
+                <a href="<c:url value="${url}"/> " class="btn btn-primary">Back</a>
+                <a href="#" class="btn btn-primary" ng-click="addToCart('${product.productID}')">Buy now</a>
+                <a href="<spring:url value="/cart"/> " class="btn btn-primary">View Cart</a>
+            </p>
         </div>
     </div>
 </div>
 
 <%--Footer--%>
+<script src="<c:url value="/resources/js/controller.js"/> ">
+
+</script>
 <%@include file="template/footer.jsp"%>

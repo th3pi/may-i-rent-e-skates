@@ -17,5 +17,7 @@
     <mvc:resources mapping="/resources/**" location="/WEB-INF/resources/" />
     <!--<mvc:resources mapping="/image/**" location="/WEB-INF/resources/image" />-->
     <tx:annotation-driven/>
+    <mvc:default-servlet-handler/>
+
 
 </beans>

@@ -16,6 +16,11 @@
     }
 
 </style>
+<script>
+    $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+</script>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
 <%--TODO FIX THIS--%>
@@ -25,7 +30,7 @@
         <table class="table table-striped table-hover">
             <thead>
             <tr class="bg-dark">
-                <th>Photo Thumb</th>
+                <th>Image</th>
                 <th>Product Name</th>
                 <th>Type</th>
                 <th>Manufacturer</th>
@@ -49,9 +54,9 @@
                     <td>${product.productSpeed}mph</td>
                     <td>${product.productRechargeTime}mins</td>
                     <td>${product.productRentLimit} days</td>
-                    <td><a href="<spring:url value="/productList/viewProduct/${product.productID}" />"><i class="material-icons">pageview</i></a>
-                        <a href="<spring:url value="/admin/productInventory/deleteProduct/${product.productID}" />"><i class="material-icons">clear</i></a>
-                        <a href="<spring:url value="/admin/productInventory/editProduct/${product.productID}" />"><i class="material-icons">edit</i></a></td>
+                    <td><a href="<spring:url value="/productList/viewProduct/${product.productID}" />"><i class="material-icons" data-toggle="tooltip" title="View">pageview</i></a>
+                        <a href="<spring:url value="/admin/productInventory/deleteProduct/${product.productID}" />"><i class="material-icons" data-toggle="tooltip" title="Delete">clear</i></a>
+                        <a href="<spring:url value="/admin/productInventory/editProduct/${product.productID}" />"><i class="material-icons" data-toggle="tooltip" title="Edit">edit</i></a></td>
 
                 </tr>
             </c:forEach>
