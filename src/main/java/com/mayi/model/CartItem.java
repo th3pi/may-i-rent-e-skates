@@ -1,18 +1,48 @@
 package com.mayi.model;
 
-public class CartItem {
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import javax.persistence.*;
+import java.io.Serializable;
+
+@Entity
+public class CartItem implements Serializable {
+
+
+    private static final long serialVersionUID = 543019732957220913L;
+
+
+    @Id
+    @GeneratedValue
+    private int cartItemId;
+
+
+    @ManyToOne
+    @JoinColumn(name = "cartId")
+    @JsonIgnore
+    private Cart cart;
+
+    @ManyToOne
+    @JoinColumn(name = "productId")
     private Product product;
+
     private int quantity;
     private double totalPrice;
 
-    public CartItem() {
+    public int getCartItemId() {
+        return cartItemId;
     }
 
-    public CartItem(Product product) {
-        this.product = product;
-        this.quantity = 1;
-        this.totalPrice = Double.parseDouble(product.getProductPrice());
+    public void setCartItemId(int cartItemId) {
+        this.cartItemId = cartItemId;
+    }
+
+    public Cart getCart() {
+        return cart;
+    }
+
+    public void setCart(Cart cart) {
+        this.cart = cart;
     }
 
     public Product getProduct() {
@@ -32,7 +62,7 @@ public class CartItem {
     }
 
     public double getTotalPrice() {
-        return totalPrice;
+        return totalPrice*quantity;
     }
 
     public void setTotalPrice(double totalPrice) {
