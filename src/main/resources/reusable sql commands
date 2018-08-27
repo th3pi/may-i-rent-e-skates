@@ -1,0 +1,15 @@
+insert into users(userid,customerid,enabled,password,username) values (1,0,1,'admin','admin');
+
+insert into authorities values(1,'ROLE_ADMIN','admin');
+
+commit;
+
+
+drop table cartitem cascade constraints;
+drop table cart cascade constraints;
+drop table customer cascade constraints;
+drop table customerorder cascade constraints;
+drop table shippingaddress cascade constraints;
+drop table billingaddress cascade constraints;
+
+select * from customer;
