@@ -54,15 +54,15 @@
                     <td>${product.productSpeed}mph</td>
                     <td>${product.productRechargeTime}mins</td>
                     <td>${product.productRentLimit} days</td>
-                    <td><a href="<spring:url value="/productList/viewProduct/${product.productID}" />"><i class="material-icons" data-toggle="tooltip" title="View">pageview</i></a>
-                        <a href="<spring:url value="/admin/productInventory/deleteProduct/${product.productID}" />"><i class="material-icons" data-toggle="tooltip" title="Delete">clear</i></a>
-                        <a href="<spring:url value="/admin/productInventory/editProduct/${product.productID}" />"><i class="material-icons" data-toggle="tooltip" title="Edit">edit</i></a></td>
+                    <td><a href="<spring:url value="/viewProduct/${product.productID}" />"><i class="material-icons" data-toggle="tooltip" title="View">pageview</i></a>
+                        <a href="<spring:url value="/admin/product/deleteProduct/${product.productID}" />"><i class="material-icons" data-toggle="tooltip" title="Delete">clear</i></a>
+                        <a href="<spring:url value="/admin/product/editProduct/${product.productID}" />"><i class="material-icons" data-toggle="tooltip" title="Edit">edit</i></a></td>
 
                 </tr>
             </c:forEach>
         </table>
 
-    <a href="<spring:url value="/admin/productInventory/addProduct"/>" style="color: #fff; text-decoration: none;"><button type="button" class="btn btn-primary btn-lg btn-block">Add Product</button></a>
+    <a href="<spring:url value="/admin/product/addProduct"/>" style="color: #fff; text-decoration: none;"><button type="button" class="btn btn-primary btn-lg btn-block">Add Product</button></a>
 
         <%@include file="/WEB-INF/views/template/footer.jsp" %>
 

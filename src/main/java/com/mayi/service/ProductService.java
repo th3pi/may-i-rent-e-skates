@@ -1,11 +1,12 @@
-package com.mayi.dao;
+package com.mayi.service;
+
 
 import com.mayi.model.Product;
 
-import java.sql.SQLException;
 import java.util.List;
 
-public interface ProductDao {
+public interface ProductService {
+
     List<Product> getProductList();
 
     Product getProductById(int id);

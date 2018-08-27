@@ -26,7 +26,7 @@
         <div class="col-lg-12">
 
             <%--Form to add product details--%>
-            <form:form action="${pageContext.request.contextPath}/admin/productInventory/editProduct" method="post" commandName="product" enctype="multipart/form-data">
+            <form:form action="${pageContext.request.contextPath}/admin/product/editProduct" method="post" commandName="product" enctype="multipart/form-data">
                 <form:hidden path="productID" value="${product.productID}"/>
                 <div class="form-group">
                     <label class="control-box" for="img">Upload Image</label>

@@ -16,9 +16,8 @@ public class Product implements Serializable {
 
     private static final long serialVersionUID = -354687566242275740L;
     @Id
-    @GeneratedValue(generator="system-uuid")
-    @GenericGenerator(name="system-uuid", strategy = "uuid")
-    private String productID;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int productID;
     private String productSku;
 
     @NotEmpty (message = "Product name required")
@@ -113,11 +112,11 @@ public class Product implements Serializable {
         this.productName = productName;
     }
 
-    public String getProductID() {
+    public int getProductID() {
         return productID;
     }
 
-    public void setProductID(String productID) {
+    public void setProductID(int productID) {
         this.productID = productID;
     }
 

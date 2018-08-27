@@ -65,7 +65,7 @@
                         <a href="#"><%@include file="template/productImgAttrProductList.jsp"%></a>
                         <div class="card-body">
                             <h4 class="card-title">
-                                <a href="<spring:url value="/productList/viewProduct/${product.productID}"/>">${product.productName}</a>
+                                <a href="<spring:url value="/viewProduct/${product.productID}"/>">${product.productName}</a>
                             </h4>
                             <div class="alert alert-dark" role="alert">
                             <h5 style="color: #1c7430">$${product.productPrice}</h5>
