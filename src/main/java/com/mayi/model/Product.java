@@ -35,7 +35,7 @@ public class Product implements Serializable {
     private String productQuantity;
 
     @NotEmpty (message = "Product price required")
-    private String productPrice;
+    private double productPrice;
 
     @Transient
     private MultipartFile productImage;
@@ -160,11 +160,11 @@ public class Product implements Serializable {
         this.productType = productType;
     }
 
-    public String getProductPrice() {
+    public double getProductPrice() {
         return productPrice;
     }
 
-    public void setProductPrice(String productPrice) {
+    public void setProductPrice(double productPrice) {
         this.productPrice = productPrice;
     }
 

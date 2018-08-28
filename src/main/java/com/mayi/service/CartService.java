@@ -1,8 +1,9 @@
-package com.mayi.dao;
+package com.mayi.service;
 
 import com.mayi.model.Cart;
 
-public interface CartDao {
+public interface CartService {
+
     Cart getCartById(int cartId);
 
     void updateCart(Cart cart);

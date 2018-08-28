@@ -5,7 +5,7 @@ import com.mayi.dao.ProductDao;
 import com.mayi.model.Product;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.query.Query;
+import org.hibernate.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -38,7 +38,7 @@ public class ProductDaoImpl implements ProductDao {
 
     public Product getProductById(int id) {
         Session session = sessionFactory.getCurrentSession();
-        Product product = session.get(Product.class, id);
+        Product product = (Product) session.get(Product.class, id);
         session.flush();
 
         return product;
