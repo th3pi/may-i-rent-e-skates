@@ -32,13 +32,13 @@ public class CustomerDaoImpl implements CustomerDao {
         session.saveOrUpdate(customer.getShippingAddress());
 
         Users newUser = new Users();
-        newUser.setUsername(customer.getCustomerEmail());
+        newUser.setUsername(customer.getUsername());
         newUser.setPassword(customer.getPassword());
         newUser.setEnabled(1);
         newUser.setCustomerId(customer.getCustomerId());
 
         Authorities newAuthorities = new Authorities();
-        newAuthorities.setUsername(customer.getCustomerEmail());
+        newAuthorities.setUsername(customer.getUsername());
         newAuthorities.setAuthority("ROLE_USER");
         session.saveOrUpdate(newUser);
         session.saveOrUpdate(newAuthorities);
