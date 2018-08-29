@@ -29,7 +29,7 @@
                     <a class="nav-link" href="<c:url value="/" />">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<c:url value="/productList" />">Products</a>
+                    <a class="nav-link" href="<c:url value="/shop" />">Products</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link disabled" href="#">Disabled</a>
@@ -37,11 +37,10 @@
             </ul>
             <ul class="navbar-nav right">
                 <c:if test="${pageContext.request.userPrincipal.name != null}">
-                    <li><a>Hello,${pageContext.request.userPrincipal.name}</a></li>
-                    <li><a href="<c:url value="/j_spring_security_logout"/> ">Logout</a> </li>
                     <c:if test="${pageContext.request.userPrincipal.name != 'admin'}">
-                        <li><a href="<c:url value="/customer/cart/"/> ">Cart</a> </li>
+                        <li><a class="nav-link" href="<c:url value="/customer/cart/"/> ">Cart</a> </li>
                     </c:if>
+                    <li><a class="nav-link" href="<c:url value="/j_spring_security_logout"/> ">Logout</a> </li>
                     <c:if test="${pageContext.request.userPrincipal.name == 'admin'}">
                         <li><a href="<c:url value="/admin" />">Admin</a> </li>
                     </c:if>

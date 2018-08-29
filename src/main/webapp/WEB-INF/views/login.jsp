@@ -10,24 +10,27 @@
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="spring" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@include file="template/header.jsp"%>
-<title>Login / Register | Rent eSkates</title>
-<div class="container" style="padding-top: 5%">
+<title>Login | Rent eSkates</title>
+<body class="text-center" style="padding-top: 5%">
     <c:if test="${not empty msg}">
-        <div class="msg">${msg}</div>
+        <div class="alert alert-success">${msg}</div>
     </c:if>
-
+    <div class="container" style="padding-top: 20%; width: 25%;">
     <form class="form-signin" name="loginForm" action="<c:url value="/j_spring_security_check" />" method="post">
         <c:if test="${not empty error}">
             <div class="error" style="color: #ff084e">${error}</div>
         </c:if>
-        <label for="username">User: </label>
-        <input type="text" id="username" name="username" class="form-control" />
+        <label for="username">Username (or Email address): </label>
+        <input type="text" id="username" name="username" class="form-control" required autofocus/>
+        <br>
         <label for="password">Password</label>
         <input type="password" id="password" name="password" class="form-control" />
+        <br>
         <input type="submit" value="Submit" class="btn btn-primary"/>
         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
     </form>
-</div>
+    </div>
+</body>
 <%--<form class="form-signin" name="loginForm" action="<c:url value="/j_spring_security_check"/> " method="post">--%>
     <%--<img class="mb-4" src="../../assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">--%>
     <%--<h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>--%>

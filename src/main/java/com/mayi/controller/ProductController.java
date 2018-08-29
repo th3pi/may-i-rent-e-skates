@@ -19,12 +19,12 @@ public class ProductController {
     private ProductService productService;
 
 
-    @RequestMapping("/productList")
+    @RequestMapping("/shop")
     public String getProducts(Model model){
         List<Product> products = productService.getProductList();
         model.addAttribute("products",products);
 
-        return "productList";
+        return "shop";
     }
 
     @RequestMapping("/viewProduct/{productId}")

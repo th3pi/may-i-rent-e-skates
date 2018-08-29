@@ -13,3 +13,7 @@ drop table shippingaddress cascade constraints;
 drop table billingaddress cascade constraints;
 
 select * from customer;
+
+insert into product(productdescription, productmanufacturer, productname, productprice, productquantity, productrange, productrechargetime,productrentlimit,productsku,productspeed,producttype,productweight)
+values('Boosted Mini is the stash-and-go Boosted experience you’ve been waiting for. At only 29.5 inches long, it fits perfectly under desks, in overhead storage on busses and trains, and is built for riders who are always on the move.',
+'Boosted','Boosted Mini S',12.99,'4','5','50','2','BB104','22','Skateboard','11');

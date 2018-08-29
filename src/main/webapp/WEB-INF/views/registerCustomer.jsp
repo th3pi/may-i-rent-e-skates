@@ -12,19 +12,15 @@
 
 <%--header--%>
 <%@include file="/WEB-INF/views/template/header.jsp"%>
-
+<title>Registration | Rent eSkates</title>
 <div class="container" style="padding-top: 5%">
-    <div class="row">
-        <div class="col-md">
-            <h1>Registration</h1>
+        <div class="jumbotron">
+            <div class="container">
+                <h1>Registration</h1>
+                <p>Fill in your information below </p>
+            </div>
         </div>
-        <div class="col-md">
-            <h3>Please fill in your information below: </h3>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-12">
-
+            <div class="container">
             <%--Form to add product details--%>
             <form:form action="${pageContext.request.contextPath}/register" method="post" commandName="customer" enctype="multipart/form-data">
                 <div class="form-group">
@@ -36,6 +32,10 @@
                     <form:input path="username" id="username" class="form-control"/>
                 </div>
                 <div class="form-group">
+                    <label for="password">Password</label>
+                    <form:password path="password" id="password" class="form-control"/>
+                </div>
+                <div class="form-group">
                     <label for="email">Email</label>
                     <form:input path="customerEmail" id="email" class="form-control"/>
                 </div>
@@ -43,21 +43,18 @@
                     <label for="phone">Phone</label>
                     <form:input path="customerPhone" id="phone" class="form-control"/>
                 </div
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <form:password path="password" id="password" class="form-control"/>
-                </div>
 
+                <br>
+                <br>
 
                 <h3>Billing Address</h3>
-                <br>
                 <div class="form-group">
                     <label for="bstreet">Street Address</label>
                     <form:input path="billingAddress.streetAddress" id="bstreet" class="form-control"/>
                 </div>
                 <br>
                 <div class="form-group">
-                    <label for="bapt">Address#2</label>
+                    <label for="bapt">Apartment/Floor #:</label>
                     <form:input path="billingAddress.aptNumber" id="bapt" class="form-control"/>
                 </div>
                 <br>
@@ -76,6 +73,9 @@
                     <form:input path="billingAddress.zipcode" id="bzipcode" class="form-control"/>
                 </div>
                 <br>
+                <br>
+
+
                 <h3>Shipping Address</h3>
                 <br>
                 <div class="form-group">
@@ -84,7 +84,7 @@
                 </div>
                 <br>
                 <div class="form-group">
-                    <label for="sapt">Address#2</label>
+                    <label for="sapt">Apartment/Floor #:</label>
                     <form:input path="shippingAddress.aptNumber" id="sapt" class="form-control"/>
                 </div>
                 <br>
@@ -105,9 +105,8 @@
                 <input type="submit" value="Submit" class="btn btn-primary"/>
                 <a href="<c:url value="/"/> " role="button" class="btn btn-danger">Cancel</a>
             </form:form>
+            </div>
         </div>
-    </div>
-</div>
 
 <%--footer--%>
 <%@include file="/WEB-INF/views/template/footer.jsp" %>
