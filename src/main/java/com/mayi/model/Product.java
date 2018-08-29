@@ -34,7 +34,6 @@ public class Product implements Serializable {
     @NotEmpty (message = "Product quantity required")
     private String productQuantity;
 
-    @NotEmpty (message = "Product price required")
     private double productPrice;
 
     @Transient
