@@ -8,7 +8,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ taglib prefix="spring" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@include file="template/header.jsp"%>
 <title>Cart | Rent eSkates</title>
 <div class="container" style="padding-top: 5%">
@@ -24,6 +24,8 @@
         <div ng-controller = "cartCtrl" ng-init="initCartId('${cartId}')">
         <div>
             <a class="btn btn-danger" ng-click="clearCart()"><span>Clear cart</span> </a>
+            <a href="<c:url value="/order/${cartId}"/> "
+               class="btn btn-primary">Checkout</a>
         </div>
         <table class="table table-hover">
             <tr>

@@ -9,12 +9,13 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="spring" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@include file="template/header.jsp"%>
+<%@include file="../../views/template/header.jsp"%>
 <div class="container">
     <section>
         <div class="jumbotron">
             <div class="container">
-                <h1>Cart</h1>
+                <h1>Invalid Cart</h1>
+
             </div>
         </div>
     </section>
@@ -26,4 +27,4 @@
 <script src="<c:url value="/resources/js/controller.js"/> ">
 
 </script>
-<%@include file="template/footer.jsp"%>
+<%@include file="../../views/template/footer.jsp"%>

@@ -45,7 +45,7 @@
 
         <!-- https://mvnrepository.com/artifact/javax.servlet.jsp.jstl/jstl -->
         <dependency>
-            <groupId>javax.servlet.jsp.jstl</groupId>
+            <groupId>javax.servlet</groupId>
             <artifactId>jstl</artifactId>
             <version>1.2</version>
         </dependency>
@@ -56,18 +56,9 @@
             <version>1.2.5</version>
         </dependency>
         <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>jstl</artifactId>
-            <version>1.1.2</version>
-        </dependency>
-        <dependency>
-
             <groupId>com.oracle</groupId>
-
             <artifactId>ojdbc8</artifactId>
-
             <version>12.2.0.1</version>
-
         </dependency>
         <!-- https://mvnrepository.com/artifact/commons-fileupload/commons-fileupload -->
         <dependency>
@@ -146,6 +137,11 @@
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
             <version>2.5.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.webflow</groupId>
+            <artifactId>spring-webflow</artifactId>
+            <version>2.3.3.RELEASE</version>
         </dependency>
 
     </dependencies>
