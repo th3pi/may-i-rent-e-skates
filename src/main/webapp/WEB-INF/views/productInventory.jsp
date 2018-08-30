@@ -24,9 +24,11 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
 <%--TODO FIX THIS--%>
-<div class="container-fluid" style="padding-top: 4%">
+<div class="container-fluid" style="padding-top: 80px">
+    <div class="jumbotron">
             <h1>All Products</h1>
             <p class="lead">Add, customise or delete product details.</p>
+    </div>
         <table class="table table-striped table-hover">
             <thead>
             <tr class="bg-dark">

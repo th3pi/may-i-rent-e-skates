@@ -11,20 +11,20 @@
 <%@ taglib prefix="spring" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@include file="template/header.jsp"%>
 
-<div class="container" style="padding-top: 3%">
-    <div class="row">
-        <div class="col-md-12">
-            <h2>This is the admin page</h2>
+<div class="container-fluid" style="padding-top: 80px">
+        <div class="jumbotron">
+            <h2>Control Center</h2>
+            <p class="lead">Manage products, user and orders.</p>
         </div>
-    </div>
     <div class="row">
         <div class="col-md">
             <h3>
-            <a href="<c:url value="/admin/productInventory/" /> ">Product Inventory</a>
+            <a href="<c:url value="/admin/productInventory/" /> " style="text-decoration: none;"><button type="button" class="btn btn-primary btn-lg btn-block" style="padding: 50px 0 50px 0;">Manage Products</button></a>
+                <br>
+                <a href="#" style="text-decoration: none;"><button type="button" class="btn btn-primary btn-lg btn-block" style="padding: 50px 0 50px 0;">Manage Users</button></a>
+                <br>
+                <a href="#" style="text-decoration: none;"><button type="button" class="btn btn-primary btn-lg btn-block" style="padding: 50px 0 50px 0;">Manage Orders</button></a>
             </h3>
-            <c:if test="${pageContext.request.userPrincipal.name != null}">
-                <a>Welcome: ${pageContext.request.userPrincipal.name} | <a href="<c:url value="/j_spring_security_logout"/> ">Logout</a> </h2>
-            </c:if>
         </div>
     </div>
 </div>

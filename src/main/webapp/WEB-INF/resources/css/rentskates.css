@@ -1,0 +1,17 @@
+.parallax{
+    background-image: url("../img/boosted-stealth-motors.jpg");
+    height: 50%;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.parallaxTwo{
+    background-image: url("../img/onewheel.jpg");
+    height: 50%;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

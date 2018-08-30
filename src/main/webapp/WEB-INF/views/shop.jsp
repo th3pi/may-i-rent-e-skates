@@ -11,9 +11,12 @@
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="spring" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@include file="template/header.jsp"%>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 <title>Shop | Rent eSkates</title>
 <!-- Page Content -->
-<div class="container" style="padding-top: 3%">
+<div class="container" style="padding-top: 80px">
 
     <div class="row">
 
@@ -24,6 +27,7 @@
                 <a href="#" class="list-group-item">Skateboards</a>
                 <a href="#" class="list-group-item">Scooters</a>
                 <a href="#" class="list-group-item">Cycles</a>
+                <input class="form-control" id="myInput" type="text" placeholder="Search..">
             </div>
 
         </div>
@@ -58,7 +62,7 @@
                 </a>
             </div>
 
-            <div class="row">
+            <div class="row" id="products">
                 <c:forEach items="${products}" var="product">
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="card h-20">

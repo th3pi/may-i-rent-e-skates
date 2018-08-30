@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%--
   Created by IntelliJ IDEA.
   User: th3pi
@@ -22,6 +23,9 @@
 
     <!-- Custom styles for this template -->
     <link href="<c:url value="/resources/css/carousel.css"/>" rel="stylesheet">
+    <link href="<c:url value="/resources/css/rentskates.css"/>" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet">
 </head>
 <body>
 
@@ -115,35 +119,63 @@
             <span class="sr-only">Next</span>
         </a>
     </div>
-
-
-    <div class="container marketing">
-
+    <div class="jumbotron">
+        <h2 class="display-3">NEW ARRIVALS</h2>
+    </div>
+    <div class="container">
         <!-- Three columns of text below the carousel -->
         <div class="row">
-            <div class="col-lg-4">
-                <img class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-                <h2>Heading</h2>
-                <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
-                <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-            </div><!-- /.col-lg-4 -->
-            <div class="col-lg-4">
-                <img class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-                <h2>Heading</h2>
-                <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
-                <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-            </div><!-- /.col-lg-4 -->
-            <div class="col-lg-4">
-                <img class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-                <h2>Heading</h2>
-                <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+            <div class="col-lg-12 text-center">
+                <img class="img-thumbnail" src="../resources/img/bbs-profile-home-header.png" alt="Generic placeholder image" width="1500" height="140">
+                <h2 style="padding-top: 1%">Boosted Stealth  <span class="badge badge-secondary"> NEW ARRIVAL</span> </h2>
+                <p>Stealth is the high-performance electric longboard you’ve been dreaming of, built from the ground up with attention to detail at every turn, including a new ride mode, exclusive to Stealth, with higher top speed and lightning-fast acceleration.</p>
                 <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
             </div><!-- /.col-lg-4 -->
         </div><!-- /.row -->
 
     </div><!-- /.container -->
 
-
+    <div class="container-fluid parallax text-center">
+        <div class="text-center">
+            <h2 class="display-4" style="padding-top: 18%; color: #ffffff; text-align: center; display: inline-block;">
+                The most loved. <small class="text-muted">And the most rented.</small>
+            </h2>
+        </div>
+    </div>
+    <div class="jumbotron">
+        <h2 class="display-4">OUR TOP THREE</h2>
+    </div>
+    <div class="container">
+        <div class="row">
+            <c:forEach items="${products}" var="product">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card h-20">
+                        <a href="#"><%@include file="template/productImgAttrProductList.jsp"%></a>
+                        <div class="card-body">
+                            <h4 class="card-title">
+                                <a href="<spring:url value="/viewProduct/${product.productID}"/>">${product.productName}</a>
+                            </h4>
+                            <div class="alert alert-dark" role="alert">
+                                <h5 style="color: #1c7430">$${product.productPrice}</h5>
+                                <p class="card-text">Range: ${product.productRange} miles</p>
+                                <p class="card-text">Recharge time: ${product.productRechargeTime} minutes</p>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                        </div>
+                    </div>
+                </div>
+            </c:forEach>
+        </div>
+    </div>
+    <div class="container-fluid parallaxTwo">
+        <div class="text-center">
+            <h2 class="display-4" style="padding-top: 18%; color: #ffffff; text-align: center; display: inline-block;">
+                Why walk? <small class="text-muted alert alert-light" style="padding: 0 10px 0 10px;"> When you can float. </small>
+            </h2>
+        </div>
+    </div>
     <!-- FOOTER -->
     <footer class="container">
         <p class="float-right"><a href="#">Back to top</a></p>

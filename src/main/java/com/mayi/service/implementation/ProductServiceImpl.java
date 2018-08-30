@@ -35,4 +35,8 @@ public class ProductServiceImpl implements ProductService {
     public void deleteProduct(Product product) {
         productDao.deleteProduct(product);
     }
+
+    public Product getProductByType(String type){
+        return productDao.getProductByType(type);
+    }
 }
