@@ -5,6 +5,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 @Entity
 public class Customer implements Serializable {
@@ -31,6 +34,8 @@ public class Customer implements Serializable {
 
     private int enabled;
 
+    private String joinDate;
+
     @OneToOne
     @JoinColumn(name = "billingAddressId")
     private BillingAddress billingAddress;
@@ -44,6 +49,13 @@ public class Customer implements Serializable {
     @JsonIgnore
     private Cart cart;
 
+    public String getJoinDate() {
+        return joinDate;
+    }
+
+    public void setJoinDate(String joinDate) {
+        this.joinDate = joinDate;
+    }
 
     public String getPassword() {
         return password;

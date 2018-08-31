@@ -66,7 +66,8 @@
                 <c:forEach items="${products}" var="product">
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="card h-20">
-                        <a href="#"><%@include file="template/productImgAttrProductList.jsp"%></a>
+                        <a href="#"><img src="<c:url value="/resources/img/${product.productID}.png" /> " alt="image" style="width: 250px; height: 250px"/>
+                        </a>
                         <div class="card-body">
                             <h4 class="card-title">
                                 <a href="<spring:url value="/viewProduct/${product.productID}"/>">${product.productName}</a>

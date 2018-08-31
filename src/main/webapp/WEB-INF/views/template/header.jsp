@@ -18,7 +18,7 @@
 <body>
 
 <header>
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" style="padding: 20px 10px 20px 10px;">
         <a class="navbar-brand" href="#">Rent eSkates</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -26,10 +26,23 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="<c:url value="/" />">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link btn btn-dark" href="<c:url value="/" />">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<c:url value="/shop" />">Products</a>
+                    <div class="btn-group">
+                        <a class="btn btn-dark" href="<c:url value="/shop" />">
+                            Shop
+                        </a>
+                        <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <a class="dropdown-item" href="<c:url value="/shop/skateboards" />">Skateboards</a>
+                            <a class="dropdown-item" href="<c:url value="/shop/scooters" />">Scooters</a>
+                            <a class="dropdown-item" href="<c:url value="/shop/cycles"/>">Cycles</a>
+                        </div>
+                    </div>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link disabled" href="#">Disabled</a>

@@ -1,6 +1,8 @@
 package com.mayi.controller.admin;
 
+import com.mayi.model.Customer;
 import com.mayi.model.Product;
+import com.mayi.service.CustomerService;
 import com.mayi.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,6 +28,17 @@ public class AdminController {
         List<Product> products = productService.getProductList();
         model.addAttribute("products",products);
         return "productInventory";
+    }
+
+    @Autowired
+    private CustomerService customerService;
+
+    @RequestMapping("/manageUsers")
+    public String manageUsers(Model model){
+        List<Customer> customerList = customerService.getAllCustomers();
+        model.addAttribute("users",customerList);
+
+        return "manageUsers";
     }
 
     @RequestMapping("/customer")

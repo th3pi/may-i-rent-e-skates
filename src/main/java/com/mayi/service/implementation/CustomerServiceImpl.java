@@ -19,6 +19,14 @@ public class CustomerServiceImpl implements CustomerService {
         customerDao.addCustomer(customer);
     }
 
+    public void editCustomer(Customer customer) {
+        customerDao.editCustomer(customer);
+    }
+
+    public void deleteCustomer(Customer customer) {
+        customerDao.deleteCustomer(customer);
+    }
+
     public Customer getCustomerById(int customerId) {
 
         return customerDao.getCustomerById(customerId);

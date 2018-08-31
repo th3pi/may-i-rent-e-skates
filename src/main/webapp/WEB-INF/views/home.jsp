@@ -41,7 +41,20 @@
                     <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<c:url value="/shop" />">Products</a>
+                    <div class="btn-group">
+                        <a class="btn btn-dark" href="<c:url value="/shop" />">
+                            Shop
+                        </a>
+                        <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <a class="dropdown-item" href="<c:url value="/shop/skateboards" />">Skateboards</a>
+                            <a class="dropdown-item" href="<c:url value="/shop/scooters" />">Scooters</a>
+                            <a class="dropdown-item" href="<c:url value="/shop/cycles"/>">Cycles</a>
+                        </div>
+                    </div>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link disabled" href="#">Disabled</a>
