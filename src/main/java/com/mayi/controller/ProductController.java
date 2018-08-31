@@ -27,6 +27,27 @@ public class ProductController {
         return "shop";
     }
 
+    @RequestMapping("/shop/skateboards")
+    public String getSkateboards(Model model){
+        List<Product> products = productService.getProductsByType("Skateboard");
+        model.addAttribute("skateboards",products);
+        return "skateboards";
+    }
+    
+    @RequestMapping("/shop/scooters")
+    public String getScooters(Model model){
+        List<Product> products = productService.getProductsByType("Scooter");
+        model.addAttribute("scooters",products);
+        return "scooters";
+    }
+
+    @RequestMapping("/shop/cycles")
+    public String getCycles(Model model){
+        List<Product> products = productService.getProductsByType("cycle");
+        model.addAttribute("cycles",products);
+        return "cycles";
+    }
+
     @RequestMapping("/viewProduct/{productId}")
     public String viewProduct(@PathVariable int productId, Model model) throws IOException{
         Product product = productService.getProductById(productId);

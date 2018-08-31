@@ -44,12 +44,14 @@ public class ProductDaoImpl implements ProductDao {
         return product;
     }
 
-    public Product getProductByType(String type){
+    public List<Product> getProductsByType(String type){
         Session session = sessionFactory.getCurrentSession();
-        Product product = (Product) session.get(Product.class, type);
+        Query query = session.createQuery("from Product where productType = ?");
+        query.setString(0,type);
+        List<Product> products = query.list();
         session.flush();
 
-        return product;
+        return products;
     }
 
     public List<Product> getProductList() {

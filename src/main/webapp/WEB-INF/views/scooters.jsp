@@ -22,10 +22,10 @@
 
         <div class="col-lg-3">
 
-            <h1 class="my-4">All Products</h1>
+            <h1 class="my-4">Skateboards</h1>
             <div class="list-group">
-                <a href="<c:url value="/shop/skateboards"/> " class="list-group-item">Skateboards</a>
-                <a href="<c:url value="/shop/scooters"/>" class="list-group-item">Scooters</a>
+                <a href="<c:url value="/shop"/>" class="list-group-item">All Products</a>
+                <a href="<c:url value="/shop/skateboards"/>" class="list-group-item">Skateboards</a>
                 <a href="<c:url value="/shop/cycles"/>" class="list-group-item">Cycles</a>
                 <input class="form-control" id="myInput" type="text" placeholder="Search..">
             </div>
@@ -63,25 +63,25 @@
             </div>
 
             <div class="row" id="products">
-                <c:forEach items="${products}" var="product">
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card h-20">
-                        <a href="#"><%@include file="template/productImgAttrProductList.jsp"%></a>
-                        <div class="card-body">
-                            <h4 class="card-title">
-                                <a href="<spring:url value="/viewProduct/${product.productID}"/>">${product.productName}</a>
-                            </h4>
-                            <div class="alert alert-dark" role="alert">
-                            <h5 style="color: #1c7430">$${product.productPrice}</h5>
-                            <p class="card-text">Range: ${product.productRange} miles</p>
-                            <p class="card-text">Recharge time: ${product.productRechargeTime} minutes</p>
+                <c:forEach items="${scooters}" var="product">
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card h-20">
+                            <a href="#"><%@include file="template/productImgAttrProductList.jsp"%></a>
+                            <div class="card-body">
+                                <h4 class="card-title">
+                                    <a href="<spring:url value="/viewProduct/${product.productID}"/>">${product.productName}</a>
+                                </h4>
+                                <div class="alert alert-dark" role="alert">
+                                    <h5 style="color: #1c7430">$${product.productPrice}</h5>
+                                    <p class="card-text">Range: ${product.productRange} miles</p>
+                                    <p class="card-text">Recharge time: ${product.productRechargeTime} minutes</p>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
                             </div>
                         </div>
-                        <div class="card-footer">
-                            <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                        </div>
                     </div>
-                </div>
                 </c:forEach>
             </div>
             <!-- /.row -->
