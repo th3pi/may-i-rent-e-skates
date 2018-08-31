@@ -24,7 +24,6 @@ public class CustomerDaoImpl implements CustomerDao {
 
     public void addCustomer(Customer customer){
         Session session = sessionFactory.getCurrentSession();
-
         customer.getBillingAddress().setCustomer(customer);
         customer.getShippingAddress().setCustomer(customer);
         DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
@@ -60,7 +59,8 @@ public class CustomerDaoImpl implements CustomerDao {
         Session session = sessionFactory.getCurrentSession();
         customer.getBillingAddress().setCustomer(customer);
         customer.getShippingAddress().setCustomer(customer);
-        session.saveOrUpdate(customer);
+//        String joinDate = customer.getJoinDate();
+        session.update(customer);
         session.saveOrUpdate(customer.getBillingAddress());
         session.saveOrUpdate(customer.getShippingAddress());
         session.flush();
@@ -70,6 +70,7 @@ public class CustomerDaoImpl implements CustomerDao {
         Session session = sessionFactory.getCurrentSession();
         CustomerOrder customerOrder = new CustomerOrder();
         customerOrder.setCustomer(customer);
+        session.delete(customerOrder);
         Cart cart = new Cart();
         cart.setCustomer(customer);
         session.delete(cart);

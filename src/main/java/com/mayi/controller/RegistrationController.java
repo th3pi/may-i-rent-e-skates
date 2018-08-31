@@ -22,6 +22,7 @@ public class RegistrationController {
         Customer customer = new Customer();
         BillingAddress billingAddress = new BillingAddress();
         ShippingAddress shippingAddress = new ShippingAddress();
+        customer.setUsername(customer.getCustomerEmail());
         customer.setBillingAddress(billingAddress);
         customer.setShippingAddress(shippingAddress);
 

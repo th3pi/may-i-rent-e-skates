@@ -98,11 +98,11 @@ public class Customer implements Serializable {
     }
 
     public String getUsername() {
-        return username;
+        return customerEmail;
     }
 
     public void setUsername(String username) {
-        this.username = username;
+        this.username = customerEmail;
     }
 
     public int getEnabled() {

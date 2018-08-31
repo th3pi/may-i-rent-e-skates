@@ -35,6 +35,7 @@
             <th>Name</th>
             <th>Email</th>
             <th>Phone</th>
+            <th>Cart ID</th>
             <th>Join Date</th>
             <th></th>
         </tr>
@@ -44,16 +45,16 @@
                 <td>${user.customerName}</td>
                 <td>${user.customerEmail}</td>
                 <td>${user.customerPhone}</td>
+                <td>${user.cart.cartId}</td>
                 <td>${user.joinDate}</td>
                 <td><a href="<spring:url value="/viewProduct/${user.customerId}" />"><i class="material-icons" data-toggle="tooltip" title="View">pageview</i></a>
-                    <a href="<spring:url value="/admin/manageUsers/deleteuser/${user.customerId}" />"><i class="material-icons" data-toggle="tooltip" title="Delete">clear</i></a>
                     <a href="<spring:url value="/admin/manageUsers/user/editUser/${user.customerId}" />"><i class="material-icons" data-toggle="tooltip" title="Edit">edit</i></a></td>
 
             </tr>
         </c:forEach>
     </table>
 
-    <a href="<spring:url value="/admin/product/addProduct"/>" style="color: #fff; text-decoration: none;"><button type="button" class="btn btn-primary btn-lg btn-block">Add Product</button></a>
+    <a href="<spring:url value="/admin/manageUsers/user/addUser"/>" style="color: #fff; text-decoration: none;"><button type="button" class="btn btn-primary btn-lg btn-block">Add User</button></a>
 
     <%@include file="/WEB-INF/views/template/footer.jsp" %>
 

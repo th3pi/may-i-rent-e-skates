@@ -16,33 +16,32 @@
 <div class="container" style="padding-top: 100px">
     <div class="jumbotron">
         <div class="container">
-            <h1>Edit user: ${user.customerId}</h1>
-            <p>Customize information below</p>
+            <h1>Add User</h1>
+            <p>Fill in new user information below </p>
         </div>
     </div>
     <div class="container">
         <%--Form to add product details--%>
-        <form:form action="${pageContext.request.contextPath}/admin/manageUsers/user/editUser" method="post" commandName="user" enctype="multipart/form-data">
-            <form:hidden path="customerId" value="${user.customerId}"/>
+        <form:form action="${pageContext.request.contextPath}/admin/manageUsers/user/addUser" method="post" commandName="customer" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="name">Name</label>
-                <form:input path="customerName" id="name" class="form-control" value="${user.customerName}"/>
+                <form:input path="customerName" id="name" class="form-control"/>
             </div>
             <div class="form-group">
                 <label for="username">Username</label>
-                <form:input path="username" id="username" class="form-control" value="${user.username}"/>
+                <form:input path="username" id="username" class="form-control"/>
             </div>
             <div class="form-group">
                 <label for="password">Password</label>
-                <form:password path="password" id="password" class="form-control" value="${user.password}"/>
+                <form:password path="password" id="password" class="form-control"/>
             </div>
             <div class="form-group">
                 <label for="email">Email</label>
-                <form:input path="customerEmail" id="email" class="form-control" value="${user.customerEmail}"/>
+                <form:input path="customerEmail" id="email" class="form-control"/>
             </div>
             <div class="form-group">
                 <label for="phone">Phone</label>
-                <form:input path="customerPhone" id="phone" class="form-control" value="${user.customerPhone}"/>
+                <form:input path="customerPhone" id="phone" class="form-control"/>
             </div
 
             <br>
@@ -51,27 +50,27 @@
             <h3>Billing Address</h3>
             <div class="form-group">
                 <label for="bstreet">Street Address</label>
-                <form:input path="billingAddress.streetAddress" id="bstreet" class="form-control" value="${user.billingAddress.streetAddress}"/>
+                <form:input path="billingAddress.streetAddress" id="bstreet" class="form-control"/>
             </div>
             <br>
             <div class="form-group">
                 <label for="bapt">Apartment/Floor #:</label>
-                <form:input path="billingAddress.aptNumber" id="bapt" class="form-control" value="${user.billingAddress.aptNumber}"/>
+                <form:input path="billingAddress.aptNumber" id="bapt" class="form-control"/>
             </div>
             <br>
             <div class="form-group">
                 <label for="bcity">City</label>
-                <form:input path="billingAddress.city" id="bcity" class="form-control" value="${user.billingAddress.city}"/>
+                <form:input path="billingAddress.city" id="bcity" class="form-control"/>
             </div>
             <br>
             <div class="form-group">
                 <label for="bstate">State</label>
-                <form:input path="billingAddress.state" id="bstate" class="form-control" value="${user.billingAddress.state}"/>
+                <form:input path="billingAddress.state" id="bstate" class="form-control"/>
             </div>
             <br>
             <div class="form-group">
                 <label for="bzipcode">Zipcode</label>
-                <form:input path="billingAddress.zipcode" id="bzipcode" class="form-control" value="${user.billingAddress.zipcode}"/>
+                <form:input path="billingAddress.zipcode" id="bzipcode" class="form-control"/>
             </div>
             <br>
             <br>
@@ -81,39 +80,28 @@
             <br>
             <div class="form-group">
                 <label for="sstreet">Street Address</label>
-                <form:input path="shippingAddress.streetAddress" id="sstreet" class="form-control" value="${user.shippingAddress.streetAddress}"/>
+                <form:input path="shippingAddress.streetAddress" id="sstreet" class="form-control"/>
             </div>
             <br>
             <div class="form-group">
                 <label for="sapt">Apartment/Floor #:</label>
-                <form:input path="shippingAddress.aptNumber" id="sapt" class="form-control" value="${user.shippingAddress.aptNumber}"/>
+                <form:input path="shippingAddress.aptNumber" id="sapt" class="form-control"/>
             </div>
             <br>
             <div class="form-group">
                 <label for="scity">City</label>
-                <form:input path="shippingAddress.city" id="scity" class="form-control" value="${user.shippingAddress.city}"/>
+                <form:input path="shippingAddress.city" id="scity" class="form-control"/>
             </div>
             <br>
             <div class="form-group">
                 <label for="sstate">State</label>
-                <form:input path="shippingAddress.state" id="sstate" class="form-control" value="${user.shippingAddress.state}"/>
+                <form:input path="shippingAddress.state" id="sstate" class="form-control"/>
             </div><br>
             <div class="form-group">
                 <label for="szipcode">Zipcode</label>
-                <form:input path="shippingAddress.zipcode" id="szipcode" class="form-control" value="${user.shippingAddress.zipcode}"/>
+                <form:input path="shippingAddress.zipcode" id="szipcode" class="form-control"/>
             </div>
             <br>
-            <h3>Manager-Only details</h3>
-            <br>
-            <div class="form-group">
-                <label for="cid">Cart ID: </label>
-                <form:input path="cart.cartId" id="cid" class="form-control" value="${user.cart.cartId}"/>
-            </div>
-            <br>
-            <div class="form-group">
-                <label for="jd">Join date: </label>
-                <form:input path="joinDate" id="jd" class="form-control" value="${user.joinDate}"/>
-            </div>
             <input type="submit" value="Submit" class="btn btn-primary"/>
             <a href="<c:url value="/admin/manageUsers"/> " role="button" class="btn btn-danger">Cancel</a>
         </form:form>

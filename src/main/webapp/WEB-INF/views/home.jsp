@@ -30,7 +30,7 @@
 <body>
 
 <header>
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" style="padding: 20px 10px 20px 10px;">
         <a class="navbar-brand" href="#">Rent eSkates</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -71,8 +71,8 @@
                     </c:if>
                 </c:if>
                 <c:if test="${pageContext.request.userPrincipal.name == null}">
-                    <li><a class="nav-link" href="<c:url value="/login" />">Login</a></li>
-                    <li><a class="nav-link" href="<c:url value="/register"/> ">Register</a> </li>
+                    <li><a class="nav-link btn btn-dark" href="<c:url value="/login" />">Login</a></li>
+                    <li><a class="nav-link btn btn-dark" href="<c:url value="/register"/> ">Register</a> </li>
                 </c:if>
             </ul>
             <%--<form class="form-inline mt-2 mt-md-0">--%>
@@ -150,7 +150,7 @@
 
     <div class="container-fluid parallax text-center">
         <div class="text-center">
-            <h2 class="display-4" style="padding-top: 18%; color: #ffffff; text-align: center; display: inline-block;">
+            <h2 class="display-4" style="padding-top: 250px; color: #ffffff; text-align: center; display: inline-block;">
                 The most loved. <small class="text-muted">And the most rented.</small>
             </h2>
         </div>
@@ -184,7 +184,7 @@
     </div>
     <div class="container-fluid parallaxTwo">
         <div class="text-center">
-            <h2 class="display-4" style="padding-top: 18%; color: #ffffff; text-align: center; display: inline-block;">
+            <h2 class="display-4" style="padding-top: 250px; color: #ffffff; text-align: center; display: inline-block;">
                 Why walk? <small class="text-muted alert alert-light" style="padding: 0 10px 0 10px;"> When you can float. </small>
             </h2>
         </div>

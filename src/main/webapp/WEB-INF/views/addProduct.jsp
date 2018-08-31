@@ -13,7 +13,7 @@
 <%--header--%>
 <%@include file="/WEB-INF/views/template/header.jsp"%>
 
-<div class="container" style="padding-top: 5%">
+<div class="container" style="padding-top: 100px">
     <div class="row">
         <div class="col-md">
             <h1>Add Products</h1>

@@ -13,7 +13,7 @@
 <%--header--%>
 <%@include file="/WEB-INF/views/template/header.jsp"%>
 <title>Registration | Rent eSkates</title>
-<div class="container" style="padding-top: 5%">
+<div class="container" style="padding-top: 100px">
         <div class="jumbotron">
             <div class="container">
                 <h1>Registration</h1>
@@ -29,7 +29,7 @@
                 </div>
                 <div class="form-group">
                     <label for="username">Username</label>
-                    <form:input path="username" id="username" class="form-control"/>
+                    <form:input path="username" id="username" class="form-control" value="${customer.customerEmail}"/>
                 </div>
                 <div class="form-group">
                     <label for="password">Password</label>
