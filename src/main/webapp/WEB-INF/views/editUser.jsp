@@ -9,6 +9,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="spring" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 
 <%--header--%>
 <%@include file="/WEB-INF/views/template/header.jsp"%>
@@ -16,7 +17,7 @@
 <div class="container" style="padding-top: 100px">
     <div class="jumbotron">
         <div class="container">
-            <h1>Edit user: ${user.customerId}</h1>
+            <h1>Edit AccountID: ${user.customerId}</h1>
             <p>Customize information below</p>
         </div>
     </div>

@@ -1,10 +1,8 @@
 package com.mayi.controller.admin;
 
-import com.mayi.model.BillingAddress;
-import com.mayi.model.Customer;
-import com.mayi.model.CustomerJoinDatae;
-import com.mayi.model.ShippingAddress;
+import com.mayi.model.*;
 import com.mayi.service.CustomerService;
+import com.mayi.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,12 +25,51 @@ public class UserAdminController {
     @Autowired
     private CustomerService customerService;
 
+    @Autowired
+    private EmployeeService employeeService;
 //    @RequestMapping("/manageUsers/deleteuser/{id}")
 //    public String deleteUsers(@PathVariable int id, Model model){
 //        Customer customer = customerService.getCustomerById(id);
 //        customerService.deleteCustomer(customer);
 //        return "redirect:/admin/manageUsers";
 //    }
+
+    @RequestMapping("/employee/addEmployee")
+    public String addEmployee(Model model){
+        Customer customer = new Customer();
+        BillingAddress billingAddress = new BillingAddress();
+        ShippingAddress shippingAddress = new ShippingAddress();
+        customer.setBillingAddress(billingAddress);
+        customer.setShippingAddress(shippingAddress);
+        model.addAttribute("employee",customer);
+        return "addEmployee";
+    }
+
+    @RequestMapping(value = "/employee/addEmployee",method = RequestMethod.POST)
+    public String addEmployee(@Valid @ModelAttribute("employee") Customer customer, BindingResult result, Model model){
+        if(result.hasErrors()){
+            return "addEmployee";
+        }
+
+        List<Customer> customerList = customerService.getAllCustomers();
+        for(Customer customer1 : customerList){
+            if(customer.getCustomerEmail().equals(customer1.getCustomerEmail())){
+                model.addAttribute("emailMsg", "Email already exists");
+
+                return "addEmployee";
+            }
+
+            if(customer.getUsername().equals(customer1.getUsername())){
+                model.addAttribute("userNameMsg", "Username already exists");
+
+                return "addEmployee";
+            }
+        }
+        customer.setUsername(customer.getCustomerEmail());
+        customer.setEnabled(1);
+        employeeService.addEmployee(customer);
+        return "redirect:/admin/manageUsers";
+    }
 
     @RequestMapping("/user/addUser")
     public String addUser(Model model){

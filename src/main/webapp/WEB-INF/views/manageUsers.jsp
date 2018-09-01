@@ -27,9 +27,18 @@
       rel="stylesheet">
 <title>Manage Users | Admin Panel</title>
 <div class="container-fluid" style="padding-top: 100px">
-    <div class="jumbotron">
-        <h1>All Users</h1>
-        <p class="lead">Add, customize or view user details.</p>
+    <div class="jumbotron" style="height: 250px;">
+        <div class="row">
+            <div class="col-lg-10">
+                <h1>All Users</h1>
+                <p class="lead">Add, customize or view user details.</p>
+            </div>
+            <div class="col-lg-2">
+                <a class="float-right" href="<spring:url value="/admin/manageUsers/employee/addEmployee"/>" style="color: #fff; text-decoration: none;"><button type="button" class="btn btn-primary" style="height: 100%; padding: 0 50px 0 50px;">Add Employee</button></a>
+
+                <a class="float-left" href="<spring:url value="/admin/manageUsers/user/addUser"/>" style="color: #fff; text-decoration: none;"><button type="button" class="btn btn-primary" style="height: 100%; padding: 0 50px 0 50px;">Add User</button></a>
+            </div>
+        </div>
     </div>
     <input class="form-control" id="myInput" type="text" placeholder="Search by anything...">
     <table class="table table-striped table-hover">
