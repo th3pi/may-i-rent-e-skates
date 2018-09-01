@@ -1,7 +1,9 @@
 package com.mayi.controller.admin;
 
 import com.mayi.model.Customer;
+import com.mayi.model.CustomerOrder;
 import com.mayi.model.Product;
+import com.mayi.service.CustomerOrderService;
 import com.mayi.service.CustomerService;
 import com.mayi.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,6 +41,17 @@ public class AdminController {
         model.addAttribute("users",customerList);
 
         return "manageUsers";
+    }
+
+    @Autowired
+    private CustomerOrderService customerOrderService;
+
+    @RequestMapping("/manageOrders")
+    public String manageOrders(Model model){
+        List<CustomerOrder> customerOrders = customerOrderService.getAllCustomerOrders();
+        model.addAttribute("orders",customerOrders);
+
+        return "manageOrders";
     }
 
     @RequestMapping("/customer")

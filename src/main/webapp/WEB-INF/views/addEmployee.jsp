@@ -12,7 +12,7 @@
 
 <%--header--%>
 <%@include file="/WEB-INF/views/template/header.jsp"%>
-<title>Registration | Rent eSkates</title>
+<title>Add Employee | Admin Panel</title>
 <div class="container" style="padding-top: 100px">
     <div class="jumbotron">
         <div class="container">

@@ -29,6 +29,26 @@ public class CustomerOrder implements Serializable {
     @JoinColumn(name = "shippingAddressId")
     private ShippingAddress shippingAddress;
 
+    private String orderDate;
+
+    private String orderStatus;
+
+    public String getOrderStatus() {
+        return orderStatus;
+    }
+
+    public void setOrderStatus(String orderStatus) {
+        this.orderStatus = orderStatus;
+    }
+
+    public String getOrderDate() {
+        return orderDate;
+    }
+
+    public void setOrderDate(String orderDate) {
+        this.orderDate = orderDate;
+    }
+
     public int getCustomerOrderId() {
         return customerOrderId;
     }

@@ -51,13 +51,14 @@
             </ul>
             <ul class="navbar-nav right">
                 <c:if test="${pageContext.request.userPrincipal.name != null}">
+                    <sec:authorize access="hasRole('ROLE_ADMIN')">
+                        <li><a class="nav-link btn btn-dark" href="<c:url value="/admin" />">Control Center</a> </li>
+                    </sec:authorize>
                     <c:if test="${pageContext.request.userPrincipal.name != 'admin'}">
                         <li><a class="nav-link btn btn-dark" href="<c:url value="/customer/cart/"/> ">Cart</a> </li>
                     </c:if>
                     <li><a class="nav-link btn btn-dark" href="<c:url value="/j_spring_security_logout"/> ">Logout</a> </li>
-                    <sec:authorize access="hasRole('ROLE_ADMIN')">
-                        <li><a class="nav-link btn btn-dark" href="<c:url value="/admin" />">Admin</a> </li>
-                    </sec:authorize>
+
                 </c:if>
                 <c:if test="${pageContext.request.userPrincipal.name == null}">
                     <li><a class="nav-link btn btn-dark" href="<c:url value="/login" />">Login</a></li>

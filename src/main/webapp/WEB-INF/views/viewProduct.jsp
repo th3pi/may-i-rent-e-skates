@@ -47,6 +47,7 @@
             <p ng-controller="cartCtrl">
                 <a href="#" class="btn btn-primary" ng-click="addToCart('${product.productID}')">Buy now</a>
                 <a href="<spring:url value="/customer/cart"/> " class="btn btn-primary">View Cart</a>
+                <sec:authorize access="hasRole('ROLE_ADMIN')"><a href="<spring:url value="/admin/product/editProduct/${product.productID}"/> " class="btn btn-primary">Edit Product</a></sec:authorize>
             </p>
         </div>
     </div>

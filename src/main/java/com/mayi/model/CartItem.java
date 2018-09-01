@@ -62,7 +62,7 @@ public class CartItem implements Serializable {
     }
 
     public double getTotalPrice() {
-        return totalPrice*quantity;
+        return totalPrice;
     }
 
     public void setTotalPrice(double totalPrice) {
