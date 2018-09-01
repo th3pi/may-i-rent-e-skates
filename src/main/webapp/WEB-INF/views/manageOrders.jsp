@@ -43,9 +43,9 @@
             <th>Customer Name</th>
             <th>Phone</th>
             <th>Order Date</th>
-            <th>Order Status</th>
-            <th>Order Total</th>
-            <th>Status Panel</th>
+            <th class="text-center">Order Status</th>
+            <th class="text-center">Order Total</th>
+            <th class="text-center">Status Panel</th>
         </tr>
         </thead>
         <tbody id="myTable">
@@ -79,8 +79,8 @@
                         <td class="btn-danger text-center">${order.orderStatus}</td>
                     </c:when>
                 </c:choose>
-                <td>${order.cart.grandTotal}</td>
-                <td>
+                <td class="text-center">$${order.cart.grandTotal}</td>
+                <td class="text-center">
                     <a class="btn btn-outline-success" href="<spring:url value="/admin/manageOrders/order/markOrderAsPaymentReceived/${order.customerOrderId}" />"><i class="material-icons" data-toggle="tooltip" title="Payment Received">edit</i></a>
                     <a class="btn btn-info" href="<spring:url value="/admin/manageOrders/order/markOrderAsPicked/${order.customerOrderId}" />"><i class="material-icons" data-toggle="tooltip" title="Order Picked Up">edit</i></a>
                     <a class="btn btn-warning" href="<spring:url value="/admin/manageOrders/order/markOrderAsAwaitingReturn/${order.customerOrderId}" />"><i class="material-icons" data-toggle="tooltip" title="Awaiting Return">edit</i></a>
@@ -91,8 +91,6 @@
         </c:forEach>
         </tbody>
     </table>
-
-    <a href="<spring:url value="/admin/manageUsers/user/addUser"/>" style="color: #fff; text-decoration: none;"><button type="button" class="btn btn-primary btn-lg btn-block">Add User</button></a>
     <script>
         $(document).ready(function(){
             $("#myInput").on("keyup", function() {

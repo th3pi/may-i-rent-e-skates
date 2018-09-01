@@ -52,7 +52,22 @@
             <ul class="navbar-nav right">
                 <c:if test="${pageContext.request.userPrincipal.name != null}">
                     <sec:authorize access="hasRole('ROLE_ADMIN')">
-                        <li><a class="nav-link btn btn-dark" href="<c:url value="/admin" />">Control Center</a> </li>
+                        <li class="nav-item">
+                            <div class="btn-group">
+                                <a class="btn btn-warning" href="<c:url value="/admin" />">
+                                    Control Center
+                                </a>
+                                <button type="button" class="btn btn-warning dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span class="sr-only">Toggle Dropdown</span>
+                                </button>
+
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item" href="<c:url value="/admin/productInventory" />">Products</a>
+                                    <a class="dropdown-item" href="<c:url value="/admin/manageUsers" />">Users</a>
+                                    <a class="dropdown-item" href="<c:url value="/admin/manageOrders"/>">Orders</a>
+                                </div>
+                            </div>
+                        </li>
                     </sec:authorize>
                     <c:if test="${pageContext.request.userPrincipal.name != 'admin'}">
                         <li><a class="nav-link btn btn-dark" href="<c:url value="/customer/cart/"/> ">Cart</a> </li>
