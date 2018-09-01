@@ -31,7 +31,7 @@
         <div class="row">
             <div class="col-lg-10">
                 <h1>All Orders</h1>
-                <p class="lead">View, fulfill or delete orders.</p>
+                <p class="lead">View, fulfill or cancel orders.</p>
             </div>
         </div>
     </div>
@@ -45,7 +45,7 @@
             <th>Order Date</th>
             <th>Order Status</th>
             <th>Order Total</th>
-            <th></th>
+            <th>Status Panel</th>
         </tr>
         </thead>
         <tbody id="myTable">
@@ -61,18 +61,31 @@
                         <td>${order.orderStatus}</td>
                     </c:when>
                     <c:when test="${order.orderStatus eq 'Order Awaiting Confirmation'}">
-                        <td style="color: #fd7e14">${order.orderStatus}</td>
+                        <td class="btn-outline-danger text-center">${order.orderStatus}</td>
+                    </c:when>
+                    <c:when test="${order.orderStatus eq 'Payment Received'}">
+                        <td class="btn-outline-success text-center">${order.orderStatus}</td>
                     </c:when>
                     <c:when test="${order.orderStatus eq 'Order Picked Up'}">
-                        <td style="color: #ff084e">${order.orderStatus}</td>
+                        <td class="btn-info text-center">${order.orderStatus}</td>
                     </c:when>
-                    <c:when test="${order.orderStatus eq 'Order Completed'}">
-                        <td style="color: #1e7e34">${order.orderStatus}</td>
+                    <c:when test="${order.orderStatus eq 'Awaiting Return'}">
+                        <td class="btn-warning text-center">${order.orderStatus}</td>
+                    </c:when>
+                    <c:when test="${order.orderStatus eq 'Completed'}">
+                        <td class="btn-success text-center">${order.orderStatus}</td>
+                    </c:when>
+                    <c:when test="${order.orderStatus eq 'Cancelled'}">
+                        <td class="btn-danger text-center">${order.orderStatus}</td>
                     </c:when>
                 </c:choose>
                 <td>${order.cart.grandTotal}</td>
                 <td>
-                    <a class="btn btn-primary" href="<spring:url value="/admin/manageUsers/user/editUser/${order.customer.customerId}" />"><i class="material-icons" data-toggle="tooltip" title="Edit">edit</i></a></td>
+                    <a class="btn btn-outline-success" href="<spring:url value="/admin/manageOrders/order/markOrderAsPaymentReceived/${order.customerOrderId}" />"><i class="material-icons" data-toggle="tooltip" title="Payment Received">edit</i></a>
+                    <a class="btn btn-info" href="<spring:url value="/admin/manageOrders/order/markOrderAsPicked/${order.customerOrderId}" />"><i class="material-icons" data-toggle="tooltip" title="Order Picked Up">edit</i></a>
+                    <a class="btn btn-warning" href="<spring:url value="/admin/manageOrders/order/markOrderAsAwaitingReturn/${order.customerOrderId}" />"><i class="material-icons" data-toggle="tooltip" title="Awaiting Return">edit</i></a>
+                    <a class="btn btn-success" href="<spring:url value="/admin/manageOrders/order/markOrderAsCompleted/${order.customerOrderId}" />"><i class="material-icons" data-toggle="tooltip" title="Completed">edit</i></a>
+                    <a class="btn btn-danger" href="<spring:url value="/admin/manageOrders/order/markOrderAsCancelled/${order.customerOrderId}" />"><i class="material-icons" data-toggle="tooltip" title="Cancelled">edit</i></a></td>
             </tr>
 
         </c:forEach>
@@ -88,6 +101,17 @@
                     $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
                 });
             });
+        });
+
+        $(document).scroll(function(){
+            localStorage['page'] = document.URL;
+            localStorage['scrollTop'] = $(document).scrollTop();
+        });
+
+        $(document).ready(function(){
+            if (localStorage['page'] == document.URL) {
+                $(document).scrollTop(localStorage['scrollTop']);
+            }
         });
     </script>
     <%@include file="/WEB-INF/views/template/footer.jsp" %>

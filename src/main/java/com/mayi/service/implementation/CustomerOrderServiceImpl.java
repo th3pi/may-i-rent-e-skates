@@ -37,6 +37,10 @@ public class CustomerOrderServiceImpl implements CustomerOrderService {
         return grandTotal;
     }
 
+    public void updateOrderStatus(CustomerOrder customerOrder) {
+        customerOrderDao.updateOrderStatus(customerOrder);
+    }
+
     public List<CustomerOrder> getAllCustomerOrders(){
         return customerOrderDao.getAllCustomerOrders();
     }

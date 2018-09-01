@@ -11,6 +11,8 @@ public interface CustomerOrderService {
 
     void addCustomerOrder(CustomerOrder customerOrder);
 
+    void updateOrderStatus(CustomerOrder customerOrder);
+
     CustomerOrder getCustomerOrderById(int id);
 
     double getCustomerOrderGrandTotal(int cartId);

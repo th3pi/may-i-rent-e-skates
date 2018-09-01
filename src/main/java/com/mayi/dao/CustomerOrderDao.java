@@ -8,6 +8,8 @@ public interface CustomerOrderDao {
 
     void addCustomerOrder(CustomerOrder customerOrder);
 
+    void updateOrderStatus(CustomerOrder customerOrder);
+
     CustomerOrder getCustomerOrderById(int id);
 
     List<CustomerOrder> getAllCustomerOrders();

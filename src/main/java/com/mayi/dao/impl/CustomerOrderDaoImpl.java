@@ -31,6 +31,12 @@ public class CustomerOrderDaoImpl implements CustomerOrderDao{
         session.flush();
     }
 
+    public void updateOrderStatus(CustomerOrder customerOrder) {
+        Session session = sessionFactory.getCurrentSession();
+        session.saveOrUpdate(customerOrder);
+        session.flush();
+    }
+
     public List<CustomerOrder> getAllCustomerOrders(){
         Session session = sessionFactory.getCurrentSession();
         Query query = session.createQuery("from CustomerOrder");
