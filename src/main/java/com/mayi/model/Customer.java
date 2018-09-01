@@ -3,6 +3,7 @@ package com.mayi.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
 import java.text.DateFormat;
@@ -22,6 +23,7 @@ public class Customer implements Serializable {
     @NotEmpty(message = "Name required.")
     private String customerName;
 
+    @Email(message = "Invalid email.")
     @NotEmpty(message = "Email required.")
     private String customerEmail;
     private String customerPhone;

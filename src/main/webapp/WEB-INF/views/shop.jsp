@@ -72,11 +72,13 @@
                             <h4 class="card-title">
                                 <a href="<spring:url value="/viewProduct/${product.productID}"/>">${product.productName}</a>
                             </h4>
-                            <div class="alert alert-dark" role="alert">
+                            <a href="<spring:url value="/viewProduct/${product.productID}"/>" style="text-decoration: none">
+                            <div class="btn btn-light text-left" role="alert" href="<spring:url value="/viewProduct/${product.productID}"/>">
                             <h5 style="color: #1c7430">$${product.productPrice}</h5>
                             <p class="card-text">Range: ${product.productRange} miles</p>
                             <p class="card-text">Recharge time: ${product.productRechargeTime} minutes</p>
                             </div>
+                            </a>
                         </div>
                         <div class="card-footer">
                             <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
@@ -95,4 +97,14 @@
 
 </div>
 <!-- /.container -->
+<script>
+    $(document).ready(function(){
+        $("#myInput").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("#products *").filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+</script>
 <%@include file="template/footer.jsp"%>

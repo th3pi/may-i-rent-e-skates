@@ -24,11 +24,12 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
 <%--TODO FIX THIS--%>
-<div class="container-fluid" style="padding-top: 80px">
+<div class="container-fluid" style="padding-top: 100px">
     <div class="jumbotron">
             <h1>All Products</h1>
             <p class="lead">Add, customise or delete product details.</p>
     </div>
+    <a href="<spring:url value="/admin/product/addProduct"/>" style="color: #fff; text-decoration: none;"><button type="button" class="btn btn-primary btn-lg btn-block">Add Product</button></a>
         <table class="table table-striped table-hover">
             <thead>
             <tr class="bg-dark">
@@ -56,9 +57,10 @@
                     <td>${product.productSpeed}mph</td>
                     <td>${product.productRechargeTime}mins</td>
                     <td>${product.productRentLimit} days</td>
-                    <td><a href="<spring:url value="/viewProduct/${product.productID}" />"><i class="material-icons" data-toggle="tooltip" title="View">pageview</i></a>
-                        <a href="<spring:url value="/admin/product/deleteProduct/${product.productID}" />"><i class="material-icons" data-toggle="tooltip" title="Delete">clear</i></a>
-                        <a href="<spring:url value="/admin/product/editProduct/${product.productID}" />"><i class="material-icons" data-toggle="tooltip" title="Edit">edit</i></a></td>
+                    <td><a class="btn btn-primary" href="<spring:url value="/viewProduct/${product.productID}" />"><i class="material-icons" data-toggle="tooltip" title="View">pageview</i></a>
+                        <a class="btn btn-success" href="<spring:url value="/admin/product/editProduct/${product.productID}" />"><i class="material-icons" data-toggle="tooltip" title="Edit">edit</i></a>
+                        <a class="btn btn-danger" href="<spring:url value="/admin/product/deleteProduct/${product.productID}" />"><i class="material-icons" data-toggle="tooltip" title="Delete">clear</i></a>
+                        </td>
 
                 </tr>
             </c:forEach>

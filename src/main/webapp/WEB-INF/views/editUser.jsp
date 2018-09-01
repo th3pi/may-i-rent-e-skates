@@ -12,7 +12,7 @@
 
 <%--header--%>
 <%@include file="/WEB-INF/views/template/header.jsp"%>
-<title>Registration | Rent eSkates</title>
+<title>Edit User | Admin Panel</title>
 <div class="container" style="padding-top: 100px">
     <div class="jumbotron">
         <div class="container">
@@ -29,16 +29,16 @@
                 <form:input path="customerName" id="name" class="form-control" value="${user.customerName}"/>
             </div>
             <div class="form-group">
-                <label for="username">Username</label>
-                <form:input path="username" id="username" class="form-control" value="${user.username}"/>
-            </div>
-            <div class="form-group">
-                <label for="password">Password</label>
-                <form:password path="password" id="password" class="form-control" value="${user.password}"/>
-            </div>
-            <div class="form-group">
-                <label for="email">Email</label>
+                <label for="email">Email &nbsp;</label>
                 <form:input path="customerEmail" id="email" class="form-control" value="${user.customerEmail}"/>
+            </div>
+            <div class="form-group">
+                <label for="username">Username&nbsp;<small class="text-muted">(leave blank to use email as username)</small></label>
+                <form:input path="username" id="username" class="form-control" value="${user.customerEmail}"/>
+            </div>
+            <div class="form-group">
+                <label for="password">Password &nbsp;</label>
+                <form:password path="password" id="password" class="form-control" value="${user.password}"/>
             </div>
             <div class="form-group">
                 <label for="phone">Phone</label>
@@ -112,7 +112,12 @@
             <br>
             <div class="form-group">
                 <label for="jd">Join date: </label>
-                <form:input path="joinDate" id="jd" class="form-control" value="${user.joinDate}"/>
+                <form:input path="joinDate" id="jd" class="form-control" value="${user.joinDate}" readonly="true"/>
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="jd">Enabled: </label>
+                <form:input path="enabled" id="jd" class="form-control" value="${user.enabled}" readonly="true"/>
             </div>
             <input type="submit" value="Submit" class="btn btn-primary"/>
             <a href="<c:url value="/admin/manageUsers"/> " role="button" class="btn btn-danger">Cancel</a>

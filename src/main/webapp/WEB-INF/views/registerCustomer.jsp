@@ -28,16 +28,17 @@
                     <form:input path="customerName" id="name" class="form-control"/>
                 </div>
                 <div class="form-group">
-                    <label for="username">Username</label>
+                    <label for="email">Email &nbsp;</label><span style="color:#ff084e">${emailMsg}</span><form:errors path="customerEmail" cssStyle="color: #ff084e"/>
+                    <form:input path="customerEmail" id="email" class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <label for="username">Username &nbsp;<small class="text-muted">(leave blank to use email as username)</small></label>
+                    <span style="color:#ff084e">${userNameMsg}</span><form:errors path="username" cssStyle="color: #ff084e"/>
                     <form:input path="username" id="username" class="form-control" value="${customer.customerEmail}"/>
                 </div>
                 <div class="form-group">
-                    <label for="password">Password</label>
+                    <label for="password">Password &nbsp;</label><span style="color:#ff084e">${pwMsg}</span><form:errors path="password" cssStyle="color: #ff084e"/>
                     <form:password path="password" id="password" class="form-control"/>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <form:input path="customerEmail" id="email" class="form-control"/>
                 </div>
                 <div class="form-group">
                     <label for="phone">Phone</label>

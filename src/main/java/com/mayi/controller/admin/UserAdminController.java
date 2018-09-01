@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.validation.Valid;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -45,7 +46,32 @@ public class UserAdminController {
     }
 
     @RequestMapping(value = "/user/addUser", method = RequestMethod.POST)
-    public String addUserPost(@ModelAttribute("customer") Customer customer){
+    public String addUserPost(@Valid @ModelAttribute("customer") Customer customer, BindingResult result, Model model){
+        if(result.hasErrors()){
+            return "addUser";
+        }
+
+        List<Customer> customerList = customerService.getAllCustomers();
+
+        for(Customer customer1 : customerList){
+            if(customer.getCustomerEmail().equals(customer1.getCustomerEmail())){
+                model.addAttribute("emailMsg", "Email already exists");
+
+                return "addUser";
+            }
+
+            if(customer.getUsername().equals(customer1.getUsername())){
+                model.addAttribute("userNameMsg", "Username already exists");
+
+                return "addUser";
+            }
+        }
+
+        if(customer.getPassword().length() < 6){
+            model.addAttribute("pwMsg","Minimum 6 characters password required.");
+            return "addUser";
+        }
+        customer.setUsername(customer.getCustomerEmail());
         customer.setEnabled(1);
         customerService.addCustomer(customer);
         return "redirect:/admin/manageUsers";
@@ -62,7 +88,7 @@ public class UserAdminController {
     }
 
     @RequestMapping(value = "/user/editUser", method = RequestMethod.POST)
-    public String editUsersPost(@ModelAttribute("customer")Customer customer, BindingResult result){
+    public String editUsersPost(@Valid @ModelAttribute("customer")Customer customer, BindingResult result, Model model){
         if(result.hasErrors()){
             return "editUser";
         }

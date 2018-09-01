@@ -10,11 +10,11 @@
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="spring" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@include file="template/header.jsp"%>
-
-<div class="container-fluid" style="padding-top: 80px">
+<title>Admin Panel | Rent eSkates</title>
+<div class="container-fluid" style="padding-top: 100px">
         <div class="jumbotron">
             <h2>Control Center</h2>
-            <p class="lead">Manage products, user and orders.</p>
+            <p class="lead">Manage products, users and orders.</p>
         </div>
     <div class="row">
         <div class="col-md">
