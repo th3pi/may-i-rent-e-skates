@@ -2,6 +2,7 @@ package com.mayi.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 public class CustomerOrder implements Serializable {
@@ -28,6 +29,7 @@ public class CustomerOrder implements Serializable {
     @OneToOne
     @JoinColumn(name = "shippingAddressId")
     private ShippingAddress shippingAddress;
+
 
     private String orderDate;
 

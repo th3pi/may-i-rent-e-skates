@@ -7,6 +7,7 @@ import com.mayi.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
 import java.util.List;
 
 @Service
@@ -39,5 +40,13 @@ public class CustomerServiceImpl implements CustomerService {
 
     public Customer getCustomerByUsername (String username) {
         return customerDao.getCustomerByUsername(username);
+    }
+
+    public void assignNewCart(Customer customer) {
+        customerDao.assignNewCart(customer);
+    }
+
+    public Customer validate(int id) throws IOException {
+        return customerDao.validate(id);
     }
 }

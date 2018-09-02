@@ -2,6 +2,7 @@ package com.mayi.dao;
 
 import com.mayi.model.Customer;
 
+import java.io.IOException;
 import java.util.List;
 
 public interface CustomerDao {
@@ -11,6 +12,10 @@ public interface CustomerDao {
     void editCustomer(Customer customer);
 
     void deleteCustomer(Customer customer);
+
+    void assignNewCart(Customer customer);
+
+    Customer validate(int id) throws IOException;
 
     Customer getCustomerById(int customerId);
 

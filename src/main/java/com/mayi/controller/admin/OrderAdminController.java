@@ -1,5 +1,6 @@
 package com.mayi.controller.admin;
 
+import com.mayi.model.Customer;
 import com.mayi.model.CustomerOrder;
 import com.mayi.service.CustomerOrderService;
 import com.mayi.service.CustomerService;
@@ -16,7 +17,10 @@ public class OrderAdminController {
     @Autowired
     private CustomerOrderService customerOrderService;
 
-    @RequestMapping("/order/{id}")
+    @Autowired
+    private CustomerService customerService;
+
+    @RequestMapping("/order/viewOrder/{id}")
     public String getOrder(@PathVariable int id, Model model){
         CustomerOrder customerOrder = customerOrderService.getCustomerOrderById(id);
         model.addAttribute("order",customerOrder);
@@ -35,6 +39,8 @@ public class OrderAdminController {
     public String markOrderAsPaymentReceived(@PathVariable int id, Model model){
         CustomerOrder customerOrder = customerOrderService.getCustomerOrderById(id);
         customerOrder.setOrderStatus("Payment Received");
+        Customer customer = customerOrder.getCustomer();
+        customerService.assignNewCart(customer);
         customerOrderService.updateOrderStatus(customerOrder);
         return "redirect:/admin/manageOrders";
     }

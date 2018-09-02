@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -109,5 +110,23 @@ public class CustomerDaoImpl implements CustomerDao {
         query.setString(0, username);
         session.flush();
         return (Customer) query.uniqueResult();
+    }
+
+    public void assignNewCart(Customer customer) {
+        Session session = sessionFactory.getCurrentSession();
+        Cart cart = new Cart();
+        customer.setCart(cart);
+        session.saveOrUpdate(customer);
+        session.flush();
+    }
+
+    public Customer validate(int id) throws IOException {
+        Customer customer = getCustomerById(id);
+        if(customer == null){
+            throw new IOException("Customer not found.");
+        }
+
+        assignNewCart(customer);
+        return customer;
     }
 }

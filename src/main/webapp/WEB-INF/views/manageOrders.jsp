@@ -85,7 +85,8 @@
                     <a class="btn btn-info" href="<spring:url value="/admin/manageOrders/order/markOrderAsPicked/${order.customerOrderId}" />"><i class="material-icons" data-toggle="tooltip" title="Order Picked Up">edit</i></a>
                     <a class="btn btn-warning" href="<spring:url value="/admin/manageOrders/order/markOrderAsAwaitingReturn/${order.customerOrderId}" />"><i class="material-icons" data-toggle="tooltip" title="Awaiting Return">edit</i></a>
                     <a class="btn btn-success" href="<spring:url value="/admin/manageOrders/order/markOrderAsCompleted/${order.customerOrderId}" />"><i class="material-icons" data-toggle="tooltip" title="Completed">edit</i></a>
-                    <a class="btn btn-danger" href="<spring:url value="/admin/manageOrders/order/markOrderAsCancelled/${order.customerOrderId}" />"><i class="material-icons" data-toggle="tooltip" title="Cancelled">edit</i></a></td>
+                    <a class="btn btn-danger" href="<spring:url value="/admin/manageOrders/order/markOrderAsCancelled/${order.customerOrderId}" />"><i class="material-icons" data-toggle="tooltip" title="Cancelled">edit</i></a>
+                    <a class="btn btn-danger" href="<spring:url value="/admin/manageOrders/order/viewOrder/${order.customerOrderId}" />"><i class="material-icons" data-toggle="tooltip" title="View Order Details">pageview</i></a></td>
             </tr>
 
         </c:forEach>

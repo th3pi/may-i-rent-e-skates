@@ -5,6 +5,7 @@ import com.mayi.model.Customer;
 import com.mayi.model.CustomerOrder;
 import com.mayi.service.CartService;
 import com.mayi.service.CustomerOrderService;
+import com.mayi.service.OrderDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,6 +21,9 @@ public class OrderController {
     @Autowired
     private CustomerOrderService customerOrderService;
 
+    @Autowired
+    private OrderDetailsService orderDetailsService;
+
     @RequestMapping("/order/{cartId}")
     public String createOrder(@PathVariable("cartId") int cartId){
         CustomerOrder customerOrder = new CustomerOrder();
@@ -31,7 +35,7 @@ public class OrderController {
         customerOrder.setBillingAddress(customer.getBillingAddress());
         customerOrder.setShippingAddress(customer.getShippingAddress());
         customerOrderService.addCustomerOrder(customerOrder);
-
+        orderDetailsService.insertNewProduct(customerOrder.getCustomerOrderId());
         return "redirect:/checkout?cartId="+cartId;
     }
 }
