@@ -13,66 +13,187 @@
 <%--header--%>
 <%@include file="/WEB-INF/views/template/header.jsp"%>
 <title>Registration | Rent eSkates</title>
-<div class="container" style="padding-top: 5%">
+<div class="container" style="padding-top: 100px">
     <div class="jumbotron">
         <div class="container">
             <h1>Personal Information</h1>
             <p>Fill in your personal information below </p>
         </div>
     </div>
+    <%--<div class="container">--%>
+        <%--&lt;%&ndash;Form to add product details&ndash;%&gt;--%>
+        <%--<form:form commandName="order" class="form-horizontal">--%>
+            <%--<div class="form-group">--%>
+                <%--<label for="name">Name</label>--%>
+                <%--<form:input path="cart.customer.customerName" id="name" class="form-control"/>--%>
+            <%--</div>--%>
+            <%--<div class="form-group">--%>
+                <%--<label for="email">Email</label>--%>
+                <%--<form:input path="cart.customer.customerEmail" id="email" class="form-control"/>--%>
+            <%--</div>--%>
+            <%--<div class="form-group">--%>
+                <%--<label for="phone">Phone</label>--%>
+                <%--<form:input path="cart.customer.customerPhone" id="phone" class="form-control"/>--%>
+            <%--</div--%>
+
+            <%--<br>--%>
+            <%--<br>--%>
+
+            <%--<h3>Billing Address</h3>--%>
+            <%--<div class="form-group">--%>
+                <%--<label for="bstreet">Street Address</label>--%>
+                <%--<form:input path="cart.customer.billingAddress.streetAddress" id="bstreet" class="form-control"/>--%>
+            <%--</div>--%>
+            <%--<br>--%>
+            <%--<div class="form-group">--%>
+                <%--<label for="bapt">Apartment/Floor #:</label>--%>
+                <%--<form:input path="cart.customer.billingAddress.aptNumber" id="bapt" class="form-control"/>--%>
+            <%--</div>--%>
+            <%--<br>--%>
+            <%--<div class="form-group">--%>
+                <%--<label for="bcity">City</label>--%>
+                <%--<form:input path="cart.customer.billingAddress.city" id="bcity" class="form-control"/>--%>
+            <%--</div>--%>
+            <%--<br>--%>
+            <%--<div class="form-group">--%>
+                <%--<label for="bstate">State</label>--%>
+                <%--<form:input path="cart.customer.billingAddress.state" id="bstate" class="form-control"/>--%>
+            <%--</div>--%>
+            <%--<br>--%>
+            <%--<div class="form-group">--%>
+                <%--<label for="bzipcode">Zipcode</label>--%>
+                <%--<form:input path="cart.customer.billingAddress.zipcode" id="bzipcode" class="form-control"/>--%>
+            <%--</div>--%>
+            <%--<br>--%>
+            <%--<br>--%>
+
+            <%--<input type="hidden" name="_flowExecutionKey">--%>
+
+            <%--<input type="submit" value="Go to shipping details" name="_eventId_customerInfoCollected" class="btn btn-primary"/>--%>
+            <%--<input type="button" name="_eventId_cancel" class="btn btn-danger" value="Cancel"/>--%>
+        <%--</form:form>--%>
+    <%--</div>--%>
     <div class="container">
-        <%--Form to add product details--%>
-        <form:form commandName="order" class="form-horizontal">
-            <div class="form-group">
-                <label for="name">Name</label>
-                <form:input path="cart.customer.customerName" id="name" class="form-control"/>
+        <div class="row">
+            <div class="col-md-4 order-md-2 mb-4">
+                <h4 class="d-flex justify-content-between align-items-center mb-3">
+                    <span class="text-muted">Your cart</span>
+                    <span class="badge badge-secondary badge-pill">${order.cart.cartItems.size()}</span>
+                </h4>
+                <ul class="list-group mb-3">
+                    <c:forEach items="${order.cart.cartItems}" var="item">
+                    <li class="list-group-item d-flex justify-content-between lh-condensed">
+                        <div>
+                            <h6 class="my-0">${item.product.productName}</h6>
+                            <small class="text-muted">${item.quantity}</small>
+                        </div>
+                        <span class="text-muted">$${item.product.productPrice}</span>
+                    </li>
+                    </c:forEach>
+                    <li class="list-group-item d-flex justify-content-between">
+                        <span>Total (USD)</span>
+                        <strong>$${order.cart.grandTotal}</strong>
+                    </li>
+                </ul>
             </div>
-            <div class="form-group">
-                <label for="email">Email</label>
-                <form:input path="cart.customer.customerEmail" id="email" class="form-control"/>
-            </div>
-            <div class="form-group">
-                <label for="phone">Phone</label>
-                <form:input path="cart.customer.customerPhone" id="phone" class="form-control"/>
-            </div
+            <div class="col-md-8 order-md-1">
+                <h4 class="mb-3">Billing address</h4>
+                    <form:form commandName="order" class="form-horizontal">
+                    <div class="row">
+                        <div class="col-md-12 mb-3">
+                            <label for="name">Full name</label>
+                            <form:input path="cart.customer.customerName" id="name" class="form-control"/>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email">Email</label>
+                        <form:input path="cart.customer.customerEmail" id="email" class="form-control"/>
+                    </div>
+                    <div class="mb-3">
+                        <label for="username">Username <span class="text-muted">(Optional)</span></label>
+                        <form:input path="cart.customer.username" id="username" class="form-control"/>
+                    </div>
 
-            <br>
-            <br>
+                    <div class="mb-3">
+                        <label for="bstreet">Address</label>
+                        <form:input path="cart.customer.billingAddress.streetAddress" id="bstreet" class="form-control"/>
+                    </div>
 
-            <h3>Billing Address</h3>
-            <div class="form-group">
-                <label for="bstreet">Street Address</label>
-                <form:input path="cart.customer.billingAddress.streetAddress" id="bstreet" class="form-control"/>
-            </div>
-            <br>
-            <div class="form-group">
-                <label for="bapt">Apartment/Floor #:</label>
-                <form:input path="cart.customer.billingAddress.aptNumber" id="bapt" class="form-control"/>
-            </div>
-            <br>
-            <div class="form-group">
-                <label for="bcity">City</label>
-                <form:input path="cart.customer.billingAddress.city" id="bcity" class="form-control"/>
-            </div>
-            <br>
-            <div class="form-group">
-                <label for="bstate">State</label>
-                <form:input path="cart.customer.billingAddress.state" id="bstate" class="form-control"/>
-            </div>
-            <br>
-            <div class="form-group">
-                <label for="bzipcode">Zipcode</label>
-                <form:input path="cart.customer.billingAddress.zipcode" id="bzipcode" class="form-control"/>
-            </div>
-            <br>
-            <br>
+                    <div class="mb-3">
+                        <label for="bapt">Address 2 <span class="text-muted">(Optional)</span></label>
+                        <form:input path="cart.customer.billingAddress.aptNumber" id="bapt" class="form-control"/>
+                    </div>
 
-            <input type="hidden" name="_flowExecutionKey">
+                    <div class="row">
+                        <div class="col-md-5 mb-3">
+                            <label for="phone">Phone</label>
+                            <form:input path="cart.customer.customerPhone" id="phone" class="form-control"/>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label for="bcity">City</label>
+                            <form:input path="cart.customer.billingAddress.city" id="bcity" class="form-control"/>
+                        </div>
+                        <div class="col-md-2 mb-2">
+                            <label for="bstate">State</label>
+                            <form:input path="cart.customer.billingAddress.state" id="bstate" class="form-control"/>
+                        </div>
+                        <div class="col-md-2 mb-2">
+                            <label for="bzipcode">Zip</label>
+                            <form:input path="cart.customer.billingAddress.zipcode" id="bzipcode" class="form-control"/>
+                        </div>
+                    </div>
+                    <hr class="mb-4">
+                    <h4 class="mb-3">Payment</h4>
+                    <div class="d-block my-3">
+                        <div class="custom-control custom-radio">
+                            <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked required>
+                            <label class="custom-control-label" for="credit">Credit card</label>
+                        </div>
+                        <div class="custom-control custom-radio">
+                            <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required>
+                            <label class="custom-control-label" for="debit">Debit card</label>
+                        </div>
+                        <div class="custom-control custom-radio">
+                            <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required>
+                            <label class="custom-control-label" for="paypal">PayPal</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="cc-name">Name on card</label>
+                            <input type="text" class="form-control" id="cc-name" placeholder="" >
+                            <small class="text-muted">Full name as displayed on card</small>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="cc-number">Credit card number</label>
+                            <input type="text" class="form-control" id="cc-number" placeholder="" >
 
-            <input type="submit" value="Go to shipping details" name="_eventId_customerInfoCollected" class="btn btn-primary"/>
-            <input type="button" name="_eventId_cancel" class="btn btn-danger" value="Cancel"/>
-        </form:form>
-    </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3 mb-3">
+                            <label for="cc-expiration">Expiration</label>
+                            <input type="text" class="form-control" id="cc-expiration" placeholder="" >
+
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label for="cc-cvv">CVV</label>
+                            <input type="text" class="form-control" id="cc-cvv" placeholder="" >
+                        </div>
+                    </div>
+                    <hr class="mb-4">
+                        <input type="hidden" name="_flowExecutionKey">
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <input type="submit" value="Go to shipping details" name="_eventId_customerInfoCollected" class="btn btn-primary btn-lg btn-block"/>
+                            </div>
+                            <div class="col-lg-4">
+                                <input type="button" name="_eventId_cancel" class="btn btn-danger btn-lg btn-block" value="Cancel"/>
+                            </div>
+                        </div>
+                    </form:form>
+            </div>
+        </div>
 </div>
 
 <%--footer--%>

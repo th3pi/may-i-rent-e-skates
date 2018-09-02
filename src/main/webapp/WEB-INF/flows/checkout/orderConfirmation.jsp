@@ -15,25 +15,16 @@
 <%--header--%>
 <%@include file="/WEB-INF/views/template/header.jsp"%>
 <title>Registration | Rent eSkates</title>
-<div class="container-wrapper">
-    <div class="container">
-        <div class="page-header">
-            <h1>Order</h1>
+    <div class="container" style="padding-top: 100px;">
+        <div class="container-fluid jumbotron">
+            <h1>Receipt</h1>
 
-            <p class="lead">Order confirmation</p>
+            <p class="lead">Here is your order confirmation</p>
         </div>
-
         <div class="container">
-
             <div class="row">
-
                 <form:form commandName="order" class="form-horizaontal">
-
-                    <div class="well col-xs-10 col-sm-10 col-md-6 col-xs-offset-1 col-sm-offset-1 co-md-offset-3">
-
-                        <div class="text-center">
-                            <h1>Receipt</h1>
-                        </div>
+                    <div>
                         <div class="row">
                             <div class="col-xs-6 col-sm-6 col-md-6">
                                 <address>
@@ -47,10 +38,9 @@
                                 </address>
                             </div>
                             <div class="col-xs-6 col-sm-6 col-md-6 text-right">
-                                <p>Shipping Date: <fmt:formatDate type="date" value="${now}"/></p>
+                                <p>Order Date: <fmt:formatDate type="date" value="${now}"/></p>
                             </div>
                         </div>
-
                         <div class="row">
                             <div class="col-xs-6 col-sm-6 col-md-6">
                                 <address>
@@ -77,21 +67,19 @@
                                 <tbody>
                                 <c:forEach var="cartItem" items="${order.cart.cartItems}" >
                                     <tr>
-                                        <td class="col-md-9"><em>${cartItem.product.productName}</em></td>
-                                        <td class="col-md-1" style="text-align: center">${cartItem.quantity}</td>
-                                        <td class="col-md-1" style="text-align: center">${cartItem.product.productPrice}</td>
-                                        <td class="col-md-1" style="text-align: center">${cartItem.totalPrice}</td>
+                                        <td class="col-md-5"><em>${cartItem.product.productName}</em></td>
+                                        <td class="col-md-3" style="text-align: center">${cartItem.quantity}</td>
+                                        <td class="col-md-3" style="text-align: center">$${cartItem.product.productPrice}</td>
+                                        <td class="col-md-1" style="text-align: center">$${cartItem.totalPrice}</td>
                                     </tr>
                                 </c:forEach>
-
                                 <tr>
+                                    <td><h4>Grand Total:</h4></td>
                                     <td></td>
-                                    <td></td>
-                                    <td class="text-right">
-                                        <h4><strong>Grand Total: </strong></h4>
+                                    <td>
                                     </td>
-                                    <td class="text-center text-danger">
-                                        <h4><strong>$ ${order.cart.grandTotal}</strong></h4>
+                                    <td class="text-center text-success">
+                                        <h4>$${order.cart.grandTotal}</h4>
                                     </td>
                                 </tr>
                                 </tbody>
@@ -100,11 +88,17 @@
 
                         <input type="hidden" name="_flowExecutionKey" />
 
-                        <br><br>
-                        <button class="btn btn-default" name="_eventId_backToCollectShippingDetail">Back</button>
-                        <input type="submit" value="Submit Order" class="btn btn-default"
-                               name="_eventId_orderConfirmed"/>
-                        <button class="btn btn-default" name="_eventId_cancel">Cancel</button>
+                        <div class="row">
+                            <div class="col-lg-2">
+                                <input type="button" value="Back" name="_eventId_backToCollectShippingDetail" class="btn btn-outline-danger btn-lg btn-block"/>
+                            </div>
+                            <div class="col-lg-8">
+                                <input type="submit" value="Place Order" name="_eventId_orderConfirmed" class="btn btn-success btn-lg btn-block"/>
+                            </div>
+                            <div class="col-lg-2">
+                                <input type="button" name="_eventId_cancel" class="btn btn-danger btn-lg btn-block" value="Cancel"/>
+                            </div>
+                        </div>
                     </div>
                 </form:form>
 
