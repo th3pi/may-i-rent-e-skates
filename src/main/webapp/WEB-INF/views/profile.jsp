@@ -12,23 +12,33 @@
 
 <%--header--%>
 <%@include file="/WEB-INF/views/template/header.jsp"%>
-<title>${orders.get(0).customer.customerName} | Rent eSkates</title>
+<title>${customer.customerName} | Rent eSkates</title>
 <<main role="main">
 
-<section class="jumbotron text-center" style="padding-top: 120px;">
+<section class="jumbotron text-center tracking-in-expand" style="padding-top: 120px;">
     <div class="container">
-        <h1 class="jumbotron-heading">${orders.get(0).customer.customerName}</h1>
-        <p class="lead text-muted">${orders.get(0).customer.billingAddress.streetAddress}, ${orders.get(0).customer.billingAddress.aptNumber}, ${orders.get(0).customer.billingAddress.city}, ${orders.get(0).customer.billingAddress.state}, ${orders.get(0).customer.billingAddress.zipcode}</p>
+        <h1 class="jumbotron-heading">${customer.customerName}</h1>
+        <p class="lead text-muted ">${customer.billingAddress.streetAddress}, ${customer.billingAddress.aptNumber}, ${customer.billingAddress.city}, ${customer.billingAddress.state}, ${customer.billingAddress.zipcode}</p>
         <p>
-            <a href="#" class="btn btn-success my-lg-3 disabled">Customer since: ${orders.get(0).customer.joinDate}</a>
-            <a href="<c:url value="/shop" />" class="btn btn-primary my-2">Edit profile</a>
+            <a href="#" class="btn btn-success my-lg-3 disabled">Customer since: ${customer.joinDate}</a>
+            <a href="<c:url value="/user/editProfile/${customer.customerId}" />" class="btn btn-primary my-2">Edit profile</a>
         </p>
     </div>
 </section>
 
 <div class="album py-5 bg-light">
     <div class="container">
+        <h2 class="display-4 text-center tracking-in-expand">Order History</h2>
+        <hr>
+        <c:choose>
+        <c:when test="${orders.size() eq 0}">
+            <h2 class="lead text-center tracking-in-expand">You didn't order anything yet.</h2>
+            <hr>
+            <h2 class="text-center"><a class="btn btn-outline-success heartbeat" href="/shop">Click here to get started</a></h2>
+        </c:when>
+            <c:when test="${orders.size() ne null}">
         <div class="row">
+
             <c:forEach var="order" items="${orders}">
             <div class="col-md-4">
                 <div class="card mb-4 shadow-sm">
@@ -75,7 +85,10 @@
                 </div>
             </div>
             </c:forEach>
+
         </div>
+            </c:when>
+        </c:choose>
     </div>
 </div>
 

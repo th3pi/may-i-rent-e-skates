@@ -16,7 +16,7 @@
 
 <title>Shop | Rent eSkates</title>
 <!-- Page Content -->
-<div class="container" style="padding-top: 80px">
+<div class="container color-change-2x" style="padding-top: 80px">
 
     <div class="row">
 
@@ -65,7 +65,7 @@
             <div class="row" id="products">
                 <c:forEach items="${products}" var="product">
                 <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card h-20">
+                    <div class="card h-20 scale-up-ver-bottom">
                         <a href="#"><img src="<c:url value="/resources/img/${product.productID}.png" /> " alt="image" style="width: 250px; height: 250px"/>
                         </a>
                         <div class="card-body">

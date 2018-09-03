@@ -23,7 +23,7 @@
     </div>
     <div class="container">
         <%--Form to add product details--%>
-        <form:form action="${pageContext.request.contextPath}/admin/manageUsers/user/editUser" method="post" commandName="user" enctype="multipart/form-data">
+        <form:form action="${pageContext.request.contextPath}/user/editProfile" method="post" commandName="user" enctype="multipart/form-data">
             <form:hidden path="customerId" value="${user.customerId}"/>
             <div class="form-group">
                 <label for="name">Name</label>
@@ -121,7 +121,7 @@
                 <form:input path="enabled" id="jd" class="form-control" value="${user.enabled}" readonly="true"/>
             </div>
             <input type="submit" value="Submit" class="btn btn-primary"/>
-            <a href="<c:url value="/user/profile"/> " role="button" class="btn btn-danger">Cancel</a>
+            <a href="<c:url value="/admin/manageUsers"/> " role="button" class="btn btn-danger">Cancel</a>
         </form:form>
     </div>
 </div>
