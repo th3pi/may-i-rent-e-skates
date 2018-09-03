@@ -10,6 +10,7 @@
 
     <!-- Bootstrap core CSS -->
     <link href="<c:url value="/resources/css/bootstrap.min.css"/>" rel="stylesheet">
+    <link href="<c:url value="/resources/css/rentskates.css"/>" rel="stylesheet">
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js"></script>
 
@@ -20,7 +21,7 @@
 
 <header>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" style="padding: 20px 10px 20px 10px;">
-        <a class="navbar-brand" href="#">Rent eSkates</a>
+        <a class="navbar-brand" href="#">&nbsp;Rent eSkates</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>

@@ -12,7 +12,19 @@
             <p class="lead" style="color: #fff">Manufacturer: ${product.productManufacturer}</p>
         </div>
         <div class="col-md-6" style="text-align: right">
-
+            <h3 style="color: #fff; font-size: 200%;">${product.productType} Range</h3>
+            <h4 style="color: #fff; font-size: 200%;">${product.productRange} miles</h4>
+            <c:choose>
+                <c:when test="${product.productSpeed ge 20}">
+                    <h4 style="color: #fff; font-size: 200%;">Blazing fast max speed of ${product.productSpeed}mph</h4>
+                </c:when>
+                <c:when test="${product.productSpeed le 19}">
+                    <h4 class="lead" style="color: #fff; font-size: 200%;"> Safe max speed of ${product.productSpeed}mph</h4>
+                </c:when>
+            </c:choose>
+            <hr>
+            <h4 style="color: #fff; font-size: 150%;">Recharge time: ${product.productRechargeTime} minutes</h4>
+            <h4 style="color: #fff; font-size: 150%;">${product.productType} weight: ${product.productWeight}lbs</h4>
         </div>
     </div>
     <div class="row alert alert-secondary" ng-app="cartApp" style="padding-left: 5%; padding-top: 2%; padding-bottom: 5%">

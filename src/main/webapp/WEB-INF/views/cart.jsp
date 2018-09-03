@@ -11,6 +11,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@include file="template/header.jsp"%>
 <title>Cart | Rent eSkates</title>
+<body style="background-color: #f4f5f5">
 <div class="container" style="padding-top: 100px">
     <section>
         <div class="jumbotron">
@@ -53,7 +54,7 @@
         </div>
     </section>
 </div>
-
+</body>
 <script src="<c:url value="/resources/js/controller.js"/> ">
 
 </script>
