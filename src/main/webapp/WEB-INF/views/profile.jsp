@@ -12,6 +12,7 @@
 
 <%--header--%>
 <%@include file="/WEB-INF/views/template/header.jsp"%>
+<title>${orders.get(0).customer.customerName} | Rent eSkates</title>
 <<main role="main">
 
 <section class="jumbotron text-center" style="padding-top: 120px;">
@@ -20,7 +21,7 @@
         <p class="lead text-muted">${orders.get(0).customer.billingAddress.streetAddress}, ${orders.get(0).customer.billingAddress.aptNumber}, ${orders.get(0).customer.billingAddress.city}, ${orders.get(0).customer.billingAddress.state}, ${orders.get(0).customer.billingAddress.zipcode}</p>
         <p>
             <a href="#" class="btn btn-success my-lg-3 disabled">Customer since: ${orders.get(0).customer.joinDate}</a>
-            <a href="<c:url value="/shop" />" class="btn btn-primary my-2">Go to Shop</a>
+            <a href="<c:url value="/shop" />" class="btn btn-primary my-2">Edit profile</a>
         </p>
     </div>
 </section>
@@ -32,11 +33,41 @@
             <div class="col-md-4">
                 <div class="card mb-4 shadow-sm">
                     <div class="card-body">
-                        <p class="card-text">${order.customerOrderId}</p>
+                        <h5 class="card-title">Order#${order.customerOrderId}</h5>
+                        <h6 class="card-subtitle">Place on: ${order.orderDate} </h6>
+                        <hr>
+                        <c:choose>
+                            <c:when test="${order.orderStatus eq null}">
+                                <h6 class="btn btn btn-outline-danger">Something went wrong.</h6>
+                            </c:when>
+                            <c:when test="${order.orderStatus eq 'Order Awaiting Confirmation'}">
+                                <h6 class="btn btn-outline-danger text-center">${order.orderStatus}</h6>
+                            </c:when>
+                            <c:when test="${order.orderStatus eq 'Payment Received'}">
+                                <h6 class="btn btn-outline-success text-center">${order.orderStatus}</h6>
+                            </c:when>
+                            <c:when test="${order.orderStatus eq 'Order Picked Up'}">
+                                <h6 class="btn btn-info text-center">${order.orderStatus}</h6>
+                            </c:when>
+                            <c:when test="${order.orderStatus eq 'Awaiting Return'}">
+                                <h6 class="btn btn-warning text-center">${order.orderStatus}</h6>
+                            </c:when>
+                            <c:when test="${order.orderStatus eq 'Completed'}">
+                                <h6 class="btn btn-success text-center">${order.orderStatus}</h6>
+                            </c:when>
+                            <c:when test="${order.orderStatus eq 'Cancelled'}">
+                                <h6 class="btn btn-danger text-center">${order.orderStatus}</h6>
+                            </c:when>
+                        </c:choose>
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group">
-                                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                                <a class="btn btn-sm btn-outline-secondary" href="<c:url value="/user/viewOrder/${order.customerOrderId}"/> ">View</a>
+                                    <c:if test="${order.orderStatus ne 'Cancelled'}">
+                                        <a class="btn btn-outline-danger btn-sm" href="<c:url value="/user/markOrderAsCancelled/${order.customerOrderId}"/> ">Cancel</a>
+                                    </c:if>
+                                <c:if test="${order.orderStatus eq 'Cancelled'}">
+                                    <a class="btn btn-outline-danger disabled btn-sm" href="<c:url value="/user/markOrderAsCancelled/${order.customerOrderId}"/> ">Cancel</a>
+                                </c:if>
                             </div>
                             <small class="text-muted">9 mins</small>
                         </div>
