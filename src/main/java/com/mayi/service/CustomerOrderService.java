@@ -9,6 +9,8 @@ public interface CustomerOrderService {
 
     List<CustomerOrder> getAllCustomerOrders();
 
+    List<CustomerOrder> getAllCustomerOrdersById(int id);
+
     void addCustomerOrder(CustomerOrder customerOrder);
 
     void updateOrderStatus(CustomerOrder customerOrder);

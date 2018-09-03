@@ -10,7 +10,6 @@
 
     <!-- Bootstrap core CSS -->
     <link href="<c:url value="/resources/css/bootstrap.min.css"/>" rel="stylesheet">
-    <link href="<c:url value="../resources/css/rentskates.css"/>" rel="stylesheet">
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js"></script>
 
@@ -71,6 +70,7 @@
                         </li>
                     </sec:authorize>
                     <c:if test="${pageContext.request.userPrincipal.name != 'admin'}">
+                        <li><a class="nav-link btn btn-dark" href="<c:url value="/customer/profile/"/> ">Profile</a> </li>
                         <li><a class="nav-link btn btn-dark" href="<c:url value="/customer/cart/"/> ">Cart</a> </li>
                     </c:if>
                     <li><a class="nav-link btn btn-dark" href="<c:url value="/j_spring_security_logout"/> ">Logout</a> </li>
