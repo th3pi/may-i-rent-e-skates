@@ -2,6 +2,10 @@ package com.mayi.dao.impl;
 
 import com.mayi.dao.CustomerOrderDao;
 import com.mayi.model.CustomerOrder;
+import com.mayi.model.OrderDetails;
+import com.mayi.model.Product;
+import com.mayi.service.CartService;
+import com.mayi.service.OrderDetailsService;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -11,6 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -20,6 +25,9 @@ public class CustomerOrderDaoImpl implements CustomerOrderDao{
 
     @Autowired
     private SessionFactory sessionFactory;
+
+    @Autowired
+    private OrderDetailsService orderDetailsService;
 
     public void addCustomerOrder(CustomerOrder customerOrder) {
         Session session = sessionFactory.getCurrentSession();
@@ -48,6 +56,23 @@ public class CustomerOrderDaoImpl implements CustomerOrderDao{
         Session session = sessionFactory.getCurrentSession();
         Query query = session.createQuery("from CustomerOrder where customerOrderId = ?");
         query.setInteger(0,id);
+//        getOrderGrandTotal((CustomerOrder) query.uniqueResult());
         return (CustomerOrder) query.uniqueResult();
     }
+
+//    public void getOrderGrandTotal(CustomerOrder customerOrder) {
+//        Session session = sessionFactory.getCurrentSession();
+//        float grandTotal = 0;
+//        List<OrderDetails> orderDetailsList = orderDetailsService.getAllOrderDetailsByOrderId(customerOrder.getCustomerOrderId());
+//        List<Product> products = new ArrayList<Product>();
+//        for(OrderDetails orderDetails : orderDetailsList){
+//            products.add(orderDetails.getProduct());
+//        }
+//        for(Product product : products){
+//            grandTotal += product.getProductPrice();
+//        }
+//        customerOrder.setGrandTotal(grandTotal);
+//        session.saveOrUpdate(customerOrder);
+//        session.flush();
+//    }
 }

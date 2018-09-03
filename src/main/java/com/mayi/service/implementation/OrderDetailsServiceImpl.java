@@ -33,4 +33,12 @@ public class OrderDetailsServiceImpl implements OrderDetailsService {
     public void insertNewProduct(int orderId) {
         orderDetailsDao.insertNewProduct(orderId);
     }
+
+    public OrderDetails getOrderDetailsByOrderId(int id) {
+        return orderDetailsDao.getOrderDetailsByOrderId(id);
+    }
+
+    public List<OrderDetails> getAllOrderDetailsByOrderId(int id) {
+        return orderDetailsDao.getAllOrderDetailsByOrderId(id);
+    }
 }

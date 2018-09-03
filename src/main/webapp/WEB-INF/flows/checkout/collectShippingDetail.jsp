@@ -20,6 +20,11 @@
             <p>Fill in your shipping information below</p>
         </div>
     </div>
+    <div class="progress">
+        <div class="progress-bar w-50" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+    <br>
+    <hr>
     <%--<div class="container">--%>
         <%--&lt;%&ndash;Form to add product details&ndash;%&gt;--%>
         <%--<form:form commandName="order" enctype="multipart/form-data">--%>

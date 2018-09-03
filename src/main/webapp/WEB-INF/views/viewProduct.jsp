@@ -15,14 +15,16 @@
 
         </div>
     </div>
-    <div class="row" ng-app="cartApp" style="padding-left: 5%; padding-top: 2%; padding-bottom: 5%">
+    <div class="row alert alert-secondary" ng-app="cartApp" style="padding-left: 5%; padding-top: 2%; padding-bottom: 5%">
         <div class="col-lg-6" style="padding-left: 10%; padding-top: 2%;">
             <%@include file="template/productImageAttrProductPage.jsp"%>
         </div>
         <div class="col-lg-6" style="text-align: left;">
             <h1 class="display-3">${product.productType} Range</h1>
             <h1 class="display-4" style="color: #b21f2d">${product.productRange} miles</h1>
+            <hr>
             <p style="width: 500px">${product.productDescription}</p>
+            <hr>
             <c:choose>
                 <c:when test="${product.productSpeed ge 20}">
                     <h4 style="color: #b21f2d">Blazing fast speed of ${product.productSpeed}mph</h4>
@@ -31,8 +33,10 @@
                     <h4 style="color: #1c7430"> Safe pace speed of ${product.productSpeed}mph</h4>
                 </c:when>
             </c:choose>
+            <hr>
             <h4>${product.productType} recharge time: ${product.productRechargeTime} minutes</h4>
             <h4>${product.productType} weight: ${product.productWeight}lbs</h4>
+            <hr>
             <h4 class="lead" style="color: #1e7e34; font-size: 300%;">RENT: $${product.productPrice}<span class="badge badge-secondary" > NEW!</span></h4>
             <div class="alert alert-primary" style="width: 50%;">Rent limit is <span style="color: #b21f2d">${product.productRentLimit}</span> days!</div>
 
@@ -45,9 +49,12 @@
             </c:if>
 
             <p ng-controller="cartCtrl">
-                <a href="#" class="btn btn-primary" ng-click="addToCart('${product.productID}')">Buy now</a>
-                <a href="<spring:url value="/customer/cart"/> " class="btn btn-primary">View Cart</a>
-                <sec:authorize access="hasRole('ROLE_ADMIN')"><a href="<spring:url value="/admin/product/editProduct/${product.productID}"/> " class="btn btn-primary">Edit Product</a></sec:authorize>
+                <c:if test="${pageContext.request.userPrincipal.name == null}">
+                    <a href="<c:url value="/login"/> " class="btn btn-lg btn-light shadow-sm">Log in to Rent!</a>
+                </c:if>
+                <sec:authorize access="hasRole('ROLE_USER')"><a href="#" class="btn btn-success btn-lg" ng-click="addToCart('${product.productID}')">Add to cart: +1 day</a>
+                <a href="<spring:url value="/customer/cart"/> " class="btn btn-primary btn-lg">View Cart</a></sec:authorize>
+                <sec:authorize access="hasRole('ROLE_ADMIN')"><a href="<spring:url value="/admin/product/editProduct/${product.productID}"/> " class="btn btn-lg btn-primary">Edit Product</a></sec:authorize>
             </p>
         </div>
     </div>

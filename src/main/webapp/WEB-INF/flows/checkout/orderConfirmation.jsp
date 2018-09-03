@@ -21,6 +21,11 @@
 
             <p class="lead">Here is your order confirmation</p>
         </div>
+        <div class="progress">
+            <div class="progress-bar w-75" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        <br>
+        <hr>
         <div class="container">
             <div class="row">
                 <form:form commandName="order" class="form-horizaontal">

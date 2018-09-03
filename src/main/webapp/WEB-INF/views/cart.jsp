@@ -11,22 +11,17 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@include file="template/header.jsp"%>
 <title>Cart | Rent eSkates</title>
-<div class="container" style="padding-top: 5%">
+<div class="container" style="padding-top: 100px">
     <section>
         <div class="jumbotron">
             <div class="container">
                 <h1>Cart</h1>
-                <p>Products you are going to rent</p>
+                <p>Items you want</p>
             </div>
         </div>
     </section>
     <section ng-app="cartApp">
         <div ng-controller = "cartCtrl" ng-init="initCartId('${cartId}')">
-        <div>
-            <a class="btn btn-danger" ng-click="clearCart()"><span>Clear cart</span> </a>
-            <a href="<c:url value="/order/${cartId}"/> "
-               class="btn btn-primary">Checkout</a>
-        </div>
         <table class="table table-hover">
             <tr>
                 <th>Product</th>
@@ -49,7 +44,11 @@
                 <th>{{calGrandTotal()}}</th>
                 <th></th>
             </tr>
-        </table>
+        </table><div>
+            <a class="btn btn-danger" ng-click="clearCart()"><span>Clear cart</span> </a>
+            <a href="<c:url value="/order/${cartId}"/> "
+               class="btn btn-primary">Checkout</a>
+        </div>
         <a href="<c:url value="/shop"/> ">Continue Shopping</a>
         </div>
     </section>

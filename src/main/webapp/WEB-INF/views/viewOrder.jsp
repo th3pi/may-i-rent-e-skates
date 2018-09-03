@@ -14,7 +14,7 @@
 
 <%--header--%>
 <%@include file="/WEB-INF/views/template/header.jsp"%>
-<title>Registration | Rent eSkates</title>
+<title>Order#${order.customerOrderId} | Rent eSkates</title>
 <div class="container" style="padding-top: 100px;">
     <div class="container-fluid jumbotron">
         <h1>Ordet details</h1>
@@ -56,19 +56,19 @@
                         <table class="table table-hover">
                             <thead>
                             <tr>
-                                <th>${order.cart.cartItems.size()}</th>
+                                <th>Name</th>
                                 <th>#</th>
                                 <th class="text-center">Price</th>
                                 <th class="text-center">Total</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <c:forEach var="cartItem" items="${order.cart.cartItems}" >
+                            <c:forEach var="cartItem" items="${od}" >
                                 <tr>
                                     <td class="col-md-5"><em>${cartItem.product.productName}</em></td>
                                     <td class="col-md-3" style="text-align: center">${cartItem.quantity}</td>
                                     <td class="col-md-3" style="text-align: center">$${cartItem.product.productPrice}</td>
-                                    <td class="col-md-1" style="text-align: center">$${cartItem.totalPrice}</td>
+                                    <td class="col-md-1" style="text-align: center">$${cartItem.quantity * cartItem.product.productPrice}</td>
                                 </tr>
                             </c:forEach>
                             <tr>

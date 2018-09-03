@@ -1,6 +1,8 @@
 package com.mayi.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -14,13 +16,34 @@ public class OrderDetails implements Serializable {
     @GeneratedValue
     private int orderDetailsId;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    private double total;
+
+    private int quantity;
+
+    @ManyToOne
     @JoinColumn(name = "customerOrderId")
+    @JsonIgnore
     private CustomerOrder customerOrder;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "productID")
     private Product product;
+
+    public double getTotal() {
+        return total;
+    }
+
+    public void setTotal(double total) {
+        this.total = total;
+    }
+
+    public double getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
 
     public int getOrderDetailsId() {
         return orderDetailsId;

@@ -30,10 +30,19 @@ public class CustomerOrder implements Serializable {
     @JoinColumn(name = "shippingAddressId")
     private ShippingAddress shippingAddress;
 
+//    private float grandTotal;
 
     private String orderDate;
 
     private String orderStatus;
+
+//    public double getGrandTotal() {
+//        return grandTotal;
+//    }
+//
+//    public void setGrandTotal(float grandTotal) {
+//        this.grandTotal = grandTotal;
+//    }
 
     public String getOrderStatus() {
         return orderStatus;

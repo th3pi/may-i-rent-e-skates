@@ -48,4 +48,9 @@ public class CustomerOrderServiceImpl implements CustomerOrderService {
     public CustomerOrder getCustomerOrderById(int id) {
         return customerOrderDao.getCustomerOrderById(id);
     }
+
+//    public void getOrderGrandTotal(CustomerOrder customerOrder){
+//        customerOrderDao.getOrderGrandTotal(customerOrder);
+//    }
+
 }

@@ -50,12 +50,31 @@ public class OrderDetailsDaoImpl implements OrderDetailsDao {
     public void insertNewProduct(int orderId) {
         CustomerOrder customerOrder = customerOrderService.getCustomerOrderById(orderId);
         List<CartItem> cartItems = customerOrder.getCart().getCartItems();
+        int quantity = 1;
         for(CartItem cartItem : cartItems){
             OrderDetails orderDetails = new OrderDetails();
             orderDetails.setProduct(cartItem.getProduct());
+            orderDetails.setQuantity(cartItem.getQuantity());
+            orderDetails.setTotal(customerOrderService.getCustomerOrderGrandTotal(customerOrder.getCart().getCartId()));
             orderDetails.setCustomerOrder(customerOrder);
             addOrderDetails(orderDetails);
         }
+    }
+
+    public OrderDetails getOrderDetailsByOrderId(int id) {
+        Session session = sessionFactory.getCurrentSession();
+        Query query = session.createQuery("from OrderDetails where customerorderid = ?");
+        query.setInteger(0,id);
+        return (OrderDetails) query.uniqueResult();
+    }
+
+    public List<OrderDetails> getAllOrderDetailsByOrderId(int id) {
+        Session session = sessionFactory.getCurrentSession();
+        Query query = session.createQuery("from OrderDetails where customerorderid = ?");
+        query.setInteger(0,id);
+        List<OrderDetails> orderDetailsList = query.list();
+        session.flush();
+        return orderDetailsList;
     }
 
     public void removeOrderDetails(OrderDetails orderDetails) {

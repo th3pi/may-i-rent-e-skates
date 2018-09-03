@@ -65,7 +65,7 @@
     <h3>
         Keep an eye out for an email from us. We are hustling to get your order READY ASAP.
         <hr>
-        <underline>Meanwhile you can click on "THANK YOU" to back to the store.</underline>
+        <underline>Meanwhile you can click on "THANK YOU" to go back to the store.</underline>
         <!-- The <h3> take is the description text which appear under the <h1> tag. It's there so you can display some nice message to your visitors! -->
     </h3>
 </div>
