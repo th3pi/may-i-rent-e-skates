@@ -166,9 +166,9 @@
 
     </div><!-- /.container -->
 
-    <div class="container-fluid parallax text-center">
+    <div class="container-fluid parallax text-center" style="height: 500px">
         <div class="text-center">
-            <h2 class="display-4" style="vertical-align: center; text-align: center; line-height: 390px; color: #fff;">
+            <h2 class="display-4" style="vertical-align: center; text-align: center; line-height: 500px; color: #fff;">
                 The most loved. <small class="text-muted">And the most rented.</small>
             </h2>
         </div>
@@ -177,8 +177,8 @@
         <h2 class="display-4">OUR TOP THREE</h2>
     </div>
     <div class="container">
-        <div class="row">
-            <c:forEach items="${products}" var="product">
+        <div class="row" ng-app="cartApp">
+            <c:forEach items="${products}" var="product" end="2">
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="card h-20">
                         <a href="#"><%@include file="template/productImgAttrProductList.jsp"%></a>
@@ -192,17 +192,20 @@
                                 <p class="card-text">Recharge time: ${product.productRechargeTime} minutes</p>
                             </div>
                         </div>
-                        <div class="card-footer">
-                            <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                        <div class="card-footer" ng-controller="cartCtrl">
+                            <div class="btn-group">
+                                <a class="btn btn-outline-secondary btn-sm" href="<c:url value="/viewProduct/${product.productID}"/> ">View</a>
+                            </div>
+                            <small class="text-muted float-right">${product.productManufacturer}</small>
                         </div>
                     </div>
                 </div>
             </c:forEach>
         </div>
     </div>
-    <div class="container-fluid parallaxTwo">
+    <div class="container-fluid parallaxTwo" style="height: 500px;">
         <div class="text-center">
-            <h2 class="display-4" style="vertical-align: center; text-align: center; line-height: 390px; color: #fff;">
+            <h2 class="display-4" style="vertical-align: center; text-align: center; line-height: 500px; color: #fff;">
                 Why walk? <small class="text-muted alert alert-light" style="padding: 0 10px 0 10px;"> When you can float. </small>
             </h2>
         </div>
@@ -217,6 +220,8 @@
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
+<script src="<c:url value="/resources/js/controller.js"/> ">
+</script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script>window.jQuery || document.write('<script src="<c:url value="/resources/js/jquery-slim.min.js"/>"><\/script>')</script>
 <script src="<c:url value="/resources/js/bootstrap.min.js"/>"></script>
