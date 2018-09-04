@@ -90,7 +90,7 @@
                     <li class="list-group-item d-flex justify-content-between lh-condensed">
                         <div>
                             <h6 class="my-0">${item.product.productName}</h6>
-                            <small class="text-muted">${item.quantity}</small>
+                            <small class="text-muted">For: ${item.quantity} Day</small>
                         </div>
                         <span class="text-muted">$${item.product.productPrice}</span>
                     </li>

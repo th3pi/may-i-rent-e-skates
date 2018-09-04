@@ -14,6 +14,7 @@
 <%--header--%>
 <%@include file="/WEB-INF/views/template/header.jsp"%>
 <title>Edit User | Admin Panel</title>
+<c:if test="${pageContext.request.userPrincipal.name == user.username}">
 <div class="container" style="padding-top: 100px">
     <div class="jumbotron">
         <div class="container">
@@ -125,6 +126,79 @@
         </form:form>
     </div>
 </div>
+</c:if>
+<c:if test="${pageContext.request.userPrincipal.name != user.username}">
+    <style>
+        @mixin vertical-align($position: relative) {
+            position: $position;
+            top: 50%;
+            -webkit-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+        }
+        body, html {
+            background: #343a40;
+        }
+        #wrapper {
+            width: 600px;
+            margin: 0 auto;
+            margin-top: 15%;
+        }
+        h1 {
+            color: #EEE;
+            text-shadow: -1px -2px 3px rgba(17, 17, 17, 0.3);
+            text-align: center;
+            font-family: "Monsterrat", sans-serif;
+            font-weight: 900;
+            text-transform: uppercase;
+            font-size: 80px;
+            margin-bottom: -5px;
+        }
+        h1 underline {
+            border-top: 5px solid #6c757d;
+            border-bottom: 5px solid #6c757d;
+        }
+        h3 {
+            width: 570px;
+            margin-left: 16px;
+            font-family: "Lato", sans-serif;
+            font-weight: 600;
+            color: #EEE;
+        }
+
+    </style>
+    <div id="wrapper" class="animated zoomIn text-center">
+        <!-- We make a wrap around all of the content so that we can simply animate all of the content at the same time. I wanted a zoomIn effect and instead of placing the same class on all tags, I wrapped them into one div! -->
+        <a class="btn btn-dark" href="<c:url value="/user/profile"/> "><h1 class="text-flicker-in-glow">
+            <!-- The <h1> tag is the reason why the text is big! -->
+            <underline>OOPS!</underline>
+            <!-- The underline makes a border on the top and on the bottom of the text -->
+        </h1></a>
+        <br>
+        <br>
+        <h3>
+            This profile does not belong to you.
+            <hr>
+            <underline>Click on "OOPS!" to check out your own profile.</underline>
+            <!-- The <h3> take is the description text which appear under the <h1> tag. It's there so you can display some nice message to your visitors! -->
+        </h3>
+    </div>
+    <script>
+        $( document ).ready(function() {
+            // perform some jQuery when page is loaded
+
+            $("h1").hover(function() {
+                // when user is hovering the h1
+                $( this ).addClass("animated infinite pulse");
+                // we add pulse animation and to infinite
+            }, function() {
+                // when user no longer hover on the h1
+                $( this ).removeClass("animated infinite pulse");
+                // we remove the pulse
+            });
+        });
+    </script>
+</c:if>
 
 <%--footer--%>
 <%@include file="/WEB-INF/views/template/footer.jsp" %>

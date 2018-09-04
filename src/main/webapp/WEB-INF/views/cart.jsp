@@ -25,7 +25,7 @@
     <c:when test="${cartItems.size() eq 0}">
         <h2 class="lead text-center tracking-in-expand">You don't have anything in your cart yet.</h2>
         <hr>
-        <h2 class="text-center"><a class="btn btn-outline-success heartbeat" href="<c:url value="/shop" />">Click here to get started</a></h2>
+        <h2 class="text-center"><a class="btn btn-outline-success btn-lg heartbeat" href="<c:url value="/shop" />">Click here to get started</a></h2>
     </c:when>
         <c:when test="${cartItems.size() ne 0}">
     <section ng-app="cartApp">
@@ -57,12 +57,14 @@
                 <div class="col-md-2">
             <a class="btn btn-danger btn-lg d-block" ng-click="clearCart()"><span>Clear cart</span> </a>
                 </div>
-                <div class="col-md-10">
+                <div class="col-md-7">
             <a href="<c:url value="/order/${cartId}"/> "
-               class="btn btn-primary btn-lg d-block">Checkout</a>
+               class="btn btn-success btn-lg d-block">Checkout</a>
+                </div>
+                <div class="col-md-3">
+                    <a class="btn btn-outline-primary btn-lg d-block" href="<c:url value="/shop"/> ">Continue Shopping</a>
                 </div>
         </div>
-        <a href="<c:url value="/shop"/> ">Continue Shopping</a>
         </div>
     </section>
         </c:when>
