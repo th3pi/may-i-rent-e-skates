@@ -77,7 +77,7 @@
                             </h4>
                             <a href="<spring:url value="/viewProduct/${product.productID}"/>" style="text-decoration: none">
                             <div class="btn btn-light text-left" role="alert" href="<spring:url value="/viewProduct/${product.productID}"/>">
-                            <h5 style="color: #1c7430">$${product.productPrice}</h5>
+                            <h5 style="color: #1c7430">$${product.productPrice} per day</h5>
                             <p class="card-text">Range: ${product.productRange} miles</p>
                             <p class="card-text">Recharge time: ${product.productRechargeTime} minutes</p>
                             </div>
@@ -85,10 +85,18 @@
                         </div>
                         <div class="card-footer" ng-controller="cartCtrl">
                             <div class="btn-group">
-                                <a class="btn btn-sm btn-success" href="#" ng-click="addToCart('${product.productID}')">Add to cart</a>
+                                <sec:authorize access="isAnonymous()">
+                                    <a class="btn btn-sm btn-success" href="<c:url value="/login"/>">Login to rent!</a>
+                                </sec:authorize>
+                                <sec:authorize access="hasRole('ROLE_USER')">
+                                    <a class="btn btn-sm btn-success" href="#" ng-click="addToCart('${product.productID}')">Add to cart</a>
+                                </sec:authorize>
+                                <sec:authorize access="hasRole('ROLE_ADMIN')">
+                                    <a class="btn btn-sm btn-success" href="<c:url value="/admin/product/editProduct/${product.productID}"/> ">Edit</a>
+                                </sec:authorize>
                                 <a class="btn btn-outline-secondary btn-sm" href="<c:url value="/viewProduct/${product.productID}"/> ">View</a>
                             </div>
-                            <small class="text-muted">Contact us</small>
+                            <span class="badge badge-secondary float-right">NEW</span>
                         </div>
                     </div>
                 </div>
