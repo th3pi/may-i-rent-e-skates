@@ -160,7 +160,7 @@
                 <img class="img-thumbnail" src="../resources/img/bbs-profile-home-header.png" alt="Generic placeholder image" width="1500" height="140">
                 <h2 style="padding-top: 1%">Boosted Stealth  <span class="badge badge-secondary"> NEW ARRIVAL</span> </h2>
                 <p>Stealth is the high-performance electric longboard you’ve been dreaming of, built from the ground up with attention to detail at every turn, including a new ride mode, exclusive to Stealth, with higher top speed and lightning-fast acceleration.</p>
-                <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+                <p><a class="btn btn-secondary" href="<c:url value="/viewProduct/21"/> " role="button">View details &raquo;</a></p>
             </div><!-- /.col-lg-4 -->
         </div><!-- /.row -->
 
@@ -168,7 +168,7 @@
 
     <div class="container-fluid parallax text-center">
         <div class="text-center">
-            <h2 class="display-4" style="padding-top: 250px; color: #ffffff; text-align: center; display: inline-block;">
+            <h2 class="display-4" style="vertical-align: center; text-align: center; line-height: 390px; color: #fff;">
                 The most loved. <small class="text-muted">And the most rented.</small>
             </h2>
         </div>
@@ -202,7 +202,7 @@
     </div>
     <div class="container-fluid parallaxTwo">
         <div class="text-center">
-            <h2 class="display-4" style="padding-top: 250px; color: #ffffff; text-align: center; display: inline-block;">
+            <h2 class="display-4" style="vertical-align: center; text-align: center; line-height: 390px; color: #fff;">
                 Why walk? <small class="text-muted alert alert-light" style="padding: 0 10px 0 10px;"> When you can float. </small>
             </h2>
         </div>
