@@ -43,7 +43,7 @@ public class ProductController {
 
     @RequestMapping("/shop/cycles")
     public String getCycles(Model model){
-        List<Product> products = productService.getProductsByType("cycle");
+        List<Product> products = productService.getProductsByType("Bicycle");
         model.addAttribute("cycles",products);
         return "cycles";
     }

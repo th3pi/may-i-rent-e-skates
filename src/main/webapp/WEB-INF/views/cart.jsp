@@ -40,16 +40,16 @@
             </tr>
             <tr ng-repeat = "item in cart.cartItems">
                 <td>{{item.product.productName}}</td>
-                <td>{{item.product.productPrice}}</td>
+                <td>&#36;{{item.product.productPrice}}</td>
                 <td>{{item.quantity}}</td>
-                <td>{{item.totalPrice}}</td>
+                <td>&#36;{{item.totalPrice}}</td>
                 <%--<td><a class="btn btn-danger" ng-click="removeFromCart(item.product.productId)">remove</a> </td>--%>
             </tr>
             <tr>
                 <th></th>
                 <th></th>
                 <th>Grand Total</th>
-                <th>{{calGrandTotal()}}</th>
+                <th>&#36;{{calGrandTotal()}}</th>
                 <%--<th></th>--%>
             </tr>
         </table>

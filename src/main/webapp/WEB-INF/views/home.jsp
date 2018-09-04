@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%--
   Created by IntelliJ IDEA.
   User: th3pi
@@ -62,14 +63,30 @@
             </ul>
             <ul class="navbar-nav right">
                 <c:if test="${pageContext.request.userPrincipal.name != null}">
+                    <sec:authorize access="hasRole('ROLE_ADMIN')">
+                        <li class="nav-item">
+                            <div class="btn-group">
+                                <a class="btn btn-warning" href="<c:url value="/admin" />">
+                                    Control Center
+                                </a>
+                                <button type="button" class="btn btn-warning dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span class="sr-only">Toggle Dropdown</span>
+                                </button>
+
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item" href="<c:url value="/admin/productInventory" />">Products</a>
+                                    <a class="dropdown-item" href="<c:url value="/admin/manageUsers" />">Users</a>
+                                    <a class="dropdown-item" href="<c:url value="/admin/manageOrders"/>">Orders</a>
+                                </div>
+                            </div>
+                        </li>
+                    </sec:authorize>
                     <c:if test="${pageContext.request.userPrincipal.name != 'admin'}">
-                        <li><a class="nav-link btn btn-dark" href="<c:url value="/user/profile/"/> ">Profile</a> </li>
-                        <li><a class="nav-link" href="<c:url value="/customer/cart/"/> ">Cart</a> </li>
+                        <li><a class="nav-link btn btn-dark" href="<c:url value="/user/profile/"/> ">Profile</a></li>
+                        <li><a class="nav-link btn btn-dark" href="<c:url value="/customer/cart/"/> ">Cart</a> </li>
                     </c:if>
-                    <li><a class="nav-link" href="<c:url value="/j_spring_security_logout"/> ">Logout</a> </li>
-                    <c:if test="${pageContext.request.userPrincipal.name == 'admin'}">
-                        <li><a class="nav-link" href="<c:url value="/admin" />">Admin</a> </li>
-                    </c:if>
+                    <li><a class="nav-link btn btn-dark" href="<c:url value="/j_spring_security_logout"/> ">Logout</a> </li>
+
                 </c:if>
                 <c:if test="${pageContext.request.userPrincipal.name == null}">
                     <li><a class="nav-link btn btn-dark" href="<c:url value="/login" />">Login</a></li>

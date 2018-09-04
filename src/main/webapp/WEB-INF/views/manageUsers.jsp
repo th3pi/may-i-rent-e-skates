@@ -44,6 +44,7 @@
     <table class="table table-striped table-hover">
         <thead>
         <tr class="bg-dark">
+            <th>ID#</th>
             <th>Name</th>
             <th>Email</th>
             <th>Phone</th>
@@ -56,6 +57,7 @@
         <c:forEach items="${users}" var="user">
 
             <tr>
+                <td>${user.customerId}</td>
                 <td>${user.customerName}</td>
                 <td>${user.customerEmail}</td>
                 <td>${user.customerPhone}</td>

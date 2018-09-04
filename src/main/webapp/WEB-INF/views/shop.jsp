@@ -29,6 +29,9 @@
                 <a href="<c:url value="/shop/cycles"/>" class="list-group-item">Cycles</a>
                 <input class="form-control" id="myInput" type="text" placeholder="Search..">
             </div>
+        <br>
+            <br>
+        <img src="../resources/img/bbv2-side-banner.png">
 
         </div>
         <!-- /.col-lg-3 -->
@@ -42,10 +45,10 @@
                     <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
                 </ol>
                 <div class="carousel-inner" role="listbox">
-                    <div class="carousel-item active">
+                    <div class="carousel-item ">
                         <img class="d-block img-fluid" src="<c:url value="../resources/img/bbv2-banner.png"/> " alt="First slide">
                     </div>
-                    <div class="carousel-item">
+                    <div class="carousel-item active">
                         <img class="d-block img-fluid" src="<c:url value="../resources/img/bbs-banner.png"/>" alt="Second slide">
                     </div>
                     <div class="carousel-item">
@@ -62,7 +65,7 @@
                 </a>
             </div>
 
-            <div class="row" id="products">
+            <div class="row" id="products" ng-app="cartApp">
                 <c:forEach items="${products}" var="product">
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="card h-20 slide-in-bck-center">
@@ -80,8 +83,12 @@
                             </div>
                             </a>
                         </div>
-                        <div class="card-footer">
-                            <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                        <div class="card-footer" ng-controller="cartCtrl">
+                            <div class="btn-group">
+                                <a class="btn btn-sm btn-success" href="#" ng-click="addToCart('${product.productID}')">Add to cart</a>
+                                <a class="btn btn-outline-secondary btn-sm" href="<c:url value="/viewProduct/${product.productID}"/> ">View</a>
+                            </div>
+                            <small class="text-muted">Contact us</small>
                         </div>
                     </div>
                 </div>
@@ -107,4 +114,5 @@
         });
     });
 </script>
+<script src="<c:url value="/resources/js/controller.js"/> ">
 <%@include file="template/footer.jsp"%>
