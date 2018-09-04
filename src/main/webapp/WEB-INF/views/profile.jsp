@@ -14,7 +14,7 @@
 <%@include file="/WEB-INF/views/template/header.jsp"%>
 <title>${customer.customerName} | Rent eSkates</title>
 <c:if test="${pageContext.request.userPrincipal.name == customer.username}">
-<<main role="main">
+<main role="main">
 
 <section class="jumbotron text-center tracking-in-expand" style="padding-top: 120px;">
     <div class="container">

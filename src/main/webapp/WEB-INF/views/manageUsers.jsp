@@ -25,7 +25,7 @@
 </script>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
-<title>Manage Users | Admin Panel</title>
+<title>User Control | Admin Panel</title>
 <div class="container-fluid" style="padding-top: 100px">
     <div class="jumbotron" style="height: 250px;">
         <div class="row">
@@ -34,7 +34,7 @@
                 <p class="lead">Add, customize or view user details.</p>
             </div>
             <div class="col-lg-2">
-                <a class="float-right" href="<spring:url value="/admin/manageUsers/employee/addEmployee"/>" style="color: #fff; text-decoration: none;"><button type="button" class="btn btn-primary" style="height: 100%; padding: 0 50px 0 50px;">Add Employee</button></a>
+                <a class="float-right" href="<spring:url value="/admin/manageUsers/employee/addEmployee"/>" style="color: #fff; text-decoration: none;"><button type="button" class="btn btn-danger" style="height: 100%; padding: 0 50px 0 50px;">Add Employee</button></a>
 
                 <a class="float-left" href="<spring:url value="/admin/manageUsers/user/addUser"/>" style="color: #fff; text-decoration: none;"><button type="button" class="btn btn-primary" style="height: 100%; padding: 0 50px 0 50px;">Add User</button></a>
             </div>
@@ -50,7 +50,7 @@
             <th>Phone</th>
             <th>Cart ID</th>
             <th>User Since</th>
-            <th></th>
+            <th>Action</th>
         </tr>
         </thead>
         <tbody id="myTable">
@@ -64,6 +64,7 @@
                 <td>${user.cart.cartId}</td>
                 <td>${user.joinDate}</td>
                 <td>
+                    <a class="btn btn-primary" href="<spring:url value="/admin/manageUsers/user/editUser/${user.customerId}" />"><i class="material-icons" data-toggle="tooltip" title="Edit">edit</i></a>
                     <a class="btn btn-primary" href="<spring:url value="/admin/manageUsers/user/editUser/${user.customerId}" />"><i class="material-icons" data-toggle="tooltip" title="Edit">edit</i></a></td>
 
             </tr>

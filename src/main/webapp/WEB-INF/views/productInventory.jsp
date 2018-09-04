@@ -23,6 +23,7 @@
 </script>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
+<title>Product Inventory | Rent eSkates</title>
 <%--TODO FIX THIS--%>
 <div class="container-fluid" style="padding-top: 100px">
     <div class="jumbotron">

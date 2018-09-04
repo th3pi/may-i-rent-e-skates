@@ -10,7 +10,7 @@
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="spring" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@include file="template/header.jsp"%>
-<title>Admin Panel | Rent eSkates</title>
+<title>Control Center | Rent eSkates</title>
 <div class="container-fluid" style="padding-top: 100px">
         <div class="jumbotron">
             <h2>Control Center</h2>
