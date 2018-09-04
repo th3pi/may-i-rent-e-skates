@@ -49,7 +49,6 @@ public class OrderAdminController {
         CustomerOrder customerOrder = customerOrderService.getCustomerOrderById(id);
         customerOrder.setOrderStatus("Payment Received");
         Customer customer = customerOrder.getCustomer();
-        customerService.assignNewCart(customer);
         customerOrderService.updateOrderStatus(customerOrder);
         return "redirect:/admin/manageOrders";
     }

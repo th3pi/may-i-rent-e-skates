@@ -34,7 +34,7 @@
         <c:when test="${orders.size() eq 0}">
             <h2 class="lead text-center tracking-in-expand">You didn't order anything yet.</h2>
             <hr>
-            <h2 class="text-center"><a class="btn btn-outline-success heartbeat" href="/shop">Click here to get started</a></h2>
+            <h2 class="text-center"><a class="btn btn-outline-success heartbeat" href="<c:url value="/shop" />">Click here to get started</a></h2>
         </c:when>
             <c:when test="${orders.size() ne null}">
         <div class="row">
@@ -72,14 +72,14 @@
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group">
                                 <a class="btn btn-sm btn-outline-secondary" href="<c:url value="/user/viewOrder/${order.customerOrderId}"/> ">View</a>
-                                    <c:if test="${order.orderStatus ne 'Cancelled'}">
+                                    <c:if test="${order.orderStatus eq 'Order Awaiting Confirmation'}">
                                         <a class="btn btn-outline-danger btn-sm" href="<c:url value="/user/markOrderAsCancelled/${order.customerOrderId}"/> ">Cancel</a>
                                     </c:if>
-                                <c:if test="${order.orderStatus eq 'Cancelled'}">
+                                <c:if test="${order.orderStatus ne 'Order Awaiting Confirmation'}">
                                     <a class="btn btn-outline-danger disabled btn-sm" href="<c:url value="/user/markOrderAsCancelled/${order.customerOrderId}"/> ">Cancel</a>
                                 </c:if>
                             </div>
-                            <small class="text-muted">9 mins</small>
+                            <small class="text-muted">Contact us</small>
                         </div>
                     </div>
                 </div>

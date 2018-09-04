@@ -16,11 +16,11 @@
 
 <title>Shop | Rent eSkates</title>
 <!-- Page Content -->
-<div class="container color-change-2x" style="padding-top: 80px">
+<div class="container" style="padding-top: 80px">
 
     <div class="row">
 
-        <div class="col-lg-3">
+        <div class="col-lg-3 slide-in-left">
 
             <h1 class="my-4">All Products</h1>
             <div class="list-group">
@@ -35,7 +35,7 @@
 
         <div class="col-lg-9">
 
-            <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
+            <div id="carouselExampleIndicators" class="carousel slide my-4 slide-in-right" data-ride="carousel">
                 <ol class="carousel-indicators">
                     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -65,7 +65,7 @@
             <div class="row" id="products">
                 <c:forEach items="${products}" var="product">
                 <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card h-20 scale-up-ver-bottom">
+                    <div class="card h-20 slide-in-bck-center">
                         <a href="#"><img src="<c:url value="/resources/img/${product.productID}.png" /> " alt="image" style="width: 250px; height: 250px"/>
                         </a>
                         <div class="card-body">

@@ -16,7 +16,7 @@
         <div class="alert alert-success">${msg}</div>
     </c:if>
     <div class="container" style="width: 25%;">
-    <form class="form-signin" name="loginForm" action="<c:url value="/j_spring_security_check" />" method="post">
+    <form class="form-signin fade-in" name="loginForm" action="<c:url value="/j_spring_security_check" />" method="post">
         <img class="mb-4" src="../resources/img/rentskateslogo.png" alt="" width="250" height="250">
         <br>
         <c:if test="${not empty error}">

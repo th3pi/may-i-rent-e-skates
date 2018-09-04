@@ -55,7 +55,7 @@
 </style>
 <div id="wrapper" class="animated zoomIn">
     <!-- We make a wrap around all of the content so that we can simply animate all of the content at the same time. I wanted a zoomIn effect and instead of placing the same class on all tags, I wrapped them into one div! -->
-    <a class="btn btn-dark" href="<c:url value="/"/> "><h1>
+    <a class="btn btn-dark" href="<c:url value="/"/> "><h1 class="text-flicker-in-glow">
         <!-- The <h1> tag is the reason why the text is big! -->
         <underline>Thank you!</underline>
         <!-- The underline makes a border on the top and on the bottom of the text -->

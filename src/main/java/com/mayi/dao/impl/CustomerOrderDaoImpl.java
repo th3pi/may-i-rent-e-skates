@@ -55,7 +55,7 @@ public class CustomerOrderDaoImpl implements CustomerOrderDao{
 
     public List<CustomerOrder> getAllCustomerOrders(){
         Session session = sessionFactory.getCurrentSession();
-        Query query = session.createQuery("from CustomerOrder");
+        Query query = session.createQuery("from CustomerOrder order by customerOrderId desc");
         List<CustomerOrder> customerOrders = query.list();
         return customerOrders;
     }

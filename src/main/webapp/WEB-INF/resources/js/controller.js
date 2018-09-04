@@ -98,7 +98,7 @@ cartApp.controller("cartCtrl", function ($scope, $http){
     };
 
     $scope.removeFromCart = function (productId) {
-        $http.delete('/rest/cart/remove/'+productId).success(function (data) {
+        $http.put('/rest/cart/remove/'+productId).success(function (data) {
             $scope.refreshCart();
         });
     };

@@ -1,8 +1,7 @@
 package com.mayi.controller;
 
-import com.mayi.model.Customer;
-import com.mayi.model.CustomerOrder;
-import com.mayi.model.OrderDetails;
+import com.mayi.model.*;
+import com.mayi.service.CartService;
 import com.mayi.service.CustomerOrderService;
 import com.mayi.service.CustomerService;
 import com.mayi.service.OrderDetailsService;
@@ -30,6 +29,9 @@ public class CartController {
     @Autowired
     private OrderDetailsService orderDetailsService;
 
+    @Autowired
+    private CartService cartService;
+
     @RequestMapping("/cart")
     public String getCart(@AuthenticationPrincipal User activeUser){
         Customer customer = customerService.getCustomerByUsername (activeUser.getUsername());
@@ -40,6 +42,9 @@ public class CartController {
 
     @RequestMapping("/cart/{cartId}")
     public String getCartRedirect(@PathVariable (value = "cartId") int cartId, Model model) {
+        Cart cart = cartService.getCartById(cartId);
+        List<CartItem> cartItems = cart.getCartItems();
+        model.addAttribute("cartItems",cartItems);
         model.addAttribute("cartId", cartId);
 
         return "cart";

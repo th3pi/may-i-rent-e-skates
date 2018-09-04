@@ -11,16 +11,23 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@include file="template/header.jsp"%>
 <title>Cart | Rent eSkates</title>
-<body style="background-color: #f4f5f5">
+<body>
 <div class="container" style="padding-top: 100px">
     <section>
         <div class="jumbotron">
             <div class="container">
                 <h1>Cart</h1>
-                <p>Items you want</p>
+                <p>Checkout or clear your cart.</p>
             </div>
         </div>
     </section>
+    <c:choose>
+    <c:when test="${cartItems.size() eq 0}">
+        <h2 class="lead text-center tracking-in-expand">You don't have anything in your cart yet.</h2>
+        <hr>
+        <h2 class="text-center"><a class="btn btn-outline-success heartbeat" href="<c:url value="/shop" />">Click here to get started</a></h2>
+    </c:when>
+        <c:when test="${cartItems.size() ne 0}">
     <section ng-app="cartApp">
         <div ng-controller = "cartCtrl" ng-init="initCartId('${cartId}')">
         <table class="table table-hover">
@@ -29,30 +36,37 @@
                 <th>One Day Price</th>
                 <th>Days</th>
                 <th>Total Price</th>
-                <th>Action</th>
+                <%--<th>Action</th>--%>
             </tr>
             <tr ng-repeat = "item in cart.cartItems">
                 <td>{{item.product.productName}}</td>
                 <td>{{item.product.productPrice}}</td>
                 <td>{{item.quantity}}</td>
                 <td>{{item.totalPrice}}</td>
-                <td><a href="#" class="btn btn-danger" ng-click="removeFromCart(item.product.productId)">remove</a> </td>
+                <%--<td><a class="btn btn-danger" ng-click="removeFromCart(item.product.productId)">remove</a> </td>--%>
             </tr>
             <tr>
                 <th></th>
                 <th></th>
                 <th>Grand Total</th>
                 <th>{{calGrandTotal()}}</th>
-                <th></th>
+                <%--<th></th>--%>
             </tr>
-        </table><div>
-            <a class="btn btn-danger" ng-click="clearCart()"><span>Clear cart</span> </a>
+        </table>
+            <div class="row">
+                <div class="col-md-2">
+            <a class="btn btn-danger btn-lg d-block" ng-click="clearCart()"><span>Clear cart</span> </a>
+                </div>
+                <div class="col-md-10">
             <a href="<c:url value="/order/${cartId}"/> "
-               class="btn btn-primary">Checkout</a>
+               class="btn btn-primary btn-lg d-block">Checkout</a>
+                </div>
         </div>
         <a href="<c:url value="/shop"/> ">Continue Shopping</a>
         </div>
     </section>
+        </c:when>
+    </c:choose>
 </div>
 </body>
 <script src="<c:url value="/resources/js/controller.js"/> ">
