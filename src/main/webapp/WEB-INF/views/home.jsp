@@ -116,7 +116,7 @@
                     <div class="carousel-caption text-left">
                         <h1>FEED YOUR ADRENALINE</h1>
                         <p>Only sky is the limit with the ultimate form of portable transportation - BE ANYWHERE.</p>
-                        <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
+                        <p><a class="btn btn-lg btn-primary" href="<c:url value="/register"/> " role="button">Sign up today</a></p>
                     </div>
                 </div>
             </div>
@@ -126,7 +126,7 @@
                     <div class="carousel-caption text-right">
                         <h1>Some say the float life is the best life</h1>
                         <p>Why don't you put that to test? Start riding the all new OneWheel+ XR starting at $14.99 a day</p>
-                        <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+                        <p><a class="btn btn-lg btn-primary" href="<c:url value="/viewProduct/23"/> " role="button">Learn more</a></p>
                     </div>
                 </div>
             </div>

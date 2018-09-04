@@ -31,7 +31,7 @@
             </div>
         <br>
             <br>
-        <img src="../resources/img/bbv2-side-banner.png">
+        <img src="../resources/img/bbv2-side-banner.png" href="<c:url value="/viewProduct/13"/> ">
 
         </div>
         <!-- /.col-lg-3 -->
