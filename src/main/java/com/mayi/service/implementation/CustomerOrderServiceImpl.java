@@ -53,6 +53,10 @@ public class CustomerOrderServiceImpl implements CustomerOrderService {
         return customerOrderDao.getAllCustomerOrdersById(id);
     }
 
+    public List<CustomerOrder> getPendingOrders() {
+        return customerOrderDao.getPendingOrders();
+    }
+
     //    public void getOrderGrandTotal(CustomerOrder customerOrder){
 //        customerOrderDao.getOrderGrandTotal(customerOrder);
 //    }

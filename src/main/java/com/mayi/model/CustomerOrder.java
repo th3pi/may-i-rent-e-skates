@@ -36,6 +36,8 @@ public class CustomerOrder implements Serializable {
 
     private String orderStatus;
 
+    private double orderTotal;
+
 //    public double getGrandTotal() {
 //        return grandTotal;
 //    }
@@ -43,6 +45,14 @@ public class CustomerOrder implements Serializable {
 //    public void setGrandTotal(float grandTotal) {
 //        this.grandTotal = grandTotal;
 //    }
+
+    public double getOrderTotal() {
+        return orderTotal;
+    }
+
+    public void setOrderTotal(double orderTotal) {
+        this.orderTotal = orderTotal;
+    }
 
     public String getOrderStatus() {
         return orderStatus;

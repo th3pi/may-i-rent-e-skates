@@ -19,5 +19,7 @@ public interface CustomerOrderService {
 
     double getCustomerOrderGrandTotal(int cartId);
 
+    List<CustomerOrder> getPendingOrders();
+
 //    void getOrderGrandTotal(CustomerOrder customerOrder);
 }

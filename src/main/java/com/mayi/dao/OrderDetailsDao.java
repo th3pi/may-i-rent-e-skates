@@ -18,6 +18,7 @@ public interface OrderDetailsDao {
 
     OrderDetails getOrderDetailsByOrderId(int id);
 
+
     List<OrderDetails> getAllOrderDetailsByOrderId(int id);
 
 }

@@ -31,7 +31,7 @@ public class CustomerOrderDaoImpl implements CustomerOrderDao{
 
     public void addCustomerOrder(CustomerOrder customerOrder) {
         Session session = sessionFactory.getCurrentSession();
-        DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+        DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
         Date date = new Date();
         customerOrder.setOrderDate(dateFormat.format(date));
         customerOrder.setOrderStatus("Order Awaiting Confirmation");
@@ -66,6 +66,13 @@ public class CustomerOrderDaoImpl implements CustomerOrderDao{
         query.setInteger(0,id);
 //        getOrderGrandTotal((CustomerOrder) query.uniqueResult());
         return (CustomerOrder) query.uniqueResult();
+    }
+
+    public List<CustomerOrder> getPendingOrders(){
+        Session session = sessionFactory.getCurrentSession();
+        Query query = session.createQuery("from CustomerOrder where orderStatus = ?");
+        query.setString(0,"Order Awaiting Confirmation");
+        return query.list();
     }
 
 //    public void getOrderGrandTotal(CustomerOrder customerOrder) {

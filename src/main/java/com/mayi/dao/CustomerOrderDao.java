@@ -16,6 +16,8 @@ public interface CustomerOrderDao {
 
     List<CustomerOrder> getAllCustomerOrdersById(int id);
 
+    List<CustomerOrder> getPendingOrders();
+
 //    void getOrderGrandTotal(CustomerOrder customerOrder);
 
 }

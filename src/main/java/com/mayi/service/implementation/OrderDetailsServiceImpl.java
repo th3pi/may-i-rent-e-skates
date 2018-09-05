@@ -41,4 +41,6 @@ public class OrderDetailsServiceImpl implements OrderDetailsService {
     public List<OrderDetails> getAllOrderDetailsByOrderId(int id) {
         return orderDetailsDao.getAllOrderDetailsByOrderId(id);
     }
+
+
 }

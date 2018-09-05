@@ -16,6 +16,7 @@ public interface OrderDetailsService {
 
     void removeOrderDetails(OrderDetails orderDetails);
 
+
     OrderDetails getOrderDetailsByOrderId(int id);
 
     List<OrderDetails> getAllOrderDetailsByOrderId(int id);

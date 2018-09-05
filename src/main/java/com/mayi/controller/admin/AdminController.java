@@ -1,11 +1,7 @@
 package com.mayi.controller.admin;
 
-import com.mayi.model.Customer;
-import com.mayi.model.CustomerOrder;
-import com.mayi.model.Product;
-import com.mayi.service.CustomerOrderService;
-import com.mayi.service.CustomerService;
-import com.mayi.service.ProductService;
+import com.mayi.model.*;
+import com.mayi.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,8 +16,21 @@ public class AdminController {
     @Autowired
     private ProductService productService;
 
+    @Autowired
+    private OrderDetailsService orderDetailsService;
+
+    @Autowired
+    private CustomerOrderService customerOrderService;
+
+    @Autowired
+    private OrderStatsYearlyService orderStatsYearlyService;
+
     @RequestMapping
-    public String adminPage(){
+    public String adminPage(Model model){
+        List<CustomerOrder> customerOrders = customerOrderService.getAllCustomerOrders();
+        orderStatsYearlyService.getTotalSalesYTD(customerOrders);
+        OrderStatsYearly orderStatsYearly = orderStatsYearlyService.getOrderStatsByDate("2018");
+        model.addAttribute(orderStatsYearly);
         return "admin";
     }
 
@@ -42,9 +51,6 @@ public class AdminController {
 
         return "manageUsers";
     }
-
-    @Autowired
-    private CustomerOrderService customerOrderService;
 
     @RequestMapping("/manageOrders")
     public String manageOrders(Model model){

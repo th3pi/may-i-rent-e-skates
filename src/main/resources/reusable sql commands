@@ -11,9 +11,19 @@ drop table customer cascade constraints;
 drop table customerorder cascade constraints;
 drop table shippingaddress cascade constraints;
 drop table billingaddress cascade constraints;
+drop table product cascade constraints;
+drop table orderdetails cascade constraints;
+drop table customerjoindatae cascade constraints;
+drop table authorities cascade constraints;
+drop table users cascade constraints;
 
 select * from customer;
 
 insert into product(productdescription, productmanufacturer, productname, productprice, productquantity, productrange, productrechargetime,productrentlimit,productsku,productspeed,producttype,productweight)
 values('Boosted Mini is the stash-and-go Boosted experience you’ve been waiting for. At only 29.5 inches long, it fits perfectly under desks, in overhead storage on busses and trains, and is built for riders who are always on the move.',
 'Boosted','Boosted Mini S',12.99,'4','5','50','2','BB104','22','Skateboard','11');
+
+
+Insert into TANJIM.PRODUCT (PRODUCTID,PRODUCTDESCRIPTION,PRODUCTMANUFACTURER,PRODUCTNAME,PRODUCTPRICE,PRODUCTQUANTITY,PRODUCTRANGE,PRODUCTRECHARGETIME,PRODUCTRENTLIMIT,PRODUCTSKU,PRODUCTSPEED,PRODUCTTYPE,PRODUCTWEIGHT) values (316,null,null,'Boosted Mini S',0,'2',null,null,null,null,null,'Skateboard',null);
+Insert into TANJIM.PRODUCT (PRODUCTID,PRODUCTDESCRIPTION,PRODUCTMANUFACTURER,PRODUCTNAME,PRODUCTPRICE,PRODUCTQUANTITY,PRODUCTRANGE,PRODUCTRECHARGETIME,PRODUCTRENTLIMIT,PRODUCTSKU,PRODUCTSPEED,PRODUCTTYPE,PRODUCTWEIGHT) values (82,'Ow+','Future Motion, Inc','OneWheel+ ',12.99,'2','5','20','2','OW102','19','Skateboard','27');
+Insert into TANJIM.PRODUCT (PRODUCTID,PRODUCTDESCRIPTION,PRODUCTMANUFACTURER,PRODUCTNAME,PRODUCTPRICE,PRODUCTQUANTITY,PRODUCTRANGE,PRODUCTRECHARGETIME,PRODUCTRENTLIMIT,PRODUCTSKU,PRODUCTSPEED,PRODUCTTYPE,PRODUCTWEIGHT) values (88,'Amp up your work or school commute with the GOTRAX GXL electric scooter. With a boosted 250-watt engine, your GXL e-scooter can reach a top speed of 15 mph!','GOTRAX','GOTRAX GXL',12.99,'5','12','360','5','GT101','16','Scooter','30');

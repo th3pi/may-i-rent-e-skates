@@ -21,7 +21,7 @@
             <h3>
             <a href="<c:url value="/admin/productInventory/" /> " style="text-decoration: none;"><button type="button" class="btn btn-primary btn-lg btn-block" style="padding: 50px 0 50px 0;">Manage Products</button></a>
                 <br>
-                <a href="<c:url value="/admin/manageUsers"/> " style="text-decoration: none;"><button type="button" class="btn btn-primary btn-lg btn-block" style="padding: 50px 0 50px 0;">Manage Users</button></a>
+                <a href="<c:url value="/admin/manageUsers"/> " style="text-decoration: none;"><button type="button" class="btn btn-primary btn-lg btn-block" style="padding: 50px 0 50px 0;">${orderStatsYearly.sales}</button></a>
                 <br>
                 <a href="<c:url value="/admin/manageOrders"/>" style="text-decoration: none;"><button type="button" class="btn btn-primary btn-lg btn-block" style="padding: 50px 0 50px 0;">Manage Orders</button></a>
             </h3>

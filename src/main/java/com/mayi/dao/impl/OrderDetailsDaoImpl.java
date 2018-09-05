@@ -4,6 +4,7 @@ package com.mayi.dao.impl;
 import com.mayi.dao.OrderDetailsDao;
 import com.mayi.model.*;
 import com.mayi.service.CustomerOrderService;
+import com.mayi.service.OrderStatsYearlyService;
 import com.mayi.service.ProductService;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -27,6 +28,8 @@ public class OrderDetailsDaoImpl implements OrderDetailsDao {
     @Autowired
     private CustomerOrderService customerOrderService;
 
+    @Autowired
+    private OrderStatsYearlyService orderStatsYearlyService;
 
     public List<OrderDetails> getAllOrderDetails() {
         Session session = sessionFactory.getCurrentSession();
@@ -65,7 +68,7 @@ public class OrderDetailsDaoImpl implements OrderDetailsDao {
         Session session = sessionFactory.getCurrentSession();
         Query query = session.createQuery("from OrderDetails where customerorderid = ?");
         query.setInteger(0,id);
-        return (OrderDetails) query.uniqueResult();
+        return (OrderDetails) query.list().get(0);
     }
 
     public List<OrderDetails> getAllOrderDetailsByOrderId(int id) {
@@ -76,6 +79,23 @@ public class OrderDetailsDaoImpl implements OrderDetailsDao {
         session.flush();
         return orderDetailsList;
     }
+
+//    public double getTotalMonthly(List<OrderDetails> orderDetails, int month) {
+//        Session session = sessionFactory.getCurrentSession();
+//        double sales = 0;
+//        for(OrderDetails orderDetails1 : orderDetails){
+//            switch (month){
+//                case 1:
+//                    Query query = session.createQuery("from CustomerOrder where orderDate between '01/01/2018' and '01/31/2018'");
+//                    List<CustomerOrder> customerOrders = query.list();
+//
+//            }
+//        }
+//        OrderStats orderStats = new OrderStats();
+//        orderStats.setSalesYTD(sales);
+//        orderStatsYearlyService.addOrderStats(orderStats);
+//        return sales;
+//    }
 
     public void removeOrderDetails(OrderDetails orderDetails) {
 
