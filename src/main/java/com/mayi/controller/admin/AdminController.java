@@ -7,6 +7,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -25,11 +28,26 @@ public class AdminController {
     @Autowired
     private OrderStatsYearlyService orderStatsYearlyService;
 
+    @Autowired
+    private OrderStatsMonthlyService orderStatsMonthlyService;
+
+    @Autowired
+    private OrderStatsDailyService orderStatsDailyService;
+
     @RequestMapping
     public String adminPage(Model model){
         List<CustomerOrder> customerOrders = customerOrderService.getAllCustomerOrders();
         orderStatsYearlyService.getTotalSalesYTD(customerOrders);
-        OrderStatsYearly orderStatsYearly = orderStatsYearlyService.getOrderStatsByDate("2018");
+        DateFormat yearFormat = new SimpleDateFormat("YYYY");
+        OrderStatsYearly orderStatsYearly = orderStatsYearlyService.getOrderStatsByDate(yearFormat.format(new Date()));
+        orderStatsMonthlyService.getTotalSales(customerOrders);
+        DateFormat monthFormate = new SimpleDateFormat("MM");
+        OrderStatsMonthly orderStatsMonthly = orderStatsMonthlyService.getOrderStatsByDate(monthFormate.format(new Date()));
+        orderStatsDailyService.getTotalSales(customerOrders);
+        DateFormat todayFormat = new SimpleDateFormat("MM/dd/YYYY");
+        OrderStatsDaily orderStatsDaily = orderStatsDailyService.getOrderStatsByDate(todayFormat.format(new Date()));
+        model.addAttribute(orderStatsDaily);
+        model.addAttribute(orderStatsMonthly);
         model.addAttribute(orderStatsYearly);
         return "admin";
     }

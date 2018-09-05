@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface OrderStatsYearlyService {
 
-    List<OrderStatsYearly> getAllOrderStats();
+
 
     OrderStatsYearly getOrderStatsById(int id);
 
@@ -16,6 +16,7 @@ public interface OrderStatsYearlyService {
 
     OrderStatsYearly getOrderStatsByDate(String date);
 
+    List<OrderStatsYearly> getAllOrderStats();
     void addOrderStats(OrderStatsYearly orderStats);
 
     void getTotalSalesYTD(List<CustomerOrder> orderDetails);

@@ -23,8 +23,8 @@
                     <div class="card-body btn btn-light">
                         <h3>Today</h3><span style=" font-size: 350%" class="badge badge-success">$${orderStatsYearly.sales}</span>
                         <hr>
-                        <p>This month: </p><span style="font-size: 200%" class="badge badge-success">$${orderStatsYearly.sales}</span>
-                        <p>Year To Date: </p><span style="font-size: 150%" class="badge badge-success">$${orderStatsYearly.sales}</span>
+                        <p>This month: </p><span style="font-size: 200%" class="badge badge-success">$${orderStatsMonthly.sales}</span>
+                        <p>Year To Date: </p><span style="font-size: 150%" class="badge badge-success">$${orderStatsDaily.sales}</span>
                     </div>
             </div>
         </div>
@@ -50,7 +50,7 @@
             <h3>
             <a href="<c:url value="/admin/productInventory/" /> " style="text-decoration: none;"><button type="button" class="btn btn-primary btn-lg btn-block" style="padding: 50px 0 50px 0;">Manage Products</button></a>
                 <br>
-                <a href="<c:url value="/admin/manageUsers"/> " style="text-decoration: none;"><button type="button" class="btn btn-primary btn-lg btn-block" style="padding: 50px 0 50px 0;">${orderStatsYearly.sales}</button></a>
+                <a href="<c:url value="/admin/manageUsers"/> " style="text-decoration: none;"><button type="button" class="btn btn-primary btn-lg btn-block" style="padding: 50px 0 50px 0;">Manage Users</button></a>
                 <br>
                 <a href="<c:url value="/admin/manageOrders"/>" style="text-decoration: none;"><button type="button" class="btn btn-primary btn-lg btn-block" style="padding: 50px 0 50px 0;">Manage Orders</button></a>
             </h3>

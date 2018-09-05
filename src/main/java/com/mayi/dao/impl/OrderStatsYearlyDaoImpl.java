@@ -90,8 +90,10 @@ public class OrderStatsYearlyDaoImpl implements OrderStatsYearlyDao {
         orderStats.setSales(sales);
         Query query = session.createQuery("from OrderStatsYearly");
         List<OrderStatsYearly> previousStats = query.list();
-        if(sales != previousStats.get(previousStats.size()-1).getSales()){
-            addOrderStats(orderStats);
+        if(previousStats.size() > 0) {
+            if (sales != previousStats.get(previousStats.size() - 1).getSales()) {
+                addOrderStats(orderStats);
+            }
         }
     }
 
