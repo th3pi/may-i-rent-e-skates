@@ -6,7 +6,7 @@
 <%@include file="template/header.jsp"%>
 <title>${product.productName} | Rent eSkates</title>
 <div class="container-fluid" style="">
-    <div class="row bg-dark" style="padding-top: 8%; padding-left: 10%; padding-right: 10%; padding-bottom: 5%;">
+    <div class="row bg-dark" style="padding: 8% 10% 5%;">
         <div class="col-md-6">
             <h3 style="color: #fff; font-size: 500%;">${product.productName}</h3>
             <p class="lead" style="color: #fff">Manufacturer: ${product.productManufacturer}</p>

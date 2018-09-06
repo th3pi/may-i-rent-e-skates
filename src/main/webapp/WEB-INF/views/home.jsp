@@ -102,6 +102,14 @@
 </header>
 
 <main role="main">
+    <div class="container-fluid">
+        <div class="row bg-dark" style="padding: 450px 0 450px 0">
+            <div class="col-lg-12">
+                <h2 class="welcomeText fade-in" style="color: #fff; text-align: center; font-size: 650%">Rent <span class="text-flicker-in-glow-infinite">e</span>Skates</h2>
+                <p class="lead text-flicker-in-glow" style="color: #fff; text-align: center; font-size: 250%;">New York's new Mass Transit</p>
+            </div>
+        </div>
+    </div>
 
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">

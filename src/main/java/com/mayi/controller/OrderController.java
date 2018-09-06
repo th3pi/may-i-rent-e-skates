@@ -36,6 +36,9 @@ public class OrderController {
         customerOrder.setShippingAddress(customer.getShippingAddress());
         customerOrderService.addCustomerOrder(customerOrder);
         orderDetailsService.insertNewProduct(customerOrder.getCustomerOrderId());
+
+
+
         return "redirect:/checkout?cartId="+cartId;
     }
 }

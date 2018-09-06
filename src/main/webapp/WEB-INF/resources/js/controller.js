@@ -93,7 +93,7 @@ cartApp.controller("cartCtrl", function ($scope, $http){
 
     $scope.addToCart = function (productId) {
         $http.put('/rest/cart/add/'+productId).success(function () {
-            alert("Product successfully added to the cart!")
+            return null;
         });
     };
 

@@ -41,8 +41,8 @@ public class AdminController {
         DateFormat yearFormat = new SimpleDateFormat("YYYY");
         OrderStatsYearly orderStatsYearly = orderStatsYearlyService.getOrderStatsByDate(yearFormat.format(new Date()));
         orderStatsMonthlyService.getTotalSales(customerOrders);
-        DateFormat monthFormate = new SimpleDateFormat("MM");
-        OrderStatsMonthly orderStatsMonthly = orderStatsMonthlyService.getOrderStatsByDate(monthFormate.format(new Date()));
+        DateFormat monthFormat = new SimpleDateFormat("MM");
+        OrderStatsMonthly orderStatsMonthly = orderStatsMonthlyService.getOrderStatsByDate(monthFormat.format(new Date()));
         orderStatsDailyService.getTotalSales(customerOrders);
         DateFormat todayFormat = new SimpleDateFormat("MM/dd/YYYY");
         OrderStatsDaily orderStatsDaily = orderStatsDailyService.getOrderStatsByDate(todayFormat.format(new Date()));

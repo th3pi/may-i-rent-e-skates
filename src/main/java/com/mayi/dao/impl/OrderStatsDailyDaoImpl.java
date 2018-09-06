@@ -47,14 +47,14 @@ public class OrderStatsDailyDaoImpl implements OrderStatsDailyDao {
 
     public void getTotalSales(List<CustomerOrder> orderDetails) {
         double sales = 0;
+        DateFormat dateFormat = new SimpleDateFormat("MM/dd/YYYY");
+        Date date = new Date();
         for(CustomerOrder order : orderDetails){
-            if(!order.getOrderStatus().equals("Order Awaiting Confirmation")){
+            if(!order.getOrderStatus().equals("Order Awaiting Confirmation") && order.getOrderDate().equals(dateFormat.format(date))){
                 sales += order.getOrderTotal();
             }
         }
         OrderStatsDaily orderStatsDaily = new OrderStatsDaily();
-        DateFormat dateFormat = new SimpleDateFormat("MM/dd/YYYY");
-        Date date = new Date();
         orderStatsDaily.setToday(dateFormat.format(date));
         orderStatsDaily.setSales(sales);
         List<OrderStatsDaily> orderStatsDailies = getAllOrderStats();

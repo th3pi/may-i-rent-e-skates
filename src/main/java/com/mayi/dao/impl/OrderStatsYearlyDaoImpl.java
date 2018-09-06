@@ -3,20 +3,14 @@ package com.mayi.dao.impl;
 
 import com.mayi.dao.OrderStatsYearlyDao;
 import com.mayi.model.CustomerOrder;
-import com.mayi.model.OrderDetails;
 import com.mayi.model.OrderStatsYearly;
-import com.mayi.model.Product;
-import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.criterion.Projections;
-import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.persistence.EntityManager;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -67,25 +61,18 @@ public class OrderStatsYearlyDaoImpl implements OrderStatsYearlyDao {
     public void getTotalSalesYTD(List<CustomerOrder> orderDetails) {
         Session session = sessionFactory.getCurrentSession();
         double sales = 0;
-//
-//        Query query = session.createQuery("from " +
-//                "(select productId, count(*) " +
-//                "from OrderDetails" +
-//                "group by productId" +
-//                "order by productId asc)");
-//        List<Product> hottestProductList = query.list();
-//
-//        Product hottestProduct = hottestProductList.get(0);
-
+        DateFormat dateFormat = new SimpleDateFormat("YYYY");
+        Date date = new Date();
         for(CustomerOrder orderDetails1 : orderDetails){
-            if(!orderDetails1.getOrderStatus().equals("Order Awaiting Confirmation")) {
+            String currentYear = Integer.toString(orderDetails1.getOrderDate().charAt(6)) +
+                    Integer.toString(orderDetails1.getOrderDate().charAt(7)) +
+                    Integer.toString(orderDetails1.getOrderDate().charAt(8)) +
+                    Integer.toString(orderDetails1.getOrderDate().charAt(9));
+            if(!orderDetails1.getOrderStatus().equals("Order Awaiting Confirmation") && currentYear.equals(dateFormat.format(date))) {
                 sales += orderDetails1.getOrderTotal();
             }
         }
         OrderStatsYearly orderStats = new OrderStatsYearly();
-        DateFormat dateFormat = new SimpleDateFormat("YYYY");
-        Date date = new Date();
-//        orderStats.setMostPopularProduct(hottestProduct);
         orderStats.setYear(dateFormat.format(date));
         orderStats.setSales(sales);
         Query query = session.createQuery("from OrderStatsYearly");
