@@ -9,6 +9,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="spring" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@include file="template/header.jsp"%>
 <title>Control Center | Rent eSkates</title>
 <div class="container-fluid" style="padding-top: 100px">
@@ -16,32 +17,46 @@
             <h2>Control Center</h2>
             <p class="lead">Manage products, users and orders.</p>
         </div>
+    <h4 class="display-4">Order Stats</h4>
+    <hr>
     <div class="row" style="padding-bottom: 30px;">
-        <div class="col-md-4">
-            <div class="card">
-                    <h5 class="card-header">Total Sales</h5>
-                    <div class="card-body btn btn-light">
-                        <h3>Today</h3><span style=" font-size: 350%" class="badge badge-success">$${orderStatsYearly.sales}</span>
-                        <hr>
-                        <p>This month: </p><span style="font-size: 200%" class="badge badge-success">$${orderStatsMonthly.sales}</span>
-                        <p>Year To Date: </p><span style="font-size: 150%" class="badge badge-success">$${orderStatsDaily.sales}</span>
-                    </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card">
-                <div class="card-header">
-                    <h4>Total Sales</h4>
-                    <h2>$${orderStatsYearly.sales}</h2>
+            <div class="col-md" >
+                <div class="text-center border border-danger" style="padding: 80px 0 80px 0">
+                    <h4 class="display-3 text-left align-middle" style="font-size: 180%; color: #ff084e"> &nbsp; Pending Orders <span class="float-right" style="font-size: larger">${pending.size()} &nbsp;</span></h4>
                 </div>
             </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card">
-                <div class="card-header">
-                    <h4>Total Sales</h4>
-                    <h2>$${orderStatsYearly.sales}</h2>
+            <div class="col-md" >
+                <div class="text-center border border-info" style="padding: 80px 0 80px 0">
+                    <h4 class="display-3 text-left align-middle" style="font-size: 180%; color: #17a2b8"> &nbsp; Picked Up Orders <span class="float-right" style="font-size: larger">${pickedup.size()} &nbsp;</span></h4>
                 </div>
+            </div>
+            <div class="col-md" >
+                <div class="text-center border border-warning" style="padding: 80px 0 80px 0">
+                    <h4 class="display-3 text-left align-middle" style="font-size: 180%; color: #ffc107;"> &nbsp; Awaiting Return <span class="float-right" style="font-size: larger">${areturn.size()} &nbsp;</span></h4>
+                </div>
+            </div>
+            <div class="col-md" >
+                <div class="text-center border border-success" style="padding: 80px 0 80px 0">
+                    <h4 class="display-3 text-left align-middle" style="font-size: 180%; color: #1e7e34"> &nbsp; Completed <span class="float-right" style="font-size: larger">${completed.size()} &nbsp;</span></h4>
+                </div>
+            </div>
+    </div>
+    <h4 class="display-4">Financial Stats</h4>
+    <hr>
+    <div class="row" style="padding-bottom: 30px;">
+        <div class="col-md" >
+            <div class="text-center border border-success" style="padding: 80px 0 80px 0">
+                <h4 class="display-3 text-left align-middle" style="font-size: 180%; color: #1e7e34"> &nbsp; Today's Sales <span class="float-right" style="font-size: larger"><fmt:formatNumber value="${orderStatsDaily.sales}" type="currency" currencySymbol="$"/> &nbsp;</span></h4>
+            </div>
+        </div>
+        <div class="col-md" >
+            <div class="text-center border border-success" style="padding: 80px 0 80px 0">
+                <h4 class="display-3 text-left align-middle" style="font-size: 180%; color: #1e7e34"> &nbsp; This Month's Sales <span class="float-right" style="font-size: larger"><fmt:formatNumber value="${orderStatsMonthly.sales}" type="currency" currencySymbol="$"/> &nbsp;</span></h4>
+            </div>
+        </div>
+        <div class="col-md" >
+            <div class="text-center border border-success" style="padding: 80px 0 80px 0">
+                <h4 class="display-3 text-left align-middle" style="font-size: 180%; color: #1e7e34;"> &nbsp; This Year's Sales <span class="float-right" style="font-size: larger"><fmt:formatNumber value="${orderStatsYearly.sales}" type="currency" currencySymbol="$"/> &nbsp;</span></h4>
             </div>
         </div>
     </div>
@@ -57,6 +72,4 @@
         </div>
     </div>
 </div>
-
-
 <%@include file="template/footer.jsp"%>

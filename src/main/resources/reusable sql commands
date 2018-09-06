@@ -13,9 +13,38 @@ drop table shippingaddress cascade constraints;
 drop table billingaddress cascade constraints;
 drop table product cascade constraints;
 drop table orderdetails cascade constraints;
-drop table customerjoindatae cascade constraints;
 drop table authorities cascade constraints;
 drop table users cascade constraints;
+
+
+drop table attending cascade constraints;
+drop table cm_offices cascade constraints;
+drop table cm_employees cascade constraints;
+drop table cm_customers cascade constraints;
+drop table cm_orderdetails cascade constraints;
+drop table cm_orders cascade constraints;
+drop table cm_payments cascade constraints;
+drop table cm_productlines cascade constraints;
+drop table cm_products cascade constraints;
+drop table course cascade constraints;
+drop table course_fees cascade constraints;
+drop table course_info cascade constraints;
+drop table department cascade constraints;
+drop table instructor cascade constraints;
+drop table lms_certification cascade constraints;
+drop table lms_emp cascade constraints;
+drop table lms_student_course cascade constraints;
+drop table lms_student_score cascade constraints;
+drop table lms_students cascade constraints;
+drop table lms_students2 cascade constraints;
+drop table student CASCADE constraints;
+drop table student_courses CASCADE constraints;
+drop table student_info CASCADE constraints;
+drop table student1 CASCADE constraints;
+drop table students CASCADE constraints;
+drop table studentxx CASCADE constraints;
+drop table teaching CASCADE constraints;
+
 
 select * from customer;
 
@@ -44,3 +73,10 @@ Insert into TANJIM.PRODUCT (PRODUCTID,PRODUCTDESCRIPTION,PRODUCTMANUFACTURER,PRO
 Insert into TANJIM.PRODUCT (PRODUCTID,PRODUCTDESCRIPTION,PRODUCTMANUFACTURER,PRODUCTNAME,PRODUCTPRICE,PRODUCTQUANTITY,PRODUCTRANGE,PRODUCTRECHARGETIME,PRODUCTRENTLIMIT,PRODUCTSKU,PRODUCTSPEED,PRODUCTTYPE,PRODUCTWEIGHT) values (27,'Show off your swag wherever you go with SWAGTRONâ??s safe, reliable, and compact transportation made perfectly for you.
 
 Tame the night or adventure by day with the newly crafted, motorized unicycle: the SWAGTRON SwagRoller. Featuring dual tires, a high-performance motor, and a bright headlight and LEDs, the SwagRoller can take you where you need to go whether itâ??s high-traffic boulevards at night or racing through the park with your friends. Even beginners will have no fear with the included training wheel accessories.','Swagtron','SwagRoller',8.99,'5','13','180','3','SG101','30','Bicycle','40');
+
+
+Insert into TANJIM.ORDERSTATSDAILY (ORDERSTATSDAILYID,SALES,DATE,PRODUCTID) values (1,0,'1',23);
+
+Insert into TANJIM.ORDERSTATSMONTHLY (ORDERSTATSMONTHLYID,SALES,MONTH,PRODUCTID) values (1,0,'1',23);
+
+Insert into TANJIM.ORDERSTATSYEARLY (ORDERSTATSYEARLYID,SALES,YEAR,PRODUCTID) values (1,0,'1',23);

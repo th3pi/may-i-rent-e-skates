@@ -46,6 +46,17 @@ public class AdminController {
         orderStatsDailyService.getTotalSales(customerOrders);
         DateFormat todayFormat = new SimpleDateFormat("MM/dd/YYYY");
         OrderStatsDaily orderStatsDaily = orderStatsDailyService.getOrderStatsByDate(todayFormat.format(new Date()));
+
+        List<CustomerOrder> ordersCompleted = customerOrderService.getOrderStatus("Completed");
+        List<CustomerOrder> ordersPending = customerOrderService.getOrderStatus("Order Awaiting Confirmation");
+        List<CustomerOrder> ordersPickedUp = customerOrderService.getOrderStatus("Order Picked Up");
+        List<CustomerOrder> ordersAwaitingReturn = customerOrderService.getOrderStatus("Awaiting Return");
+
+
+        model.addAttribute("completed",ordersCompleted);
+        model.addAttribute("pending",ordersPending);
+        model.addAttribute("pickedup",ordersPickedUp);
+        model.addAttribute("areturn",ordersAwaitingReturn);
         model.addAttribute(orderStatsDaily);
         model.addAttribute(orderStatsMonthly);
         model.addAttribute(orderStatsYearly);

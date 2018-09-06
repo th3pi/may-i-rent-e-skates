@@ -19,7 +19,7 @@ public interface CustomerOrderService {
 
     double getCustomerOrderGrandTotal(int cartId);
 
-    List<CustomerOrder> getPendingOrders();
+    List<CustomerOrder> getOrderStatus(String status);
 
 //    void getOrderGrandTotal(CustomerOrder customerOrder);
 }

@@ -68,10 +68,10 @@ public class CustomerOrderDaoImpl implements CustomerOrderDao{
         return (CustomerOrder) query.uniqueResult();
     }
 
-    public List<CustomerOrder> getPendingOrders(){
+    public List<CustomerOrder> getOrderStatus(String status){
         Session session = sessionFactory.getCurrentSession();
         Query query = session.createQuery("from CustomerOrder where orderStatus = ?");
-        query.setString(0,"Order Awaiting Confirmation");
+        query.setString(0,status);
         return query.list();
     }
 
