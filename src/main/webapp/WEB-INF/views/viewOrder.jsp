@@ -15,11 +15,10 @@
 <%--header--%>
 <%@include file="/WEB-INF/views/template/header.jsp"%>
 <title>Order#${order.customerOrderId} | Rent eSkates</title>
-<c:if test="${pageContext.request.userPrincipal.name == order.customer.username}">
+<c:if test="${pageContext.request.userPrincipal.name == order.customer.username or pageContext.request.isUserInRole('ROLE_ADMIN')}">
 <div class="container" style="padding-top: 100px;">
     <div class="container-fluid jumbotron">
         <h1>Ordet details</h1>
-
         <p class="lead">Order#${order.customerOrderId}</p>
     </div>
     <div class="container">
@@ -68,7 +67,7 @@
                                 <tr>
                                     <td class="col-md-5"><em>${cartItem.product.productName}</em></td>
                                     <td class="col-md-3" style="text-align: center">${cartItem.quantity}</td>
-                                    <td class="col-md-3" style="text-align: center">$${cartItem.product.productPrice}</td>
+                                    <td class="col-md-3" style="text-align: center">$${cartItem.lockedPrice}</td>
                                     <td class="col-md-1" style="text-align: center">$${cartItem.quantity * cartItem.product.productPrice}</td>
                                 </tr>
                             </c:forEach>
@@ -92,7 +91,7 @@
         </div>
     </div>
 </c:if>
-<c:if test="${pageContext.request.userPrincipal.name != order.customer.username}">
+<c:if test="${pageContext.request.userPrincipal.name != order.customer.username and pageContext.request.isUserInRole('ROLE_ADMIN') != true}">
     <style>
         @mixin vertical-align($position: relative) {
             position: $position;

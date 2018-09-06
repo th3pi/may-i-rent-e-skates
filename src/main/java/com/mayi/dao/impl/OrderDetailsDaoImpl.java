@@ -58,6 +58,7 @@ public class OrderDetailsDaoImpl implements OrderDetailsDao {
             OrderDetails orderDetails = new OrderDetails();
             orderDetails.setProduct(cartItem.getProduct());
             orderDetails.setQuantity(cartItem.getQuantity());
+            orderDetails.setLockedPrice(cartItem.getProduct().getProductPrice());
             orderDetails.setTotal(customerOrderService.getCustomerOrderGrandTotal(customerOrder.getCart().getCartId()));
             orderDetails.setCustomerOrder(customerOrder);
             addOrderDetails(orderDetails);

@@ -15,6 +15,9 @@ drop table product cascade constraints;
 drop table orderdetails cascade constraints;
 drop table authorities cascade constraints;
 drop table users cascade constraints;
+drop table orderstatsdaily cascade constraints;
+drop table orderstatsmonthly cascade constraints;
+drop table orderstatsyearly cascade constraints;
 
 
 drop table attending cascade constraints;

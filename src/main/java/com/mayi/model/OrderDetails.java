@@ -29,6 +29,16 @@ public class OrderDetails implements Serializable {
     @JoinColumn(name = "productID")
     private Product product;
 
+    private double lockedPrice;
+
+    public double getLockedPrice() {
+        return lockedPrice;
+    }
+
+    public void setLockedPrice(double lockedPrice) {
+        this.lockedPrice = lockedPrice;
+    }
+
     public double getTotal() {
         return total;
     }
