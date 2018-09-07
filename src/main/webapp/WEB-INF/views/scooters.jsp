@@ -13,7 +13,18 @@
 <%@include file="template/header.jsp"%>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+    .alert{
+        display: none;
+    }
 
+    .myAlert-bottom{
+        position: fixed;
+        bottom: 5px;
+        left:2%;
+        width: 96%;
+    }
+</style>
 <%--This is a filter page. This view only displays products with attribute scooters in database.--%>
 
 
@@ -85,10 +96,18 @@
                             </div>
                             <div class="card-footer" ng-controller="cartCtrl">
                                 <div class="btn-group">
-                                    <a class="btn btn-sm btn-success" href="#" ng-click="addToCart('${product.productID}')">Add to cart</a>
+                                    <sec:authorize access="isAnonymous()">
+                                        <a class="btn btn-sm btn-success" href="<c:url value="/login"/>">Login to rent!</a>
+                                    </sec:authorize>
+                                    <sec:authorize access="hasRole('ROLE_USER')">
+                                        <a class="btn btn-sm btn-success" onclick="myAlertBottom()" ng-click="addToCart('${product.productID}')"><i class="material-icons">add_shopping_cart</i></a>
+                                    </sec:authorize>
+                                    <sec:authorize access="hasRole('ROLE_ADMIN')">
+                                        <a class="btn btn-sm btn-success" href="<c:url value="/admin/product/editProduct/${product.productID}"/> ">Edit</a>
+                                    </sec:authorize>
                                     <a class="btn btn-outline-secondary btn-sm" href="<c:url value="/viewProduct/${product.productID}"/> ">View</a>
                                 </div>
-                                <small class="text-muted">Contact us</small>
+                                <span class="badge badge-secondary float-right">NEW</span>
                             </div>
                         </div>
                     </div>
@@ -101,8 +120,29 @@
 
     </div>
     <!-- /.row -->
-
+    <div class="myAlert-bottom alert alert-success fade-in">
+        <strong>Success! </strong>
+        Product have been successfully added to your cart.
+    </div>
 </div>
+<script>
+    $(document).ready(function(){
+        $("#myInput").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("#products *").filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+</script>
+<script>
+    function myAlertBottom(){
+        $(".myAlert-bottom").show();
+        setTimeout(function(){
+            $(".myAlert-bottom").hide();
+        }, 2000);
+    }
+</script>
 <!-- /.container -->
 <script src="<c:url value="/resources/js/controller.js"/> ">
 
