@@ -24,14 +24,15 @@
         <c:if test="${not empty error}">
             <div class="error" style="color: #ff084e">${error}</div>
         </c:if>
-        <label for="username">Username (or Email address): </label>
-        <input type="text" id="username" name="username" class="form-control" required autofocus/>
+        <label for="username">Email </label>
+        <input type="text" id="username" name="username" placeholder="email@gmail.com" class="form-control" required autofocus/>
         <br>
         <label for="password">Password</label>
-        <input type="password" id="password" name="password" class="form-control" />
+        <input type="password" id="password" name="password" placeholder="password1234" class="form-control" />
         <br>
-        <input type="submit" value="Submit" class="btn btn-primary"/>
+        <input type="submit" value="Log me in!" class="btn btn-lg btn-outline-primary"/>
         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+        <a class="btn btn-lg btn-primary" href="/register">Sign up</a>
     </form>
     </div>
 </body>

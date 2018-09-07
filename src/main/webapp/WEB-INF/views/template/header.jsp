@@ -84,7 +84,7 @@
                 </c:if>
                 <c:if test="${pageContext.request.userPrincipal.name == null}">
                     <li><a class="nav-link btn-dark lead" href="<c:url value="/login" />">Login</a></li>
-                    <li><a class="nav-link btn-dark lead" href="<c:url value="/register"/> ">Register</a> </li>
+                    <li><a class="nav-link btn-dark lead" href="<c:url value="/register"/> ">Sign up</a> </li>
                 </c:if>
             </ul>
         </div>
