@@ -3,13 +3,25 @@
 <%@ taglib prefix="spring" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%--Header--%>
+<style>
+    .alert{
+        display: none;
+    }
+
+    .myAlert-top{
+        position: fixed;
+        top: 5px;
+        left:2%;
+        width: 96%;
+    }
+</style>
 <%@include file="template/header.jsp"%>
 <title>${product.productName} | Rent eSkates</title>
 <div class="container-fluid" style="">
     <div class="row bg-dark" style="padding: 8% 10% 5%;">
         <div class="col-md-6">
-            <h3 style="color: #fff; font-size: 500%;">${product.productName}</h3>
-            <p class="lead" style="color: #fff">Manufacturer: ${product.productManufacturer}</p>
+            <h3 class="welcomeText" style="color: #fff; font-size: 500%; text-shadow: 0 0 5px #fff; text-align: left">${product.productName}</h3>
+            <p class="lead glow" style="color: #fff">Manufacturer: ${product.productManufacturer}</p>
         </div>
         <div class="col-md-6" style="text-align: right">
             <h3 style="color: #fff; font-size: 200%;">${product.productType} Range</h3>
@@ -27,7 +39,11 @@
             <h4 style="color: #fff; font-size: 150%;">${product.productType} weight: ${product.productWeight}lbs</h4>
         </div>
     </div>
-    <div class="row alert alert-secondary" ng-app="cartApp" style="padding-left: 5%; padding-top: 2%; padding-bottom: 5%">
+    <div class="row alert alert-light" ng-app="cartApp" style="padding-left: 5%; padding-top: 2%; padding-bottom: 5%">
+        <div class="myAlert-top alert alert-success fade-in">
+            <strong>Success! </strong>
+            Product have been successfully added to your cart.
+        </div>
         <div class="col-lg-6" style="padding-left: 10%; padding-top: 2%;">
             <%@include file="template/productImageAttrProductPage.jsp"%>
         </div>
@@ -51,7 +67,6 @@
             <hr>
             <h4 class="lead" style="color: #1e7e34; font-size: 300%;">RENT: $${product.productPrice}<span class="badge badge-secondary" > NEW!</span></h4>
             <div class="alert alert-primary" style="width: 50%;">Rent limit is <span style="color: #b21f2d">${product.productRentLimit}</span> days!</div>
-
             <br>
 
             <c:set var="role" scope="page" value="${param.role}" />
@@ -64,16 +79,24 @@
                 <c:if test="${pageContext.request.userPrincipal.name == null}">
                     <a href="<c:url value="/login"/> " class="btn btn-lg btn-light shadow-sm">Log in to Rent!</a>
                 </c:if>
-                <sec:authorize access="hasRole('ROLE_USER')"><a href="#" class="btn btn-success btn-lg" ng-click="addToCart('${product.productID}')">Add to cart: +1 day</a>
+                <sec:authorize access="hasRole('ROLE_USER')"><a href="#" onclick="myAlertTop()" class="btn btn-success btn-lg" ng-click="addToCart('${product.productID}')">Add to cart: +1 day</a>
                 <a href="<spring:url value="/customer/cart"/> " class="btn btn-primary btn-lg">View Cart</a></sec:authorize>
                 <sec:authorize access="hasRole('ROLE_ADMIN')"><a href="<spring:url value="/admin/product/editProduct/${product.productID}"/> " class="btn btn-lg btn-primary">Edit Product</a></sec:authorize>
             </p>
         </div>
     </div>
 </div>
-
 <%--Footer--%>
 <script src="<c:url value="/resources/js/controller.js"/> ">
 
+</script>
+
+<script>
+    function myAlertTop(){
+        $(".myAlert-top").show();
+        setTimeout(function(){
+            $(".myAlert-top").hide();
+        }, 2000);
+    }
 </script>
 <%@include file="template/footer.jsp"%>

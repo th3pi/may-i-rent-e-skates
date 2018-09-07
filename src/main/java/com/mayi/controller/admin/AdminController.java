@@ -20,7 +20,7 @@ public class AdminController {
     private ProductService productService;
 
     @Autowired
-    private OrderDetailsService orderDetailsService;
+    private CustomerService customerService;
 
     @Autowired
     private CustomerOrderService customerOrderService;
@@ -34,6 +34,14 @@ public class AdminController {
     @Autowired
     private OrderStatsDailyService orderStatsDailyService;
 
+    /**
+     *
+     * Method admin page calculates and gets all the order statistics.
+     *
+     * @param model sends the order stats to the views
+     * @return admin view
+     */
+
     @RequestMapping
     public String adminPage(Model model){
         List<CustomerOrder> customerOrders = customerOrderService.getAllCustomerOrders();
@@ -46,6 +54,7 @@ public class AdminController {
         orderStatsDailyService.getTotalSales(customerOrders);
         DateFormat todayFormat = new SimpleDateFormat("MM/dd/YYYY");
         OrderStatsDaily orderStatsDaily = orderStatsDailyService.getOrderStatsByDate(todayFormat.format(new Date()));
+
 
         List<CustomerOrder> ordersCompleted = customerOrderService.getOrderStatus("Completed");
         List<CustomerOrder> ordersPending = customerOrderService.getOrderStatus("Order Awaiting Confirmation");
@@ -70,8 +79,6 @@ public class AdminController {
         return "productInventory";
     }
 
-    @Autowired
-    private CustomerService customerService;
 
     @RequestMapping("/manageUsers")
     public String manageUsers(Model model){

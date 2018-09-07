@@ -13,7 +13,18 @@
 <%@include file="template/header.jsp"%>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+    .alert{
+        display: none;
+    }
 
+    .myAlert-bottom{
+        position: fixed;
+        bottom: 5px;
+        left:2%;
+        width: 96%;
+    }
+</style>
 <title>Shop | Rent eSkates</title>
 <!-- Page Content -->
 <div class="container" style="padding-top: 80px">
@@ -89,7 +100,7 @@
                                     <a class="btn btn-sm btn-success" href="<c:url value="/login"/>">Login to rent!</a>
                                 </sec:authorize>
                                 <sec:authorize access="hasRole('ROLE_USER')">
-                                    <a class="btn btn-sm btn-success" data-toggle="modal" data-target="#myModal" href="#" ng-click="addToCart('${product.productID}')"><i class="material-icons">add_shopping_cart</i></a>
+                                    <a class="btn btn-sm btn-success" onclick="myAlertBottom()" ng-click="addToCart('${product.productID}')"><i class="material-icons">add_shopping_cart</i></a>
                                 </sec:authorize>
                                 <sec:authorize access="hasRole('ROLE_ADMIN')">
                                     <a class="btn btn-sm btn-success" href="<c:url value="/admin/product/editProduct/${product.productID}"/> ">Edit</a>
@@ -109,7 +120,10 @@
 
     </div>
     <!-- /.row -->
-
+    <div class="myAlert-bottom alert alert-success fade-in slide-out-right">
+        <strong>Success! </strong>
+        Product have been successfully added to your cart.
+    </div>
 </div>
 <!-- /.container -->
 <script>
@@ -121,6 +135,14 @@
             });
         });
     });
+</script>
+<script>
+    function myAlertBottom(){
+        $(".myAlert-bottom").show();
+        setTimeout(function(){
+            $(".myAlert-bottom").hide();
+        }, 2000);
+    }
 </script>
 <script src="<c:url value="/resources/js/controller.js"/> ">
 <%@include file="template/footer.jsp"%>
