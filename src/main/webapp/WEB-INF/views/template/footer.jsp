@@ -1,11 +1,5 @@
 <%--Footer template--%>
 
-
-<footer class="footer">
-    <p class="float-right"><a href="#">Back to top</a></p>
-    <p>&copy; 2018 May I, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="<c:url value="/terms"/> ">Terms</a></p>
-</footer>
-
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->

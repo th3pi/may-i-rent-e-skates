@@ -157,7 +157,7 @@
         <br>
         <br>
         <h3>
-            This is not your profile. Click on "OOPS!" to check your profile out.
+            This is not your profile.
             <hr>
             <underline>Click on "OOPS!" to check out your own profile.</underline>
             <!-- The <h3> take is the description text which appear under the <h1> tag. It's there so you can display some nice message to your visitors! -->

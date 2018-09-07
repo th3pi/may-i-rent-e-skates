@@ -44,6 +44,7 @@ public class CartController {
     public String getCartRedirect(@PathVariable (value = "cartId") int cartId, Model model) {
         Cart cart = cartService.getCartById(cartId);
         List<CartItem> cartItems = cart.getCartItems();
+        model.addAttribute("cart",cart);
         model.addAttribute("cartItems",cartItems);
         model.addAttribute("cartId", cartId);
 
