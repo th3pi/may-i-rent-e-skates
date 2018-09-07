@@ -14,11 +14,10 @@
 
 <%--header--%>
 <%@include file="/WEB-INF/views/template/header.jsp"%>
-<title>Registration | Rent eSkates</title>
+<title>Confirmation | Rent eSkates</title>
     <div class="container slide-in-right" style="padding-top: 100px;">
         <div class="container-fluid jumbotron">
             <h1>Receipt</h1>
-
             <p class="lead">Here is your order confirmation</p>
         </div>
         <div class="progress">
@@ -106,9 +105,11 @@
                         </div>
                     </div>
                 </form:form>
-
             </div>
         </div>
-
+        <div class="container-fluid jumbotron">
+            <h1>Important Information</h1>
+            <p class="lead">Placing order does not confirm your order. We will verify payment, our stock and availability. Once the order status turns green and says "Payment Received" we will email you need to pick it up.</p>
+        </div>
 <%--footer--%>
 <%@include file="/WEB-INF/views/template/footer.jsp" %>

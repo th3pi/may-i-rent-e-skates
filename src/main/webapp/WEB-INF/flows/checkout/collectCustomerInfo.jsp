@@ -12,12 +12,12 @@
 
 <%--header--%>
 <%@include file="/WEB-INF/views/template/header.jsp"%>
-<title>Registration | Rent eSkates</title>
+<title>Billing Info | Rent eSkates</title>
 <div class="container fade-in" style="padding-top: 100px">
     <div class="jumbotron">
         <div class="container">
-            <h1>Personal Information</h1>
-            <p>Fill in your personal information below </p>
+            <h1>Billing Information</h1>
+            <p>Fill in your billing information below </p>
         </div>
     </div>
     <div class="progress">
@@ -25,59 +25,6 @@
     </div>
     <br>
     <hr>
-    <%--<div class="container">--%>
-        <%--&lt;%&ndash;Form to add product details&ndash;%&gt;--%>
-        <%--<form:form commandName="order" class="form-horizontal">--%>
-            <%--<div class="form-group">--%>
-                <%--<label for="name">Name</label>--%>
-                <%--<form:input path="cart.customer.customerName" id="name" class="form-control"/>--%>
-            <%--</div>--%>
-            <%--<div class="form-group">--%>
-                <%--<label for="email">Email</label>--%>
-                <%--<form:input path="cart.customer.customerEmail" id="email" class="form-control"/>--%>
-            <%--</div>--%>
-            <%--<div class="form-group">--%>
-                <%--<label for="phone">Phone</label>--%>
-                <%--<form:input path="cart.customer.customerPhone" id="phone" class="form-control"/>--%>
-            <%--</div--%>
-
-            <%--<br>--%>
-            <%--<br>--%>
-
-            <%--<h3>Billing Address</h3>--%>
-            <%--<div class="form-group">--%>
-                <%--<label for="bstreet">Street Address</label>--%>
-                <%--<form:input path="cart.customer.billingAddress.streetAddress" id="bstreet" class="form-control"/>--%>
-            <%--</div>--%>
-            <%--<br>--%>
-            <%--<div class="form-group">--%>
-                <%--<label for="bapt">Apartment/Floor #:</label>--%>
-                <%--<form:input path="cart.customer.billingAddress.aptNumber" id="bapt" class="form-control"/>--%>
-            <%--</div>--%>
-            <%--<br>--%>
-            <%--<div class="form-group">--%>
-                <%--<label for="bcity">City</label>--%>
-                <%--<form:input path="cart.customer.billingAddress.city" id="bcity" class="form-control"/>--%>
-            <%--</div>--%>
-            <%--<br>--%>
-            <%--<div class="form-group">--%>
-                <%--<label for="bstate">State</label>--%>
-                <%--<form:input path="cart.customer.billingAddress.state" id="bstate" class="form-control"/>--%>
-            <%--</div>--%>
-            <%--<br>--%>
-            <%--<div class="form-group">--%>
-                <%--<label for="bzipcode">Zipcode</label>--%>
-                <%--<form:input path="cart.customer.billingAddress.zipcode" id="bzipcode" class="form-control"/>--%>
-            <%--</div>--%>
-            <%--<br>--%>
-            <%--<br>--%>
-
-            <%--<input type="hidden" name="_flowExecutionKey">--%>
-
-            <%--<input type="submit" value="Go to shipping details" name="_eventId_customerInfoCollected" class="btn btn-primary"/>--%>
-            <%--<input type="button" name="_eventId_cancel" class="btn btn-danger" value="Cancel"/>--%>
-        <%--</form:form>--%>
-    <%--</div>--%>
     <div class="container">
         <div class="row">
             <div class="col-md-4 order-md-2 mb-4">
@@ -92,7 +39,7 @@
                             <h6 class="my-0">${item.product.productName}</h6>
                             <small class="text-muted">For: ${item.quantity} Day</small>
                         </div>
-                        <span class="text-muted">$${item.product.productPrice}</span>
+                        <span class="text-muted">$${item.totalPrice}</span>
                     </li>
                     </c:forEach>
                     <li class="list-group-item d-flex justify-content-between">

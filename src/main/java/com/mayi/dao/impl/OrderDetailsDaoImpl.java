@@ -46,6 +46,8 @@ public class OrderDetailsDaoImpl implements OrderDetailsDao {
 
     public void addOrderDetails(OrderDetails orderDetails) {
         Session session = sessionFactory.getCurrentSession();
+        orderDetails.getCustomerOrder().setOrderTotal(orderDetails.getTotal());
+        session.saveOrUpdate(orderDetails.getCustomerOrder());
         session.saveOrUpdate(orderDetails);
         session.flush();
     }

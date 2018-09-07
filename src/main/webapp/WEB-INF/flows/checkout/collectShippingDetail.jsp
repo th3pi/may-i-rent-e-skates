@@ -12,7 +12,7 @@
 
 <%--header--%>
 <%@include file="/WEB-INF/views/template/header.jsp"%>
-<title>Registration | Rent eSkates</title>
+<title>Shipping Info | Rent eSkates</title>
 <div class="container slide-in-right" style="padding-top: 100px">
     <div class="jumbotron">
         <div class="container">

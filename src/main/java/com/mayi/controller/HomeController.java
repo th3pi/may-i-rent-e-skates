@@ -1,13 +1,7 @@
 package com.mayi.controller;
 
-import com.mayi.model.OrderStatsDaily;
-import com.mayi.model.OrderStatsMonthly;
-import com.mayi.model.OrderStatsYearly;
-import com.mayi.model.Product;
-import com.mayi.service.OrderStatsDailyService;
-import com.mayi.service.OrderStatsMonthlyService;
-import com.mayi.service.OrderStatsYearlyService;
-import com.mayi.service.ProductService;
+import com.mayi.model.*;
+import com.mayi.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,6 +18,9 @@ public class HomeController {
 
     @Autowired
     ProductService productService;
+
+    @Autowired
+    private CustomerOrderService customerOrderService;
 
     @Autowired
     private OrderStatsDailyService orderStatsDailyService;
@@ -44,6 +41,7 @@ public class HomeController {
     @RequestMapping("/")
     public String home(Model model){
         List<Product> products = productService.getProductList();
+        List<CustomerOrder> customerOrders = customerOrderService.getAllCustomerOrders();
         DateFormat todayFormat = new SimpleDateFormat("MM/dd/YYYY");
         Date date = new  Date();
         String currentDate = todayFormat.format(date);

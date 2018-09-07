@@ -48,7 +48,7 @@
             <th>Order Date</th>
             <th class="text-center">Order Status</th>
             <th class="text-center">Order Total</th>
-            <th class="text-center">Status Panel</th>
+            <th class="text-center">Action Panel</th>
         </tr>
         </thead>
         <tbody id="myTable">
@@ -87,12 +87,12 @@
                 <%--Buttons to update order status. They are color coded the same way throughout the entire website.--%>
 
                 <td class="text-center">
-                    <a class="btn btn-outline-success" href="<spring:url value="/admin/manageOrders/order/markOrderAsPaymentReceived/${order.customerOrderId}" />"><i class="material-icons" data-toggle="tooltip" title="Payment Received">edit</i></a>
-                    <a class="btn btn-info" href="<spring:url value="/admin/manageOrders/order/markOrderAsPicked/${order.customerOrderId}" />"><i class="material-icons" data-toggle="tooltip" title="Order Picked Up">edit</i></a>
-                    <a class="btn btn-warning" href="<spring:url value="/admin/manageOrders/order/markOrderAsAwaitingReturn/${order.customerOrderId}" />"><i class="material-icons" data-toggle="tooltip" title="Awaiting Return">edit</i></a>
-                    <a class="btn btn-success" href="<spring:url value="/admin/manageOrders/order/markOrderAsCompleted/${order.customerOrderId}" />"><i class="material-icons" data-toggle="tooltip" title="Completed">edit</i></a>
-                    <a class="btn btn-danger" href="<spring:url value="/admin/manageOrders/order/markOrderAsCancelled/${order.customerOrderId}" />"><i class="material-icons" data-toggle="tooltip" title="Cancelled">edit</i></a>
-                    <a class="btn btn-danger" href="<spring:url value="/admin/manageOrders/order/viewOrder/${order.customerOrderId}" />"><i class="material-icons" data-toggle="tooltip" title="View Order Details">pageview</i></a></td>
+                    <a class="btn btn-outline-success" href="<spring:url value="/admin/manageOrders/order/markOrderAsPaymentReceived/${order.customerOrderId}" />"><i class="material-icons" data-toggle="tooltip" title="Payment Received">attach_money</i></a>
+                    <a class="btn btn-info" href="<spring:url value="/admin/manageOrders/order/markOrderAsPicked/${order.customerOrderId}" />"><i class="material-icons" data-toggle="tooltip" title="Order Picked Up">call_made</i></a>
+                    <a class="btn btn-warning" href="<spring:url value="/admin/manageOrders/order/markOrderAsAwaitingReturn/${order.customerOrderId}" />"><i class="material-icons" data-toggle="tooltip" title="Awaiting Return">hourglass_empty</i></a>
+                    <a class="btn btn-success" href="<spring:url value="/admin/manageOrders/order/markOrderAsCompleted/${order.customerOrderId}" />"><i class="material-icons" data-toggle="tooltip" title="Completed">done</i></a>
+                    <a class="btn btn-danger" href="<spring:url value="/admin/manageOrders/order/markOrderAsCancelled/${order.customerOrderId}" />"><i class="material-icons" data-toggle="tooltip" title="Cancelled">clear</i></a>
+                    <a class="btn btn-primary" href="<spring:url value="/admin/manageOrders/order/viewOrder/${order.customerOrderId}" />"><i class="material-icons" data-toggle="tooltip" title="View Order Details">pageview</i></a></td>
             </tr>
 
         </c:forEach>

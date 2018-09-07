@@ -49,7 +49,6 @@ public class OrderAdminController {
         CustomerOrder customerOrder = customerOrderService.getCustomerOrderById(id);
         customerOrder.setOrderStatus("Payment Received");
         OrderDetails orderDetails = orderDetailsService.getOrderDetailsByOrderId(customerOrder.getCustomerOrderId());
-        customerOrder.setOrderTotal(orderDetails.getTotal());
         Customer customer = customerOrder.getCustomer();
         customerOrderService.updateOrderStatus(customerOrder);
         return "redirect:/admin/manageOrders";

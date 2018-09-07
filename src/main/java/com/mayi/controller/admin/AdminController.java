@@ -96,10 +96,5 @@ public class AdminController {
         return "manageOrders";
     }
 
-    @RequestMapping("/customer")
-    public String customerManagement(Model model){
-        return "customerManagement";
-    }
-
 
 }
