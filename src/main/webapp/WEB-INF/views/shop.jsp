@@ -89,7 +89,7 @@
                                     <a class="btn btn-sm btn-success" href="<c:url value="/login"/>">Login to rent!</a>
                                 </sec:authorize>
                                 <sec:authorize access="hasRole('ROLE_USER')">
-                                    <a class="btn btn-sm btn-success" data-toggle="modal" data-target="#myModal" href="#" ng-click="addToCart('${product.productID}')">Add to cart</a>
+                                    <a class="btn btn-sm btn-success" data-toggle="modal" data-target="#myModal" href="#" ng-click="addToCart('${product.productID}')"><i class="material-icons">add_shopping_cart</i></a>
                                 </sec:authorize>
                                 <sec:authorize access="hasRole('ROLE_ADMIN')">
                                     <a class="btn btn-sm btn-success" href="<c:url value="/admin/product/editProduct/${product.productID}"/> ">Edit</a>

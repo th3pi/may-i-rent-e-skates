@@ -21,12 +21,20 @@
             </div>
         </div>
     </section>
+
+
     <c:choose>
+
+        <%--This will be displayed if user has nothing in their cart--%>
+
     <c:when test="${cartItems.size() eq 0}">
         <h2 class="lead text-center tracking-in-expand">You don't have anything in your cart yet.</h2>
         <hr>
         <h2 class="text-center"><a class="btn btn-outline-success btn-lg heartbeat" href="<c:url value="/shop" />">Click here to get started</a></h2>
     </c:when>
+
+        <%--Proper cart will be shown if cart is not empty--%>
+
         <c:when test="${cartItems.size() ne 0}">
     <section ng-app="cartApp">
         <div ng-controller = "cartCtrl" ng-init="initCartId('${cartId}')">

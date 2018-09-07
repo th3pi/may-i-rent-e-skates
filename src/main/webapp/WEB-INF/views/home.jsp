@@ -30,20 +30,22 @@
 </head>
 <body>
 
+<%--Navbar--%>
+
 <header>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" style="padding: 20px 10px 20px 10px;">
-        <a class="navbar-brand" href="#">Rent eSkates</a>
+        <a class="navbar-brand lead" href="#">&nbsp;Rent eSkates</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link btn-dark lead" href="<c:url value="/" />">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                     <div class="btn-group">
-                        <a class="btn btn-dark" href="<c:url value="/shop" />">
+                        <a class="nav-link btn-dark lead" href="<c:url value="/shop" />">
                             Shop
                         </a>
                         <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -82,34 +84,36 @@
                         </li>
                     </sec:authorize>
                     <c:if test="${pageContext.request.userPrincipal.name != 'admin'}">
-                        <li><a class="nav-link btn btn-dark" href="<c:url value="/user/profile/"/> ">Profile</a></li>
-                        <li><a class="nav-link btn btn-dark" href="<c:url value="/customer/cart/"/> ">Cart</a> </li>
+                        <li><a class="nav-link btn-dark lead" href="<c:url value="/customer/cart/"/> "><i class="btn btn-dark material-icons">shopping_cart</i>Cart</a> </li>
+                        <li><a class="nav-link btn-dark lead" href="<c:url value="/user/profile/"/> "><i class="btn btn-dark material-icons">person</i>Profile</a></li>
+
                     </c:if>
-                    <li><a class="nav-link btn btn-dark" href="<c:url value="/j_spring_security_logout"/> ">Logout</a> </li>
+                    <li><a class="nav-link btn-dark lead" href="<c:url value="/j_spring_security_logout"/> "><i class="btn btn-dark material-icons">clear</i>Logout</a> </li>
 
                 </c:if>
                 <c:if test="${pageContext.request.userPrincipal.name == null}">
-                    <li><a class="nav-link btn btn-dark" href="<c:url value="/login" />">Login</a></li>
-                    <li><a class="nav-link btn btn-dark" href="<c:url value="/register"/> ">Register</a> </li>
+                    <li><a class="nav-link btn-dark lead" href="<c:url value="/login" />">Login</a></li>
+                    <li><a class="nav-link btn-dark lead" href="<c:url value="/register"/> ">Register</a> </li>
                 </c:if>
             </ul>
-            <%--<form class="form-inline mt-2 mt-md-0">--%>
-                <%--<input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">--%>
-                <%--<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>--%>
-            <%--</form>--%>
         </div>
     </nav>
 </header>
 
 <main role="main">
+
+    <%--Introduction banner--%>
+
     <div class="container-fluid">
         <div class="row bg-dark" style="padding: 450px 0 450px 0">
             <div class="col-lg-12">
-                <h2 class="welcomeText fade-in" style="color: #fff; text-align: center; font-size: 650%">Rent <span class="text-flicker-in-glow-infinite">e</span>Skates</h2>
-                <p class="lead text-flicker-in-glow" style="color: #fff; text-align: center; font-size: 250%;">New York's new Mass Transit</p>
+                <h2 class="welcomeText fade-in" style="color: #fff; text-align: center; font-size: 650%">Rent <span class="text-flicker-in-glow ">e</span>Skates</h2>
+                <p class="lead text-flicker-in-glow-infinite " style="color: #fff; text-align: center; font-size: 250%;">New York's new Mass Transit</p>
             </div>
         </div>
     </div>
+
+        <%--Slides--%>
 
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
@@ -158,6 +162,9 @@
             <span class="sr-only">Next</span>
         </a>
     </div>
+
+        <%--New arrival highlight section--%>
+
     <div class="jumbotron">
         <h2 class="display-3">NEW ARRIVALS</h2>
     </div>
@@ -173,6 +180,8 @@
         </div><!-- /.row -->
 
     </div><!-- /.container -->
+
+        <%--A simple parallax banner highlighting one of the products--%>
 
     <div class="container-fluid parallax text-center" style="height: 500px">
         <div class="text-center">
@@ -211,7 +220,10 @@
             </c:forEach>
         </div>
     </div>
-    <div class="container-fluid parallaxTwo" style="height: 500px;">
+
+        <%--A simple parallax banner highlighting one of the products--%>
+
+        <div class="container-fluid parallaxTwo" style="height: 500px;">
         <div class="text-center">
             <h2 class="display-4" style="vertical-align: center; text-align: center; line-height: 500px; color: #fff;">
                 Why walk? <small class="text-muted alert alert-light" style="padding: 0 10px 0 10px;"> When you can float. </small>

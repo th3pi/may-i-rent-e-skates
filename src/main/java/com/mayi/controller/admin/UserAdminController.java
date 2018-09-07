@@ -1,6 +1,7 @@
 package com.mayi.controller.admin;
 
 import com.mayi.model.*;
+import com.mayi.service.CustomerOrderService;
 import com.mayi.service.CustomerService;
 import com.mayi.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,12 +28,9 @@ public class UserAdminController {
 
     @Autowired
     private EmployeeService employeeService;
-//    @RequestMapping("/manageUsers/deleteuser/{id}")
-//    public String deleteUsers(@PathVariable int id, Model model){
-//        Customer customer = customerService.getCustomerById(id);
-//        customerService.deleteCustomer(customer);
-//        return "redirect:/admin/manageUsers";
-//    }
+
+    @Autowired
+    private CustomerOrderService customerOrderService;
 
     @RequestMapping("/employee/addEmployee")
     public String addEmployee(Model model){
@@ -131,5 +129,15 @@ public class UserAdminController {
         }
         customerService.editCustomer(customer);
         return "redirect:/admin/manageUsers";
+    }
+
+    @RequestMapping("/user/viewUser/{customerId}")
+    public String getProfileRedirect(@PathVariable(value = "customerId") int customerId, Model model) {
+        List<CustomerOrder> customerOrders = customerOrderService.getAllCustomerOrdersById(customerId);
+        Customer customer = customerService.getCustomerById(customerId);
+        model.addAttribute("customer",customer);
+        model.addAttribute("orders",customerOrders);
+
+        return "viewUser";
     }
 }

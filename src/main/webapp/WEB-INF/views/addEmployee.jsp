@@ -13,6 +13,9 @@
 <%--header--%>
 <%@include file="/WEB-INF/views/template/header.jsp"%>
 <title>Add Employee | Admin Panel</title>
+
+<%--Introduction to the page--%>
+
 <div class="container" style="padding-top: 100px">
     <div class="jumbotron">
         <div class="container">
@@ -20,6 +23,9 @@
             <p>Fill in new user information below </p>
         </div>
     </div>
+
+    <%--Employee details form--%>
+
     <div class="container">
         <%--Form to add product details--%>
         <form:form action="${pageContext.request.contextPath}/admin/manageUsers/employee/addEmployee" method="post" commandName="employee" enctype="multipart/form-data">

@@ -33,51 +33,53 @@ public class HomeController {
 
     @Autowired
     private OrderStatsYearlyService orderStatsYearlyService;
-    
+
+    /**The home controller creates a new empty entry in the database everyday to reset Today's sales.
+     * Every month to reset this month's sales
+     * Every year to reset this year's sales
+     *
+     */
+
+
     @RequestMapping("/")
     public String home(Model model){
         List<Product> products = productService.getProductList();
         DateFormat todayFormat = new SimpleDateFormat("MM/dd/YYYY");
+        Date date = new  Date();
+        String currentDate = todayFormat.format(date);
         DateFormat monthFormat = new SimpleDateFormat("MM");
+        String currentMonth = monthFormat.format(date);
         DateFormat yearFormat = new SimpleDateFormat("YYYY");
+        String currentYear = yearFormat.format(date);
+
+        //Gets all the order stats.
+
         List<OrderStatsDaily> orderStatsDailies = orderStatsDailyService.getAllOrderStats();
         List<OrderStatsMonthly> orderStatsMonthlies = orderStatsMonthlyService.getAllOrderStats();
         List<OrderStatsYearly> orderStatsYearlies = orderStatsYearlyService.getAllOrderStats();
 
-        if(!orderStatsDailies.get(orderStatsDailies.size()-1).getToday().equals(todayFormat.format(new Date()))){
+        if(!orderStatsDailies.get(orderStatsDailies.size()-1).getToday().equals(currentDate)){
             OrderStatsDaily orderStatsDaily = new OrderStatsDaily();
             orderStatsDaily.setSales(0);
             orderStatsDaily.setToday(todayFormat.format(new Date()));
             orderStatsDailyService.addOrderStats(orderStatsDaily);
         }
 
-        if(!orderStatsMonthlies.get(orderStatsMonthlies.size()-1).getMonth().equals(monthFormat.format(new Date()))){
+        if(!orderStatsMonthlies.get(orderStatsMonthlies.size() - 1).getMonth().equals(currentMonth)){
             OrderStatsMonthly orderStatsMonthly = new OrderStatsMonthly();
             orderStatsMonthly.setSales(0);
-            orderStatsMonthly.setMonth(monthFormat.format(new Date()));
+            orderStatsMonthly.setMonth(currentMonth);
             orderStatsMonthlyService.addOrderStats(orderStatsMonthly);
         }
 
-        if(!orderStatsYearlies.get(orderStatsYearlies.size()-1).getYear().equals(yearFormat.format(new Date()))){
+        if(!orderStatsYearlies.get(orderStatsYearlies.size()-1).getYear().equals(currentYear)){
             OrderStatsYearly orderStatsYearly = new OrderStatsYearly();
             orderStatsYearly.setSales(0);
-            orderStatsYearly.setYear(todayFormat.format(new Date()));
+            orderStatsYearly.setYear(currentYear);
             orderStatsYearlyService.addOrderStats(orderStatsYearly);
         }
         model.addAttribute("products",products);
         return "home";
     }
 
-    @RequestMapping("/login")
-    public String login(@RequestParam(value = "error", required = false)String error, @RequestParam(value = "logout", required = false)String logout, Model model){
-        if(error != null){
-            model.addAttribute("error","Invalid username or password");
-        }
-
-        if(logout != null){
-            model.addAttribute("msg","You have been logged out successfully.");
-        }
-
-        return "login";
-    }
 }

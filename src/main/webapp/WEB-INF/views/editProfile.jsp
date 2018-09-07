@@ -11,6 +11,9 @@
 <%@ taglib prefix="spring" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 
+<%--This form is the same as registerCustomer view but filled with pre-existing information only accessible by customers.--%>
+
+
 <%--header--%>
 <%@include file="/WEB-INF/views/template/header.jsp"%>
 <title>Edit User | Admin Panel</title>

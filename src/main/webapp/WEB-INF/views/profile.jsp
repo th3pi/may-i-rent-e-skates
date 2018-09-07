@@ -32,6 +32,9 @@
         <h2 class="display-4 text-center tracking-in-expand">Order History</h2>
         <hr>
         <c:choose>
+
+            <%--This will be shown if user never ordered anything--%>
+
         <c:when test="${orders.size() eq 0}">
             <h2 class="lead text-center tracking-in-expand">You didn't order anything yet.</h2>
             <hr>
@@ -39,6 +42,9 @@
         </c:when>
             <c:when test="${orders.size() ne null}">
         <div class="row">
+
+            <%--User order history--%>
+
 
             <c:forEach var="order" items="${orders}">
             <div class="col-md-4">
@@ -73,9 +79,15 @@
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group">
                                 <a class="btn btn-sm btn-outline-secondary" href="<c:url value="/user/viewOrder/${order.customerOrderId}"/> ">View</a>
+
+                                    <%--User can only cancel order if its still pending verification--%>
+
                                     <c:if test="${order.orderStatus eq 'Order Awaiting Confirmation'}">
                                         <a class="btn btn-outline-danger btn-sm" href="<c:url value="/user/markOrderAsCancelled/${order.customerOrderId}"/> ">Cancel</a>
                                     </c:if>
+
+                                    <%--Cancel button gets disabled if a payment has been made--%>
+
                                 <c:if test="${order.orderStatus ne 'Order Awaiting Confirmation'}">
                                     <a class="btn btn-outline-danger disabled btn-sm" href="<c:url value="/user/markOrderAsCancelled/${order.customerOrderId}"/> ">Cancel</a>
                                 </c:if>

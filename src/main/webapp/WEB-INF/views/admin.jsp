@@ -12,6 +12,9 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@include file="template/header.jsp"%>
 <title>Control Center | Rent eSkates</title>
+
+<%--This is the control center--%>
+
 <div class="container-fluid" style="padding-top: 100px">
         <div class="jumbotron">
             <h2>Control Center</h2>
@@ -19,6 +22,9 @@
         </div>
     <h4 class="display-4">Order Stats</h4>
     <hr>
+
+    <%--This row is for the order stats--%>
+
     <div class="row" style="padding-bottom: 30px;">
             <div class="col-md" >
                 <div class="text-center border border-danger" style="padding: 80px 0 80px 0">
@@ -41,6 +47,9 @@
                 </div>
             </div>
     </div>
+
+    <%--This row is for the financial stats--%>
+
     <h4 class="display-4">Financial Stats</h4>
     <hr>
     <div class="row" style="padding-bottom: 30px;">
@@ -60,15 +69,19 @@
             </div>
         </div>
     </div>
+
+    <%--Buttons to redirect to admin pages--%>
+    <h4 class="display-4">Control Center</h4>
+    <hr>
     <div class="row">
         <div class="col-md">
-            <h3>
             <a href="<c:url value="/admin/productInventory/" /> " style="text-decoration: none;"><button type="button" class="btn btn-primary btn-lg btn-block" style="padding: 50px 0 50px 0;">Manage Products</button></a>
-                <br>
-                <a href="<c:url value="/admin/manageUsers"/> " style="text-decoration: none;"><button type="button" class="btn btn-primary btn-lg btn-block" style="padding: 50px 0 50px 0;">Manage Users</button></a>
-                <br>
-                <a href="<c:url value="/admin/manageOrders"/>" style="text-decoration: none;"><button type="button" class="btn btn-primary btn-lg btn-block" style="padding: 50px 0 50px 0;">Manage Orders</button></a>
-            </h3>
+        </div>
+        <div class="col-md">
+            <a href="<c:url value="/admin/manageUsers"/> " style="text-decoration: none;"><button type="button" class="btn btn-primary btn-lg btn-block" style="padding: 50px 0 50px 0;">Manage Users</button></a>
+        </div>
+        <div class="col-md">
+            <a href="<c:url value="/admin/manageOrders"/>" style="text-decoration: none;"><button type="button" class="btn btn-primary btn-lg btn-block" style="padding: 50px 0 50px 0;">Manage Orders</button></a>
         </div>
     </div>
 </div>

@@ -64,7 +64,7 @@
                 <td>${user.cart.cartId}</td>
                 <td>${user.joinDate}</td>
                 <td>
-                    <a class="btn btn-primary" href="<spring:url value="/admin/manageUsers/user/editUser/${user.customerId}" />"><i class="material-icons" data-toggle="tooltip" title="Edit">edit</i></a>
+                    <a class="btn btn-primary" href="<spring:url value="/admin/manageUsers/user/viewUser/${user.customerId}" />"><i class="material-icons" data-toggle="tooltip" title="Edit">pageview</i></a>
                     <a class="btn btn-primary" href="<spring:url value="/admin/manageUsers/user/editUser/${user.customerId}" />"><i class="material-icons" data-toggle="tooltip" title="Edit">edit</i></a></td>
 
             </tr>

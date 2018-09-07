@@ -51,8 +51,7 @@ public class OrderStatsMonthlyDaoImpl implements OrderStatsMonthlyDao {
         DateFormat dateFormat = new SimpleDateFormat("MM");
         Date date = new Date();
         for(CustomerOrder order : orderDetails){
-            String currentMonth = Integer.toString(order.getOrderDate().charAt(0)) + Integer.toString(order.getOrderDate().charAt(1));
-            if(!order.getOrderStatus().equals("Order Awaiting Confirmation") && currentMonth.equals(dateFormat.format(date))){
+            if(!order.getOrderStatus().equals("Order Awaiting Confirmation")){
                 sales += order.getOrderTotal();
             }
         }

@@ -11,6 +11,9 @@
 <%@ taglib prefix="spring" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%--header--%>
+
+<%--This form is same as employee form with the only difference being, employees get the ROLE_ADMIN--%>
+
 <%@include file="/WEB-INF/views/template/header.jsp"%>
 <title>Registration | Rent eSkates</title>
 <div class="container" style="padding-top: 100px">

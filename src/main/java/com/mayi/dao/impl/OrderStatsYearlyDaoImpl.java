@@ -64,11 +64,7 @@ public class OrderStatsYearlyDaoImpl implements OrderStatsYearlyDao {
         DateFormat dateFormat = new SimpleDateFormat("YYYY");
         Date date = new Date();
         for(CustomerOrder orderDetails1 : orderDetails){
-            String currentYear = Integer.toString(orderDetails1.getOrderDate().charAt(6)) +
-                    Integer.toString(orderDetails1.getOrderDate().charAt(7)) +
-                    Integer.toString(orderDetails1.getOrderDate().charAt(8)) +
-                    Integer.toString(orderDetails1.getOrderDate().charAt(9));
-            if(!orderDetails1.getOrderStatus().equals("Order Awaiting Confirmation") && currentYear.equals(dateFormat.format(date))) {
+            if(!orderDetails1.getOrderStatus().equals("Order Awaiting Confirmation")) {
                 sales += orderDetails1.getOrderTotal();
             }
         }

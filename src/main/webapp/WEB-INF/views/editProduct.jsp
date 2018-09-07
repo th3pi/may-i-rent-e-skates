@@ -13,6 +13,8 @@
 <%--header--%>
 <%@include file="/WEB-INF/views/template/header.jsp"%>
 
+<%--This form is the same as addProduct view but filled with pre-existing information--%>
+
 <div class="container" style="padding-top: 100px">
     <div class="row">
         <div class="col-md">

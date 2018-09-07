@@ -13,6 +13,8 @@
 <%--header--%>
 <%@include file="/WEB-INF/views/template/header.jsp"%>
 
+<%--Introduction to the page--%>
+
 <div class="container" style="padding-top: 100px">
     <div class="row">
         <div class="col-md">

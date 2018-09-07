@@ -35,6 +35,9 @@
             </div>
         </div>
     </div>
+
+    <%--Table starts here.  @id myTable is necessary for the search to work--%>
+
     <input class="form-control" id="myInput" type="text" placeholder="Search by anything...">
     <table class="table table-striped table-hover">
         <thead>
@@ -79,7 +82,10 @@
                         <td class="btn-danger text-center">${order.orderStatus}</td>
                     </c:when>
                 </c:choose>
-                <td class="text-center">$${order.cart.grandTotal}</td>
+                <td class="text-center">$${order.orderTotal}</td>
+
+                <%--Buttons to update order status. They are color coded the same way throughout the entire website.--%>
+
                 <td class="text-center">
                     <a class="btn btn-outline-success" href="<spring:url value="/admin/manageOrders/order/markOrderAsPaymentReceived/${order.customerOrderId}" />"><i class="material-icons" data-toggle="tooltip" title="Payment Received">edit</i></a>
                     <a class="btn btn-info" href="<spring:url value="/admin/manageOrders/order/markOrderAsPicked/${order.customerOrderId}" />"><i class="material-icons" data-toggle="tooltip" title="Order Picked Up">edit</i></a>
