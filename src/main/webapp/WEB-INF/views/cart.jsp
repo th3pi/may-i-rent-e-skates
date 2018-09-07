@@ -15,9 +15,9 @@
 <body>
 <div class="container" style="padding-top: 100px">
     <section>
-        <div class="jumbotron">
+        <div class="jumbotron fade-in">
             <div class="container">
-                <h1>Cart</h1>
+                <h1 style="text-shadow: 0 0 60px 5px #ffffff;">Cart</h1>
                 <p>Checkout or clear your cart.</p>
             </div>
         </div>
@@ -39,7 +39,7 @@
 
         <c:when test="${cartItems.size() ne 0}">
             <section ng-app="cartApp">
-                <div ng-controller="cartCtrl" ng-init="initCartId('${cartId}')">
+                <div class="fade-in" ng-controller="cartCtrl" ng-init="initCartId('${cartId}')">
                     <table class="table table-hover">
                         <tr>
                             <th>Product</th>

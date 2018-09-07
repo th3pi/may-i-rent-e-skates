@@ -15,7 +15,7 @@
 <%--header--%>
 <%@include file="/WEB-INF/views/template/header.jsp"%>
 <title>Registration | Rent eSkates</title>
-    <div class="container" style="padding-top: 100px;">
+    <div class="container slide-in-right" style="padding-top: 100px;">
         <div class="container-fluid jumbotron">
             <h1>Receipt</h1>
 
