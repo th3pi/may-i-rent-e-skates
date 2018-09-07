@@ -48,19 +48,11 @@
             <%@include file="template/productImageAttrProductPage.jsp"%>
         </div>
         <div class="col-lg-6" style="text-align: left;">
-            <h1 class="display-3">${product.productType} Range</h1>
-            <h1 class="display-4" style="color: #b21f2d">${product.productRange} miles</h1>
+            <h1 class="display-3">Description</h1>
             <hr>
             <p style="width: 500px">${product.productDescription}</p>
             <hr>
-            <c:choose>
-                <c:when test="${product.productSpeed ge 20}">
-                    <h4 style="color: #b21f2d">Blazing fast speed of ${product.productSpeed}mph</h4>
-                </c:when>
-                <c:when test="${product.productSpeed le 19}">
-                    <h4 style="color: #1c7430"> Safe pace speed of ${product.productSpeed}mph</h4>
-                </c:when>
-            </c:choose>
+            <h4 style="color: #b21f2d">Maximum rent limit: <span class="badge badge-danger">${product.productRentLimit} days</span></h4>
             <hr>
             <h4>${product.productType} recharge time: ${product.productRechargeTime} minutes</h4>
             <h4>${product.productType} weight: ${product.productWeight}lbs</h4>

@@ -108,7 +108,24 @@
                 <label for="szipcode">Zipcode</label>
                 <form:input path="shippingAddress.zipcode" id="szipcode" class="form-control" value="${user.shippingAddress.zipcode}"/>
             </div>
-
+            <div style="display: none;">
+                <h3>Manager-Only details</h3>
+                <br>
+                <div class="form-group">
+                    <label for="cid">Cart ID: </label>
+                    <form:input path="cart.cartId" id="cid" class="form-control" value="${user.cart.cartId}"/>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="jd">Join date: </label>
+                    <form:input path="joinDate" id="jd" class="form-control" value="${user.joinDate}" readonly="true"/>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="jd">Enabled: </label>
+                    <form:input path="enabled" id="jd" class="form-control" value="${user.enabled}" readonly="true"/>
+                </div>
+            </div>
             <input type="submit" value="Submit" class="btn btn-primary"/>
             <a href="<c:url value="/admin/manageUsers"/> " role="button" class="btn btn-danger">Cancel</a>
         </form:form>

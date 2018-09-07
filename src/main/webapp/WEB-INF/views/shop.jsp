@@ -120,7 +120,7 @@
 
     </div>
     <!-- /.row -->
-    <div class="myAlert-bottom alert alert-success fade-in slide-out-right">
+    <div class="myAlert-bottom alert alert-success fade-in">
         <strong>Success! </strong>
         Product have been successfully added to your cart.
     </div>

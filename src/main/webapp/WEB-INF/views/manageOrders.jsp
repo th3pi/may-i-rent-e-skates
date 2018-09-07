@@ -82,7 +82,7 @@
                         <td class="btn-danger text-center">${order.orderStatus}</td>
                     </c:when>
                 </c:choose>
-                <td class="text-center">$${order.orderTotal}</td>
+                <td class="text-center"><fmt:formatNumber value="${order.orderTotal}" type="currency" currencySymbol="$"/></td>
 
                 <%--Buttons to update order status. They are color coded the same way throughout the entire website.--%>
 
