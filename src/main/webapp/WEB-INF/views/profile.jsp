@@ -35,17 +35,14 @@
 
             <%--This will be shown if user never ordered anything--%>
 
-        <c:when test="${orders.size() eq 0}">
-            <h2 class="lead text-center tracking-in-expand">You didn't order anything yet.</h2>
-            <hr>
-            <h2 class="text-center"><a class="btn btn-outline-success heartbeat" href="<c:url value="/shop" />">Click here to get started</a></h2>
-        </c:when>
+            <c:when test="${orders.size() eq 0}">
+                <h2 class="lead text-center tracking-in-expand">You didn't order anything yet.</h2>
+                <hr>
+                <h2 class="text-center"><a class="btn btn-outline-success heartbeat" href="<c:url value="/shop" />">Click here to get started</a></h2>
+            </c:when>
             <c:when test="${orders.size() ne null}">
-        <div class="row">
-
+            <div class="row">
             <%--User order history--%>
-
-
             <c:forEach var="order" items="${orders}">
             <div class="col-md-4">
                 <div class="card mb-4 shadow-sm shadow-drop-center">
@@ -53,6 +50,9 @@
                         <h5 class="card-title">Order#${order.customerOrderId}</h5>
                         <h6 class="card-subtitle">Place on: ${order.orderDate} </h6>
                         <hr>
+                        <h6 class="lead">Order Total: <fmt:formatNumber value="${order.orderTotal}" currencySymbol="$" type="currency"/>  </h6>
+
+                        <%--color codes the order status--%>
                         <c:choose>
                             <c:when test="${order.orderStatus eq null}">
                                 <h6 class="btn btn btn-outline-danger">Something went wrong.</h6>

@@ -42,7 +42,7 @@
             </div>
         <br>
             <br>
-        <img src="../resources/img/bbv2-side-banner.png" href="<c:url value="/viewProduct/13"/> ">
+            <img src="../resources/img/bbv2-side-banner.png" href="<c:url value="/viewProduct/13"/> ">
 
         </div>
         <!-- /.col-lg-3 -->
@@ -89,8 +89,8 @@
                             <a href="<spring:url value="/viewProduct/${ctProduct.productID}"/>" style="text-decoration: none">
                             <div class="btn btn-light text-left" role="alert" href="<spring:url value="/viewProduct/${ctProduct.productID}"/>">
                             <h5 style="color: #1c7430">$${ctProduct.productPrice} per day</h5>
-                            <p class="card-text">Range: ${ctProduct.productRange} miles</p>
-                            <p class="card-text">Recharge time: ${ctProduct.productRechargeTime} minutes</p>
+                                <p class="card-text">Range: ${ctProduct.productRange} miles</p>
+                                <p class="card-text">Recharge time: ${ctProduct.productRechargeTime} minutes</p>
                             </div>
                             </a>
                         </div>

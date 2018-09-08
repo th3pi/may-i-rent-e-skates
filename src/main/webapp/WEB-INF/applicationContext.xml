@@ -55,7 +55,7 @@
                 login-processing-url="/j_spring_security_check"
             login-page="/login"
             default-target-url="/shop/"
-                
+
             authentication-failure-url="/login?error"
             username-parameter="username"
             password-parameter="password" />
