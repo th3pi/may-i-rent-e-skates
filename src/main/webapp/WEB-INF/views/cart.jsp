@@ -42,6 +42,7 @@
                 <div class="fade-in" ng-controller="cartCtrl" ng-init="initCartId('${cartId}')">
                     <table class="table table-hover">
                         <tr>
+                            <th>Image</th>
                             <th>Product</th>
                             <th>One Day Price</th>
                             <th>Days</th>
@@ -49,6 +50,7 @@
                                 <%--<th>Action</th>--%>
                         </tr>
                         <tr ng-repeat="item in cart.cartItems">
+                            <td><img src="/resources/img/{{item.product.productID}}.png" alt="image" style="width: 85px; height: 85px;"/></td>
                             <td>{{item.product.productName}}</td>
                             <td>&#36;{{item.product.productPrice}}</td>
                             <td>{{item.quantity}}</td>
@@ -56,6 +58,7 @@
                                 <%--<td><a class="btn btn-danger" ng-click="removeFromCart(item.product.productId)">remove</a> </td>--%>
                         </tr>
                         <tr>
+                            <th></th>
                             <th></th>
                             <th></th>
                             <th>Grand Total</th>

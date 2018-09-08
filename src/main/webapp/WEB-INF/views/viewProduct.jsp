@@ -54,11 +54,9 @@
             <hr>
             <h4 style="color: #b21f2d">Maximum rent limit: <span class="badge badge-danger">${product.productRentLimit} days</span></h4>
             <hr>
-            <h4>${product.productType} recharge time: ${product.productRechargeTime} minutes</h4>
-            <h4>${product.productType} weight: ${product.productWeight}lbs</h4>
+            <h4>Only <span class="badge badge-secondary">1</span> ${product.productType} per customer.</h4>
             <hr>
             <h4 class="lead" style="color: #1e7e34; font-size: 300%;">RENT: $${product.productPrice}<span class="badge badge-secondary" > NEW!</span></h4>
-            <div class="alert alert-primary" style="width: 50%;">Rent limit is <span style="color: #b21f2d">${product.productRentLimit}</span> days!</div>
             <br>
 
             <c:set var="role" scope="page" value="${param.role}" />
@@ -76,6 +74,44 @@
                 <sec:authorize access="hasRole('ROLE_ADMIN')"><a href="<spring:url value="/admin/product/editProduct/${product.productID}"/> " class="btn btn-lg btn-primary">Edit Product</a></sec:authorize>
             </p>
         </div>
+    </div>
+    <h4 class="display-4" style="font-size: 180%;">Other products you may like</h4>
+    <hr>
+    <div class="row" id="products" ng-app="cartApp">
+        <c:forEach items="${contextualProducts}" var="ctProduct" end="5">
+            <c:if test="${ctProduct.productID ne product.productID}">
+            <div class="col-lg-2">
+                <div class="card h-20 slide-in-bck-center">
+                    <a href="#"><img src="<c:url value="/resources/img/${ctProduct.productID}.png" /> " alt="image" style="width: 380px; height: 380px"/>
+                    </a>
+                    <div class="card-body">
+                        <h4 class="card-title">
+                            <a href="<spring:url value="/viewProduct/${ctProduct.productID}"/>">${ctProduct.productName}</a>
+                        </h4>
+                        <a href="<spring:url value="/viewProduct/${ctProduct.productID}"/>" style="text-decoration: none">
+                            <div class="btn-light text-left" style="padding: 20px; border-radius: 5px;" role="alert" href="<spring:url value="/viewProduct/${ctProduct.productID}"/>">
+                                <h5 style="color: #1c7430">$${ctProduct.productPrice} per day</h5>
+                                <p class="card-text">Range: ${ctProduct.productRange} miles</p>
+                                <p class="card-text">Recharge time: ${ctProduct.productRechargeTime} minutes</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="card-footer" ng-controller="cartCtrl">
+                        <div class="btn-group">
+                            <sec:authorize access="isAnonymous()">
+                                <a class="btn btn-sm btn-success" href="<c:url value="/login"/>">Login to rent!</a>
+                            </sec:authorize>
+                            <sec:authorize access="hasRole('ROLE_ADMIN')">
+                                <a class="btn btn-sm btn-success" href="<c:url value="/admin/product/editProduct/${ctProduct.productID}"/> ">Edit</a>
+                            </sec:authorize>
+                            <a class="btn btn-outline-secondary btn-sm" href="<c:url value="/viewProduct/${ctProduct.productID}"/> ">View</a>
+                        </div>
+                        <span class="badge badge-secondary float-right">NEW</span>
+                    </div>
+                </div>
+            </div>
+            </c:if>
+        </c:forEach>
     </div>
 </div>
 <%--Footer--%>

@@ -30,9 +30,9 @@
         <label for="password">Password</label>
         <input type="password" id="password" name="password" placeholder="password1234" class="form-control" />
         <br>
-        <input type="submit" value="Log me in!" class="btn btn-lg btn-outline-primary"/>
+        <input type="submit" value="Log me in!" class="btn btn-lg btn-primary"/>
         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-        <a class="btn btn-lg btn-primary" href="/register">Sign up</a>
+        <a class="btn btn-lg btn-outline-primary" href="/register">Sign up</a>
     </form>
     </div>
 </body>

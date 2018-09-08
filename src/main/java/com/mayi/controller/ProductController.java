@@ -51,6 +51,16 @@ public class ProductController {
     @RequestMapping("/viewProduct/{productId}")
     public String viewProduct(@PathVariable int productId, Model model) throws IOException{
         Product product = productService.getProductById(productId);
+        if(product.getProductType().equals("Skateboard")){
+            List<Product> products = productService.getProductsByType("Skateboard");
+            model.addAttribute("contextualProducts",products);
+        }else if(product.getProductType().equals("Scooter")){
+            List<Product> products = productService.getProductsByType("Scooter");
+            model.addAttribute("contextualProducts",products);
+        }else if(product.getProductType().equals("Bicycle")){
+            List<Product> products = productService.getProductsByType("Scooter");
+            model.addAttribute("contextualProducts",products);
+        }
         model.addAttribute("product", product);
         return "viewProduct";
     }

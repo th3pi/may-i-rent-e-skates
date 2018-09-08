@@ -47,20 +47,20 @@
                 <th></th>
             </tr>
             </thead>
-            <c:forEach items="${products}" var="product">
+            <c:forEach items="${products}" var="ctProduct">
                 <tr>
                     <td><%@include file="template/productImgAttrProductInventory.jsp"%></td>
-                    <td>${product.productName}</td>
-                    <td>${product.productType}</td>
-                    <td>${product.productManufacturer}</td>
-                    <td>${product.productSku}</td>
-                    <td>$${product.productPrice}</td>
-                    <td>${product.productSpeed}mph</td>
-                    <td>${product.productRechargeTime}mins</td>
-                    <td>${product.productRentLimit} days</td>
-                    <td><a class="btn btn-primary" href="<spring:url value="/viewProduct/${product.productID}" />"><i class="material-icons" data-toggle="tooltip" title="View">pageview</i></a>
-                        <a class="btn btn-success" href="<spring:url value="/admin/product/editProduct/${product.productID}" />"><i class="material-icons" data-toggle="tooltip" title="Edit">edit</i></a>
-                        <a class="btn btn-danger" href="<spring:url value="/admin/product/deleteProduct/${product.productID}" />"><i class="material-icons" data-toggle="tooltip" title="Delete">clear</i></a>
+                    <td>${ctProduct.productName}</td>
+                    <td>${ctProduct.productType}</td>
+                    <td>${ctProduct.productManufacturer}</td>
+                    <td>${ctProduct.productSku}</td>
+                    <td>$${ctProduct.productPrice}</td>
+                    <td>${ctProduct.productSpeed}mph</td>
+                    <td>${ctProduct.productRechargeTime}mins</td>
+                    <td>${ctProduct.productRentLimit} days</td>
+                    <td><a class="btn btn-primary" href="<spring:url value="/viewProduct/${ctProduct.productID}" />"><i class="material-icons" data-toggle="tooltip" title="View">pageview</i></a>
+                        <a class="btn btn-success" href="<spring:url value="/admin/product/editProduct/${ctProduct.productID}" />"><i class="material-icons" data-toggle="tooltip" title="Edit">edit</i></a>
+                        <a class="btn btn-danger" href="<spring:url value="/admin/product/deleteProduct/${ctProduct.productID}" />"><i class="material-icons" data-toggle="tooltip" title="Delete">clear</i></a>
                         </td>
 
                 </tr>

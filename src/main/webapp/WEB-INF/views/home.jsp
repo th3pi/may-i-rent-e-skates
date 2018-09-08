@@ -193,27 +193,30 @@
     <div class="jumbotron">
         <h2 class="display-4">OUR TOP THREE</h2>
     </div>
+
+        <%--Small homepage shop--%>
+
     <div class="container">
         <div class="row" ng-app="cartApp">
-            <c:forEach items="${products}" var="product" end="2">
+            <c:forEach items="${products}" var="ctProduct" end="2">
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="card h-20">
                         <a href="#"><%@include file="template/productImgAttrProductList.jsp"%></a>
                         <div class="card-body">
                             <h4 class="card-title">
-                                <a href="<spring:url value="/viewProduct/${product.productID}"/>">${product.productName}</a>
+                                <a href="<spring:url value="/viewProduct/${ctProduct.productID}"/>">${ctProduct.productName}</a>
                             </h4>
                             <div class="alert alert-dark" role="alert">
-                                <h5 style="color: #1c7430">$${product.productPrice}</h5>
-                                <p class="card-text">Range: ${product.productRange} miles</p>
-                                <p class="card-text">Recharge time: ${product.productRechargeTime} minutes</p>
+                                <h5 style="color: #1c7430">$${ctProduct.productPrice}</h5>
+                                <p class="card-text">Range: ${ctProduct.productRange} miles</p>
+                                <p class="card-text">Recharge time: ${ctProduct.productRechargeTime} minutes</p>
                             </div>
                         </div>
                         <div class="card-footer" ng-controller="cartCtrl">
                             <div class="btn-group">
-                                <a class="btn btn-outline-secondary btn-sm" href="<c:url value="/viewProduct/${product.productID}"/> ">View</a>
+                                <a class="btn btn-outline-secondary btn-sm" href="<c:url value="/viewProduct/${ctProduct.productID}"/> ">View</a>
                             </div>
-                            <small class="text-muted float-right">${product.productManufacturer}</small>
+                            <small class="text-muted float-right">${ctProduct.productManufacturer}</small>
                         </div>
                     </div>
                 </div>

@@ -134,9 +134,8 @@
                         </div>
                     </div>
                     <hr class="mb-4">
-                        <input type="hidden" name="_flowExecutionKey">
                         <div class="row">
-                            <div class="col-lg-8">
+                            <input type="hidden" name="_flowExecutionKey">
                                 <input type="submit" value="Go to shipping details" name="_eventId_customerInfoCollected" class="btn btn-primary btn-lg btn-block"/>
                             </div>
                             <div class="col-lg-4">

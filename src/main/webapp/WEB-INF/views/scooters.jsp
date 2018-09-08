@@ -77,20 +77,20 @@
             </div>
 
             <div class="row" id="products" ng-app="cartApp">
-                <c:forEach items="${scooters}" var="product">
+                <c:forEach items="${scooters}" var="ctProduct">
                     <div class="col-lg-4 col-md-6 mb-4">
                         <div class="card h-20 slide-in-bck-center">
-                            <a href="#"><img src="<c:url value="/resources/img/${product.productID}.png" /> " alt="image" style="width: 250px; height: 250px"/>
+                            <a href="#"><img src="<c:url value="/resources/img/${ctProduct.productID}.png" /> " alt="image" style="width: 250px; height: 250px"/>
                             </a>
                             <div class="card-body">
                                 <h4 class="card-title">
-                                    <a href="<spring:url value="/viewProduct/${product.productID}"/>">${product.productName}</a>
+                                    <a href="<spring:url value="/viewProduct/${ctProduct.productID}"/>">${ctProduct.productName}</a>
                                 </h4>
-                                <a href="<spring:url value="/viewProduct/${product.productID}"/>" style="text-decoration: none">
-                                    <div class="btn btn-light text-left" role="alert" href="<spring:url value="/viewProduct/${product.productID}"/>">
-                                        <h5 style="color: #1c7430">$${product.productPrice}</h5>
-                                        <p class="card-text">Range: ${product.productRange} miles</p>
-                                        <p class="card-text">Recharge time: ${product.productRechargeTime} minutes</p>
+                                <a href="<spring:url value="/viewProduct/${ctProduct.productID}"/>" style="text-decoration: none">
+                                    <div class="btn btn-light text-left" role="alert" href="<spring:url value="/viewProduct/${ctProduct.productID}"/>">
+                                        <h5 style="color: #1c7430">$${ctProduct.productPrice}</h5>
+                                        <p class="card-text">Range: ${ctProduct.productRange} miles</p>
+                                        <p class="card-text">Recharge time: ${ctProduct.productRechargeTime} minutes</p>
                                     </div>
                                 </a>
                             </div>
@@ -100,12 +100,12 @@
                                         <a class="btn btn-sm btn-success" href="<c:url value="/login"/>">Login to rent!</a>
                                     </sec:authorize>
                                     <sec:authorize access="hasRole('ROLE_USER')">
-                                        <a class="btn btn-sm btn-success" onclick="myAlertBottom()" ng-click="addToCart('${product.productID}')"><i class="material-icons">add_shopping_cart</i></a>
+                                        <a class="btn btn-sm btn-success" onclick="myAlertBottom()" ng-click="addToCart('${ctProduct.productID}')"><i class="material-icons">add_shopping_cart</i></a>
                                     </sec:authorize>
                                     <sec:authorize access="hasRole('ROLE_ADMIN')">
-                                        <a class="btn btn-sm btn-success" href="<c:url value="/admin/product/editProduct/${product.productID}"/> ">Edit</a>
+                                        <a class="btn btn-sm btn-success" href="<c:url value="/admin/product/editProduct/${ctProduct.productID}"/> ">Edit</a>
                                     </sec:authorize>
-                                    <a class="btn btn-outline-secondary btn-sm" href="<c:url value="/viewProduct/${product.productID}"/> ">View</a>
+                                    <a class="btn btn-outline-secondary btn-sm" href="<c:url value="/viewProduct/${ctProduct.productID}"/> ">View</a>
                                 </div>
                                 <span class="badge badge-secondary float-right">NEW</span>
                             </div>
