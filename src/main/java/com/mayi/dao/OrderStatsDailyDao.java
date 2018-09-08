@@ -10,6 +10,7 @@ public interface OrderStatsDailyDao {
 
     List<OrderStatsDaily> getAllOrderStats();
     void addOrderStats(OrderStatsDaily orderStats);
+    List<OrderStatsDaily> getFirstDayOfEachMonth(String[] dates);
 
     void getTotalSales(List<CustomerOrder> orderDetails);
 }

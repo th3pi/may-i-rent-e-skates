@@ -45,6 +45,12 @@ public class OrderStatsDailyDaoImpl implements OrderStatsDailyDao {
         session.flush();
     }
 
+    public List<OrderStatsDaily> getFirstDayOfEachMonth(String[] dates) {
+        Session session = sessionFactory.getCurrentSession();
+        Query query = session.createQuery("from orderStatsDaily where today = ?");
+        return null;
+    }
+
     public void getTotalSales(List<CustomerOrder> orderDetails) {
         double sales = 0;
         DateFormat dateFormat = new SimpleDateFormat("MM/dd/YYYY");

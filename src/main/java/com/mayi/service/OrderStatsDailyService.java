@@ -10,6 +10,7 @@ public interface OrderStatsDailyService {
     OrderStatsDaily getOrderStatsByDate(String date);
 
     List<OrderStatsDaily> getAllOrderStats();
+    List<OrderStatsDaily> getFirstDayOfEachMonth(String[] dates);
     void addOrderStats(OrderStatsDaily orderStats);
 
     void getTotalSales(List<CustomerOrder> orderDetails);

@@ -19,6 +19,8 @@
             <h2>Control Center</h2>
             <p class="lead">Manage products, users and orders.</p>
         </div>
+    <div id="chart"></div>
+
     <h4 class="display-4">Order Stats</h4>
     <hr>
 
@@ -84,4 +86,66 @@
         </div>
     </div>
 </div>
+
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/series-label.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script>
+    Highcharts.chart('chart', {
+
+        title: {
+            text: 'Monthly Sales, 2018'
+        },
+        yAxis: {
+            title: {
+                text: 'Sales amount'
+            }
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle'
+        },
+
+        xAxis: {
+            categories: [
+                'Jan',
+                'Feb',
+                'Mar',
+                'Apr',
+                'May',
+                'Jun',
+                'Jul',
+                'Aug',
+                'Sep',
+                'Oct',
+                'Nov',
+                'Dec'
+            ]
+        },
+        series: [{
+            name: 'Sales per month',
+            data: [<c:forEach items="${perMonthSales}" var="m">
+                ${m} ,
+                </c:forEach> ]
+        }],
+
+        responsive: {
+            rules: [{
+                condition: {
+                    maxWidth: 500
+                },
+                chartOptions: {
+                    legend: {
+                        layout: 'horizontal',
+                        align: 'center',
+                        verticalAlign: 'bottom'
+                    }
+                }
+            }]
+        }
+
+    });
+</script>
 <%@include file="template/footer.jsp"%>

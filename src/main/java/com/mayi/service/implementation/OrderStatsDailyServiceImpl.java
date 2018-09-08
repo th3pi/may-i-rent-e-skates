@@ -30,6 +30,10 @@ public class OrderStatsDailyServiceImpl implements OrderStatsDailyService {
         orderStatsDailyDao.addOrderStats(orderStats);
     }
 
+    public List<OrderStatsDaily> getFirstDayOfEachMonth(String[] dates) {
+        return orderStatsDailyDao.getFirstDayOfEachMonth(dates);
+    }
+
     public void getTotalSales(List<CustomerOrder> orderDetails) {
         orderStatsDailyDao.getTotalSales(orderDetails);
     }

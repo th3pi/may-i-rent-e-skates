@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -60,12 +61,21 @@ public class AdminController {
         List<CustomerOrder> ordersPending = customerOrderService.getOrderStatus("Order Awaiting Confirmation");
         List<CustomerOrder> ordersPickedUp = customerOrderService.getOrderStatus("Order Picked Up");
         List<CustomerOrder> ordersAwaitingReturn = customerOrderService.getOrderStatus("Awaiting Return");
+        List<OrderStatsMonthly> orderStatsMonthlies = orderStatsMonthlyService.getAllOrderStats();
+        List<Double> perMonthSales = new ArrayList<Double>();
+
+        for(int i = 0; i < orderStatsMonthlies.size(); i++){
+            if(orderStatsMonthlies.get(i).getSales() == 0){
+                perMonthSales.add(orderStatsMonthlies.get(i-1).getSales());
+            }
+        }
 
 
         model.addAttribute("completed",ordersCompleted);
         model.addAttribute("pending",ordersPending);
         model.addAttribute("pickedup",ordersPickedUp);
         model.addAttribute("areturn",ordersAwaitingReturn);
+        model.addAttribute("perMonthSales",perMonthSales);
         model.addAttribute(orderStatsDaily);
         model.addAttribute(orderStatsMonthly);
         model.addAttribute(orderStatsYearly);
