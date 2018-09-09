@@ -16,24 +16,25 @@
 <%--Introduction to the page--%>
 
 <div class="container" style="padding-top: 100px">
-    <div class="row">
-        <div class="col-md">
-            <h1>Add Products</h1>
-        </div>
-        <div class="col-md">
-            <h3>Fill the below information to add products</h3>
+    <div class="jumbotron">
+        <div class="container">
+            <h1>Add Product</h1>
+            <p>Fill in new product information below </p>
         </div>
     </div>
     <div class="row">
         <div class="col-lg-12">
-
             <%--Form to add product details--%>
             <form:form action="${pageContext.request.contextPath}/admin/product/addProduct" method="post" commandName="product" enctype="multipart/form-data">
-                <div class="form-group">
-                    <label class="control-box" for="img">Upload Product Image</label>
-                    <br>
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="img">Upload</span>
+                    </div>
+                    <div class="custom-file">
+                        <form:input id="img" cssClass="custom-file-input" path="productImage" type="file" class="form:input" />
+                        <label class="custom-file-label" for="img"></label>
+                    </div>
                     <%--<input type="file" name="img" multiple="multiple"/>--%>
-                    <form:input id="img" path="productImage" type="file" class="form:input" />
                 </div>
                 <div class="form-group">
                 <label for="name">Name</label> <form:errors path="productName" cssStyle="color: #b21f2d"/>

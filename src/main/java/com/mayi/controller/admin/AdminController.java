@@ -46,9 +46,13 @@ public class AdminController {
     @RequestMapping
     public String adminPage(Model model){
         List<CustomerOrder> customerOrders = customerOrderService.getAllCustomerOrders();
+
+        //Gets yearly order stats
         orderStatsYearlyService.getTotalSalesYTD(customerOrders);
         DateFormat yearFormat = new SimpleDateFormat("YYYY");
         OrderStatsYearly orderStatsYearly = orderStatsYearlyService.getOrderStatsByDate(yearFormat.format(new Date()));
+
+        //Gets monthly user stats
         orderStatsMonthlyService.getTotalSales(customerOrders);
         DateFormat monthFormat = new SimpleDateFormat("MM");
         OrderStatsMonthly orderStatsMonthly = orderStatsMonthlyService.getOrderStatsByDate(monthFormat.format(new Date()));
@@ -56,7 +60,9 @@ public class AdminController {
         DateFormat todayFormat = new SimpleDateFormat("MM/dd/YYYY");
         OrderStatsDaily orderStatsDaily = orderStatsDailyService.getOrderStatsByDate(todayFormat.format(new Date()));
 
-
+        /*
+        * This chunk gets all the orders with a certain order status for the admin page stats.
+         */
         List<CustomerOrder> ordersCompleted = customerOrderService.getOrderStatus("Completed");
         List<CustomerOrder> ordersPending = customerOrderService.getOrderStatus("Order Awaiting Confirmation");
         List<CustomerOrder> ordersPickedUp = customerOrderService.getOrderStatus("Order Picked Up");
@@ -82,6 +88,12 @@ public class AdminController {
         return "admin";
     }
 
+    /**
+     * Sets up the product inventory page for admin
+      * @param model gets all the product list
+     * @return product inventory page
+     */
+
     @RequestMapping("/productInventory")
     public String productInventory(Model model){
         List<Product> products = productService.getProductList();
@@ -89,6 +101,11 @@ public class AdminController {
         return "productInventory";
     }
 
+    /**
+     * Sets up the user management page for admin
+     * @param model gets all the users currently registered
+     * @return user management page
+     */
 
     @RequestMapping("/manageUsers")
     public String manageUsers(Model model){
@@ -97,6 +114,12 @@ public class AdminController {
 
         return "manageUsers";
     }
+
+    /**
+     * Sets up the order management page for admin
+     * @param model gets all the orders
+     * @return order management page
+     */
 
     @RequestMapping("/manageOrders")
     public String manageOrders(Model model){

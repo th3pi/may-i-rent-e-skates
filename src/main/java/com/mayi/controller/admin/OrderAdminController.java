@@ -21,11 +21,17 @@ public class OrderAdminController {
     @Autowired
     private CustomerOrderService customerOrderService;
 
-    @Autowired
-    private CustomerService customerService;
 
     @Autowired
     private OrderDetailsService orderDetailsService;
+
+    /**
+     * This method simply fetches the order and order details from the database.
+     * @param id is passed as the customer order id
+     * @param model passes all the orderdetails and order attributes the view order for view.
+     * @return the view order page.
+     */
+
 
     @RequestMapping("/order/viewOrder/{id}")
     public String getOrder(@PathVariable int id, Model model){
@@ -36,6 +42,13 @@ public class OrderAdminController {
         return "viewOrder";
     }
 
+    /**
+     * This method marks the order as picked up.
+     * @param id is the customer order id
+     * @param model not used at this moment
+     * @return redirects to the same page to refresh order status
+     */
+
     @RequestMapping("/order/markOrderAsPicked/{id}")
     public String markOrderAsPickedUp(@PathVariable int id, Model model){
         CustomerOrder customerOrder = customerOrderService.getCustomerOrderById(id);
@@ -43,6 +56,14 @@ public class OrderAdminController {
         customerOrderService.updateOrderStatus(customerOrder);
         return "redirect:/admin/manageOrders";
     }
+
+
+    /**
+     * This method marks the order as payment received.
+     * @param id is the customer order id
+     * @param model not used at this moment
+     * @return redirects to the same page to refresh order status
+     */
 
     @RequestMapping("/order/markOrderAsPaymentReceived/{id}")
     public String markOrderAsPaymentReceived(@PathVariable int id, Model model){
@@ -54,6 +75,14 @@ public class OrderAdminController {
         return "redirect:/admin/manageOrders";
     }
 
+
+    /**
+     * This method marks the order as awaiting return.
+     * @param id is the customer order id
+     * @param model not used at this moment
+     * @return redirects to the same page to refresh order status
+     */
+
     @RequestMapping("/order/markOrderAsAwaitingReturn/{id}")
     public String markOrderAsAwaitingReturn(@PathVariable int id, Model model){
         CustomerOrder customerOrder = customerOrderService.getCustomerOrderById(id);
@@ -62,6 +91,14 @@ public class OrderAdminController {
         return "redirect:/admin/manageOrders";
     }
 
+
+    /**
+     * This method marks the order as completed.
+     * @param id is the customer order id
+     * @param model not used at this moment
+     * @return redirects to the same page to refresh order status
+     */
+
     @RequestMapping("/order/markOrderAsCompleted/{id}")
     public String markOrderAsCompleted(@PathVariable int id, Model model){
         CustomerOrder customerOrder = customerOrderService.getCustomerOrderById(id);
@@ -69,6 +106,13 @@ public class OrderAdminController {
         customerOrderService.updateOrderStatus(customerOrder);
         return "redirect:/admin/manageOrders";
     }
+
+    /**
+     * This method marks the order as cancelled up.
+     * @param id is the customer order id
+     * @param model not used at this moment
+     * @return redirects to the same page to refresh order status
+     */
 
     @RequestMapping("/order/markOrderAsCancelled/{id}")
     public String markOrderAsCancelled(@PathVariable int id, Model model){

@@ -107,8 +107,8 @@
     <div class="container-fluid">
         <div class="row bg-dark" style="padding: 450px 0 450px 0">
             <div class="col-lg-12">
-                <h2 class="welcomeText fade-in" style="color: #fff; text-align: center; font-size: 650%; text-shadow: 0 0 60px 5px #ffffff;">Rent <span class="text-flicker-in-glow ">e</span>Skates</h2>
-                <p class="lead text-flicker-in-glow-infinite " style="color: #fff; text-align: center; font-size: 250%;">New York's new Mass Transit</p>
+                <h2 class="welcomeText slide-in-right" style="color: #fff; text-align: center; font-size: 650%; text-shadow: 0 0 60px 5px #ffffff;">Rent <span class="text-flicker-in-glow ">e</span>Skates</h2>
+                <p class="lead slide-in-right" style="color: #fff; text-align: center; font-size: 250%;">New York's new Mass Transit</p>
             </div>
         </div>
     </div>

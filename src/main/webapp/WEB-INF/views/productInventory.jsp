@@ -49,7 +49,7 @@
             </thead>
             <c:forEach items="${products}" var="ctProduct">
                 <tr>
-                    <td><%@include file="template/productImgAttrProductInventory.jsp"%></td>
+                    <td><img src="/resources/img/${ctProduct.productID}.png" alt="image" style="width: 85px; height: 85px;"/></td>
                     <td>${ctProduct.productName}</td>
                     <td>${ctProduct.productType}</td>
                     <td>${ctProduct.productManufacturer}</td>

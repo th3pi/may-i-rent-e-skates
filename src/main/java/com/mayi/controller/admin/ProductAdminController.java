@@ -33,6 +33,12 @@ public class ProductAdminController {
     @Autowired
     ProductService productService;
 
+    /**
+     * This method redirect to the add product page.
+     * @param model adds the product attributes the product page
+     * @return returns the add product page
+     */
+
     @RequestMapping("/product/addProduct")
     public String addProduct(Model model){
         Product product = new Product();
@@ -41,37 +47,13 @@ public class ProductAdminController {
         return "addProduct";
     }
 
-    @RequestMapping("/product/editProduct/{id}")
-    public String editProduct(@PathVariable("id") int id, Model model){
-        Product product = productService.getProductById(id);
-
-        model.addAttribute("product", product);
-        return "editProduct";
-    }
-
-    @RequestMapping(value = "/product/editProduct", method = RequestMethod.POST)
-    public String editProductPost(@Valid @ModelAttribute("product") Product product, BindingResult result, HttpServletRequest request){
-        if(result.hasErrors()){
-            return "editProduct";
-        }
-
-        MultipartFile multipartFile = product.getProductImage();
-        String rootDirectory = request.getSession().getServletContext().getRealPath("/");
-        path = Paths.get(rootDirectory + "\\WEB-INF\\resources\\img\\" + product.getProductID()+".png");
-
-        if(multipartFile != null && !multipartFile.isEmpty()){
-            try {
-                multipartFile.transferTo(new File(path.toString()));
-            } catch (IOException e) {
-                e.printStackTrace();
-                throw new RuntimeException("Product Image Saving failed.");
-            }
-        }
-
-        productService.editProduct(product);
-
-        return "redirect:/admin/productInventory";
-    }
+    /**
+     * With RequestMethod.POST this method adds the product details to the database. Including image.
+     * @param product adds the product details using the pojo class
+     * @param result checks for errors
+     * @param request gets the current session context
+     * @return after done, takes employee to product inventory page
+     */
 
     @RequestMapping(value = "/product/addProduct", method = RequestMethod.POST)
     public String addProductPost(@Valid @ModelAttribute("product") Product product, BindingResult result, HttpServletRequest request){
@@ -97,7 +79,60 @@ public class ProductAdminController {
         return "redirect:/admin/productInventory";
     }
 
+    /**
+     * This method redirect to the edit product page. Pre filled with previous details
+     * @param model adds the product attributes the product page
+     * @return returns the add product page
+     */
 
+
+    @RequestMapping("/product/editProduct/{id}")
+    public String editProduct(@PathVariable("id") int id, Model model){
+        Product product = productService.getProductById(id);
+
+        model.addAttribute("product", product);
+        return "editProduct";
+    }
+
+    /**
+     * With RequestMethod.POST this method edit the product details to the database. Including image.
+     * @param product adds the product details using the pojo class
+     * @param result checks for errors
+     * @param request gets the current session context
+     * @return after done, takes employee to product inventory page
+     */
+
+    @RequestMapping(value = "/product/editProduct", method = RequestMethod.POST)
+    public String editProductPost(@Valid @ModelAttribute("product") Product product, BindingResult result, HttpServletRequest request){
+        if(result.hasErrors()){
+            return "editProduct";
+        }
+
+        MultipartFile multipartFile = product.getProductImage();
+        String rootDirectory = request.getSession().getServletContext().getRealPath("/");
+        path = Paths.get(rootDirectory + "\\WEB-INF\\resources\\img\\" + product.getProductID()+".png");
+
+        if(multipartFile != null && !multipartFile.isEmpty()){
+            try {
+                multipartFile.transferTo(new File(path.toString()));
+            } catch (IOException e) {
+                e.printStackTrace();
+                throw new RuntimeException("Product Image Saving failed.");
+            }
+        }
+
+        productService.editProduct(product);
+
+        return "redirect:/admin/productInventory";
+    }
+
+    /**
+     * Deletes product including all product details and image
+     * @param id gets the product id.
+     * @param model not in use at the moment.
+     * @param request get the current session context
+     * @return redirects to the product inventory page
+     */
 
     @RequestMapping("/product/deleteProduct/{id}")
     public String deleteProduct(@PathVariable int id, Model model, HttpServletRequest request){
