@@ -19,6 +19,12 @@ public class ProductController {
     private ProductService productService;
 
 
+    /**
+     * Gets all the products
+     * @param model adds all products to the shop
+     * @return the shop view
+     */
+
     @RequestMapping("/shop")
     public String getProducts(Model model){
         List<Product> products = productService.getProductList();
@@ -27,19 +33,37 @@ public class ProductController {
         return "shop";
     }
 
+    /**
+     * Gets all the products
+     * @param model adds all products to the shop
+     * @return the shop view
+     */
+
     @RequestMapping("/shop/skateboards")
     public String getSkateboards(Model model){
         List<Product> products = productService.getProductsByType("Skateboard");
         model.addAttribute("skateboards",products);
         return "skateboards";
     }
-    
+
+    /**
+     * Gets all the scooters
+     * @param model adds all scooters to the scooter view
+     * @return the scooters view
+     */
+
     @RequestMapping("/shop/scooters")
     public String getScooters(Model model){
         List<Product> products = productService.getProductsByType("Scooter");
         model.addAttribute("scooters",products);
         return "scooters";
     }
+
+    /**
+     * Gets all the cycles
+     * @param model adds all cycles to the cycles
+     * @return the cycles view
+     */
 
     @RequestMapping("/shop/cycles")
     public String getCycles(Model model){
@@ -48,9 +72,19 @@ public class ProductController {
         return "cycles";
     }
 
+    /**
+     * Adds details to the product page
+     * @param productId the product to be viewed
+     * @param model adds all the details to product page
+     * @return the product page
+     * @throws IOException
+     */
+
     @RequestMapping("/viewProduct/{productId}")
     public String viewProduct(@PathVariable int productId, Model model) throws IOException{
         Product product = productService.getProductById(productId);
+
+        //Suggests other products based on the current product being viewed.
         if(product.getProductType().equals("Skateboard")){
             List<Product> products = productService.getProductsByType("Skateboard");
             model.addAttribute("contextualProducts",products);

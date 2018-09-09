@@ -8,6 +8,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class LoginController {
 
+    /**
+     * Controls the login page. Validates username and password
+     * @param error sends the error to login page
+     * @param logout gets the logout message
+     * @param model sends msg attributes to login view
+     * @return the login view
+     */
+
     @RequestMapping("/login")
     public String login(@RequestParam(value = "error", required = false)String error, @RequestParam(value = "logout", required = false)String logout, Model model){
         if(error != null){

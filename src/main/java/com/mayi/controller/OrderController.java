@@ -24,6 +24,12 @@ public class OrderController {
     @Autowired
     private OrderDetailsService orderDetailsService;
 
+    /**
+     * Creates an order
+     * @param cartId gets contextual cart id
+     * @return starts the checkout web-flow
+     */
+
     @RequestMapping("/order/{cartId}")
     public String createOrder(@PathVariable("cartId") int cartId){
         CustomerOrder customerOrder = new CustomerOrder();

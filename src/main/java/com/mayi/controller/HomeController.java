@@ -37,7 +37,6 @@ public class HomeController {
      *
      */
 
-
     @RequestMapping("/")
     public String home(Model model){
         List<Product> products = productService.getProductList();
@@ -56,6 +55,8 @@ public class HomeController {
         List<OrderStatsMonthly> orderStatsMonthlies = orderStatsMonthlyService.getAllOrderStats();
         List<OrderStatsYearly> orderStatsYearlies = orderStatsYearlyService.getAllOrderStats();
 
+
+        //If its a new day. Whenever home is accessed this controller will create a entry in the OrderStatsDaily database to reset the count.
         if(!orderStatsDailies.get(orderStatsDailies.size()-1).getToday().equals(currentDate)){
             OrderStatsDaily orderStatsDaily = new OrderStatsDaily();
             orderStatsDaily.setSales(0);
@@ -63,6 +64,8 @@ public class HomeController {
             orderStatsDailyService.addOrderStats(orderStatsDaily);
         }
 
+
+        //If its a new month. Whenever home is accessed this controller will create a entry in the OrderStatsMonthly database to reset the count.
         if(!orderStatsMonthlies.get(orderStatsMonthlies.size() - 1).getMonth().equals(currentMonth)){
             OrderStatsMonthly orderStatsMonthly = new OrderStatsMonthly();
             orderStatsMonthly.setSales(0);
@@ -70,6 +73,7 @@ public class HomeController {
             orderStatsMonthlyService.addOrderStats(orderStatsMonthly);
         }
 
+        //If its a new Year. Whenever home is accessed this controller will create a entry in the OrderStatsYearly database to reset the count.
         if(!orderStatsYearlies.get(orderStatsYearlies.size()-1).getYear().equals(currentYear)){
             OrderStatsYearly orderStatsYearly = new OrderStatsYearly();
             orderStatsYearly.setSales(0);

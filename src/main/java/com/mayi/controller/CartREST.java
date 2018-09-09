@@ -31,11 +31,26 @@ public class CartREST {
     @Autowired
     private ProductService productService;
 
+    /**
+     * This is REST cart service controller
+     */
+
+    /**
+     * Gets cart by Id
+     * @param cartId gets contextual cart id.
+     * @return the cart
+     */
     @RequestMapping("/{cartId}")
     public @ResponseBody
     Cart getCartById (@PathVariable(value = "cartId") int cartId) {
         return cartService.getCartById(cartId);
     }
+
+    /**
+     * Adds a product to cart.
+     * @param productId the product to be added to cart
+     * @param activeUser the user logged in.
+     */
 
     @RequestMapping(value = "/add/{productId}", method = RequestMethod.PUT)
     @ResponseStatus(value = HttpStatus.NO_CONTENT)
@@ -46,6 +61,8 @@ public class CartREST {
         Product product = productService.getProductById(productId);
         List<CartItem> cartItems = cart.getCartItems();
 
+
+        //If the item being added to cart has already been added previously - quantity gets updated
         for (int i=0; i<cartItems.size(); i++) {
             if(product.getProductID()==cartItems.get(i).getProduct().getProductID()){
                 CartItem cartItem = cartItems.get(i);
@@ -65,6 +82,11 @@ public class CartREST {
         cartItemService.addCartItem(cartItem);
     }
 
+    /**
+     * Removes product form the cart.
+     * @param productId the product to be removed
+     */
+
     @RequestMapping(value = "/remove/{productId}", method = RequestMethod.GET)
     @ResponseStatus(value = HttpStatus.NO_CONTENT)
     public void removeItem (@PathVariable(value = "productId") int productId) {
@@ -73,6 +95,11 @@ public class CartREST {
 
     }
 
+    /**
+     * Clears the cart. Gets rid of all items.
+     * @param cartId the cart to be cleared
+     */
+
     @RequestMapping(value = "/{cartId}", method = RequestMethod.DELETE)
     @ResponseStatus(value = HttpStatus.NO_CONTENT)
     public void clearCart(@PathVariable(value = "cartId") int cartId) {
@@ -80,9 +107,19 @@ public class CartREST {
         cartItemService.clearCart(cart);
     }
 
+    /**
+     * Handles clientside errors
+     * @param e exceptions
+     */
+
     @ExceptionHandler(IllegalArgumentException.class)
     @ResponseStatus(value = HttpStatus.BAD_REQUEST, reason = "Illegal request, please verify your payload.")
     public void handleClientErrors (Exception e) {}
+
+    /**
+     * Handles serverside errors
+     * @param e exceptions
+     */
 
     @ExceptionHandler(Exception.class)
     @ResponseStatus(value = HttpStatus.INTERNAL_SERVER_ERROR, reason = "Internal Server Error.")

@@ -31,6 +31,12 @@ public class ProfileController {
     @Autowired
     private OrderDetailsService orderDetailsService;
 
+    /**
+     * Gets the profile based currently logged in user.
+     * @param activeUser gets the user logged in
+     * @return the profile view of logged in user
+     */
+
     @RequestMapping("/profile")
     public String getProfile(@AuthenticationPrincipal User activeUser){
         Customer customer = customerService.getCustomerByUsername (activeUser.getUsername());
@@ -38,6 +44,13 @@ public class ProfileController {
 
         return "redirect:/user/profile/"+customerId;
     }
+
+    /**
+     *Adds all the attributes to the profile page
+     * @param customerId gets the currently logged in customer's id
+     * @param model adds all the attributes to the view
+     * @return the profile view
+     */
 
     @RequestMapping("/profile/{customerId}")
     public String getProfileRedirect(@PathVariable(value = "customerId") int customerId, Model model) {
@@ -49,6 +62,12 @@ public class ProfileController {
         return "profile";
     }
 
+    /**
+     * Users can cancel order if OrderStatus is still Awaiting Confirmation.
+     * @param id gets the order id to be cancelled
+     * @return refreshes the page
+     */
+
     @RequestMapping("/markOrderAsCancelled/{id}")
     public String markOrderAsCancelledAsACustomer(@PathVariable int id){
         CustomerOrder customerOrder = customerOrderService.getCustomerOrderById(id);
@@ -58,6 +77,13 @@ public class ProfileController {
         return "redirect:/user/profile/"+customerId;
     }
 
+    /**
+     * Gets the order details made by the currently logged in user
+     * @param id the order id
+     * @param model adds all the order details to the order view page
+     * @return order view
+     */
+
     @RequestMapping("/viewOrder/{id}")
     public String getOrder(@PathVariable int id, Model model){
         CustomerOrder customerOrder = customerOrderService.getCustomerOrderById(id);
@@ -66,6 +92,13 @@ public class ProfileController {
         model.addAttribute("order",customerOrder);
         return "viewOrder";
     }
+
+    /**
+     * Gets the form that lets user edit their profile
+     * @param id currently logged in user's id
+     * @param model gets and adds previously stored information
+     * @return edit profile page
+     */
 
     @RequestMapping("/editProfile/{id}")
     public String editProfile(@PathVariable int id, Model model){
@@ -77,6 +110,13 @@ public class ProfileController {
         model.addAttribute("user",customer);
         return "editProfile";
     }
+
+    /**
+     * Edits the customer details and updates it on the database
+     * @param customer gets the user that's logged in
+     * @param result gets errors
+     * @return redirects to the user profile page
+     */
 
     @RequestMapping(value = "/editProfile", method = RequestMethod.POST)
     public String editProfilePost(@Valid @ModelAttribute("customer")Customer customer, BindingResult result){

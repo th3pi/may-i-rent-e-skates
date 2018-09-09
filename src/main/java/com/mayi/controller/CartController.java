@@ -32,6 +32,12 @@ public class CartController {
     @Autowired
     private CartService cartService;
 
+    /**
+     * Gets the cart associated with logged in User.
+     * @param activeUser gets the logged in user's username.
+     * @return return the cartId in the url.
+     */
+
     @RequestMapping("/cart")
     public String getCart(@AuthenticationPrincipal User activeUser){
         Customer customer = customerService.getCustomerByUsername (activeUser.getUsername());
@@ -39,6 +45,13 @@ public class CartController {
 
         return "redirect:/customer/cart/"+cartId;
     }
+
+    /**
+     * Adds cart items to the cart page
+     * @param cartId gets the users cart id.
+     * @param model adds cart items to the view
+     * @return return the cart
+     */
 
     @RequestMapping("/cart/{cartId}")
     public String getCartRedirect(@PathVariable (value = "cartId") int cartId, Model model) {

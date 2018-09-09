@@ -21,6 +21,12 @@ public class RegistrationController {
     @Autowired
     CustomerService customerService;
 
+    /**
+     * Initializes the customer details.
+     * @param model creates the customer
+     * @return registration page
+     */
+
     @RequestMapping("/register")
     public String registerCustomer(Model model){
         Customer customer = new Customer();
@@ -33,6 +39,14 @@ public class RegistrationController {
 
         return "registerCustomer";
     }
+
+    /**
+     * Adds customer to the database.
+     * @param customer gets the filled form data
+     * @param result gets errors
+     * @param model adds attributes to the page
+     * @return takes to the registration success view
+     */
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public String registerCustomerPost(@Valid @ModelAttribute("customer") Customer customer, BindingResult result, Model model){
