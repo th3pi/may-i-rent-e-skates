@@ -26,6 +26,11 @@ public class OrderStatsMonthlyDaoImpl implements OrderStatsMonthlyDao {
     @Autowired
     private SessionFactory sessionFactory;
 
+    /**
+     * Gets order stats by specific month.
+     * @param date string passed from controller
+     * @return the last order stats created on the particular date.
+     */
 
     public OrderStatsMonthly getOrderStatsByDate(String date) {
         Session session = sessionFactory.getCurrentSession();
@@ -34,17 +39,33 @@ public class OrderStatsMonthlyDaoImpl implements OrderStatsMonthlyDao {
         return (OrderStatsMonthly) query.list().get(query.list().size()-1);
     }
 
+    /**
+     * Gets all monthly order stats.
+     * @return the entire list of order stats.
+     */
+
     public List<OrderStatsMonthly> getAllOrderStats() {
         Session session = sessionFactory.getCurrentSession();
         Query query = session.createQuery("from OrderStatsMonthly");
         return query.list();
     }
 
+    /**
+     * Adds order stats to the database. A new entity created every time there's a new order.
+     * @param orderStats passed from controller. The orderStats to be added.
+     */
+
     public void addOrderStats(OrderStatsMonthly orderStats) {
         Session session = sessionFactory.getCurrentSession();
         session.saveOrUpdate(orderStats);
         session.flush();
     }
+
+    /**
+     * Gets total sales of a certain month. Does not add to sales as long order status is Order Awaiting Confirmation.
+     * Creates a new entity in the database for every sale as per business requirements.
+     * @param orderDetails passed from controller.
+     */
 
     public void getTotalSales(List<CustomerOrder> orderDetails) {
         double sales = 0;

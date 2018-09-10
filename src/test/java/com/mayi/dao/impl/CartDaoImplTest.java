@@ -10,7 +10,6 @@ import org.hibernate.SessionFactory;
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.annotation.Rollback;
 
 import java.util.ArrayList;
 import java.util.List;

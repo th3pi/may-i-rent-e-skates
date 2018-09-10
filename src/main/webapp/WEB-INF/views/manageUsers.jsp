@@ -33,10 +33,11 @@
                 <h1>All Users</h1>
                 <p class="lead">Add, customize or view user details.</p>
             </div>
-            <div class="col-lg-2">
-                <a class="float-right" href="<spring:url value="/admin/manageUsers/employee/addEmployee"/>" style="color: #fff; text-decoration: none;"><button type="button" class="btn btn-danger" style="height: 100%; padding: 0 50px 0 50px;">Add Employee</button></a>
-
-                <a class="float-left" href="<spring:url value="/admin/manageUsers/user/addUser"/>" style="color: #fff; text-decoration: none;"><button type="button" class="btn btn-primary" style="height: 100%; padding: 0 50px 0 50px;">Add User</button></a>
+            <div class="col-lg-1">
+                <a href="<spring:url value="/admin/manageUsers/employee/addEmployee"/>" style="color: #fff; text-decoration: none;"><button type="button" class="btn btn-danger" style="height: 100%;">Add Employee</button></a>
+            </div>
+            <div class="col-lg-1">
+                <a href="<spring:url value="/admin/manageUsers/user/addUser"/>" style="color: #fff; text-decoration: none;"><button type="button" class="btn btn-primary btn-block" style="height: 100%;">Add User</button></a>
             </div>
         </div>
     </div>
@@ -65,7 +66,7 @@
                 <td>${user.joinDate}</td>
                 <td>
                     <a class="btn btn-primary" href="<spring:url value="/admin/manageUsers/user/viewUser/${user.customerId}" />"><i class="material-icons" data-toggle="tooltip" title="Edit">pageview</i></a>
-                    <a class="btn btn-primary" href="<spring:url value="/admin/manageUsers/user/editUser/${user.customerId}" />"><i class="material-icons" data-toggle="tooltip" title="Edit">edit</i></a></td>
+                    <a class="btn btn-success" href="<spring:url value="/admin/manageUsers/user/editUser/${user.customerId}" />"><i class="material-icons" data-toggle="tooltip" title="Edit">edit</i></a></td>
 
             </tr>
 

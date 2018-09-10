@@ -20,17 +20,31 @@ public class CartItemDaoImpl implements CartItemDao {
     @Autowired
     private SessionFactory sessionFactory;
 
+    /**
+     * Adds a product to the cart as a cart item, saves to database
+     * @param cartItem cart item / product passed from controller
+     */
     public void addCartItem(CartItem cartItem) {
         Session session = sessionFactory.getCurrentSession();
         session.saveOrUpdate(cartItem);
         session.flush();
     }
 
+    /**
+     * Removes a product from the cart and saves to database
+     * @param cartItem cart item / product passed from controller
+     */
+
     public void removeCartItem (CartItem cartItem) {
         Session session = sessionFactory.getCurrentSession();
         session.delete(cartItem);
         session.flush();
     }
+
+    /**
+     * Clears the entire cart
+     * @param cart passed from controller
+     */
 
     public void clearCart(Cart cart) {
         List<CartItem> cartItems = cart.getCartItems();
@@ -39,6 +53,12 @@ public class CartItemDaoImpl implements CartItemDao {
             removeCartItem(item);
         }
     }
+
+    /**
+     * Just to query a certain product from the cart, gets cart item from a cart based on product id
+     * @param productId passed from controller
+     * @return the queried product
+     */
 
     public CartItem getCartItemByProductId (int productId) {
         Session session = sessionFactory.getCurrentSession();

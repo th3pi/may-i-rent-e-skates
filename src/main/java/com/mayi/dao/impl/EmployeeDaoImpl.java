@@ -23,6 +23,11 @@ public class EmployeeDaoImpl implements EmployeeDao {
     @Autowired
     private SessionFactory sessionFactory;
 
+    /**
+     * Adds an employee to database. With authority assigned as ROLE_ADMIN.
+     * @param customer passed from controller
+     */
+
     public void addEmployee(Customer customer) {
         Session session = sessionFactory.getCurrentSession();
         customer.getBillingAddress().setCustomer(customer);
@@ -55,6 +60,11 @@ public class EmployeeDaoImpl implements EmployeeDao {
 
         session.flush();
     }
+
+    /**
+     * Empty method. Unnecessary at the moment as editCustomer does the job.
+     * @param customer passed from controller
+     */
 
     public void editEmployee(Customer customer) {
 

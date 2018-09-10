@@ -7,7 +7,6 @@ import com.mayi.model.Product;
 import com.mayi.service.CartItemService;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.annotation.Rollback;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +19,6 @@ public class CartItemDaoImplTest {
     private CartItemService cartItemService;
 
     @Test(expected = NullPointerException.class)
-    @Rollback(true)
     public void addCartItem() {
         Customer customer = new Customer();
         Product product = new Product();
@@ -41,7 +39,6 @@ public class CartItemDaoImplTest {
     }
 
     @Test(expected = NullPointerException.class)
-    @Rollback(true)
     public void clearCart() {
         Customer customer = new Customer();
         Product product = new Product();
@@ -66,7 +63,6 @@ public class CartItemDaoImplTest {
     }
 
     @Test(expected = NullPointerException.class)
-    @Rollback(true)
     public void getCartItemByProductId() {
         Customer customer = new Customer();
         Product product = new Product();

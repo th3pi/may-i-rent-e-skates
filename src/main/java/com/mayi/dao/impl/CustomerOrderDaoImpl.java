@@ -26,8 +26,10 @@ public class CustomerOrderDaoImpl implements CustomerOrderDao{
     @Autowired
     private SessionFactory sessionFactory;
 
-    @Autowired
-    private OrderDetailsService orderDetailsService;
+    /**
+     * Adds customer order to the database. Sets a date when the order was created
+     * @param customerOrder passed from controller
+     */
 
     public void addCustomerOrder(CustomerOrder customerOrder) {
         Session session = sessionFactory.getCurrentSession();
@@ -39,6 +41,12 @@ public class CustomerOrderDaoImpl implements CustomerOrderDao{
         session.flush();
     }
 
+    /**
+     * Gets all customer orders by customer id
+     * @param id customer id passed from controller
+     * @return all the customer order associated with the customer
+     */
+
     public List<CustomerOrder> getAllCustomerOrdersById(int id) {
         Session session = sessionFactory.getCurrentSession();
         Query query = session.createQuery("from CustomerOrder where customerId = ? order by customerOrderId desc");
@@ -47,26 +55,47 @@ public class CustomerOrderDaoImpl implements CustomerOrderDao{
         return customerOrders;
     }
 
+    /**
+     * Updates order status
+     * @param customerOrder passed from controller
+     */
+
     public void updateOrderStatus(CustomerOrder customerOrder) {
         Session session = sessionFactory.getCurrentSession();
         session.saveOrUpdate(customerOrder);
         session.flush();
     }
 
+    /**
+     * Gets all customer orders in the database
+     * @return all the customer orders
+     */
+
     public List<CustomerOrder> getAllCustomerOrders(){
         Session session = sessionFactory.getCurrentSession();
-        Query query = session.createQuery("from CustomerOrder order by customerOrderId desc");
+        Query query = session.createQuery("from CustomerOrder order by orderDate desc");
         List<CustomerOrder> customerOrders = query.list();
         return customerOrders;
     }
+
+    /**
+     * Gets a order based on order id
+     * @param id is the order id, passed from controller
+     * @return the order queried
+     */
 
     public CustomerOrder getCustomerOrderById(int id) {
         Session session = sessionFactory.getCurrentSession();
         Query query = session.createQuery("from CustomerOrder where customerOrderId = ?");
         query.setInteger(0,id);
-//        getOrderGrandTotal((CustomerOrder) query.uniqueResult());
         return (CustomerOrder) query.uniqueResult();
     }
+
+    /**
+     * Gets the order status
+     * @param status is the specific status passed from controller
+     * @return list of orders with the specific order status
+     */
 
     public List<CustomerOrder> getOrderStatus(String status){
         Session session = sessionFactory.getCurrentSession();
@@ -75,19 +104,4 @@ public class CustomerOrderDaoImpl implements CustomerOrderDao{
         return query.list();
     }
 
-//    public void getOrderGrandTotal(CustomerOrder customerOrder) {
-//        Session session = sessionFactory.getCurrentSession();
-//        float grandTotal = 0;
-//        List<OrderDetails> orderDetailsList = orderDetailsService.getAllOrderDetailsByOrderId(customerOrder.getCustomerOrderId());
-//        List<Product> products = new ArrayList<Product>();
-//        for(OrderDetails orderDetails : orderDetailsList){
-//            products.add(orderDetails.getProduct());
-//        }
-//        for(Product product : products){
-//            grandTotal += product.getProductPrice();
-//        }
-//        customerOrder.setGrandTotal(grandTotal);
-//        session.saveOrUpdate(customerOrder);
-//        session.flush();
-//    }
 }

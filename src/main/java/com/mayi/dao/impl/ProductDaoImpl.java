@@ -30,11 +30,22 @@ public class ProductDaoImpl implements ProductDao {
     @Autowired
     private SessionFactory sessionFactory;
 
+    /**
+     * Adds product to the database
+     * @param product the product to be added
+     */
+
     public void addProduct(Product product) {
         Session session = sessionFactory.getCurrentSession();
         session.saveOrUpdate(product);
         session.flush();
     }
+
+    /**
+     * Gets product with a specific product id from the database.
+     * @param id the product to be fetched
+     * @return the product that has been fetched
+     */
 
     public Product getProductById(int id) {
         Session session = sessionFactory.getCurrentSession();
@@ -43,6 +54,12 @@ public class ProductDaoImpl implements ProductDao {
 
         return product;
     }
+
+    /**
+     * Gets product by a specific type. Used to filter the shop view
+     * @param type the type of products to be queried for
+     * @return products with the specific type
+     */
 
     public List<Product> getProductsByType(String type){
         Session session = sessionFactory.getCurrentSession();
@@ -54,6 +71,11 @@ public class ProductDaoImpl implements ProductDao {
         return products;
     }
 
+    /**
+     * Gets all products currently stored in the database.
+     * @return the list of products
+     */
+
     public List<Product> getProductList() {
         Session session = sessionFactory.getCurrentSession();
         Query query = session.createQuery("from Product");
@@ -63,11 +85,21 @@ public class ProductDaoImpl implements ProductDao {
         return products;
     }
 
+    /**
+     * Lets admin edit the product details.
+     * @param product the product that's going to be edited.
+     */
+
     public void editProduct(Product product){
         Session session = sessionFactory.getCurrentSession();
         session.saveOrUpdate(product);
         session.flush();
     }
+
+    /**
+     * Lets admin delete a product. NOT RECOMMENDED.
+     * @param product the product to be deleted.
+     */
 
     public void deleteProduct (Product product) {
         Session session = sessionFactory.getCurrentSession();

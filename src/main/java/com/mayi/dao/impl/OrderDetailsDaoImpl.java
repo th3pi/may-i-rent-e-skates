@@ -23,19 +23,25 @@ public class OrderDetailsDaoImpl implements OrderDetailsDao {
     private SessionFactory sessionFactory;
 
     @Autowired
-    private ProductService productService;
-
-    @Autowired
     private CustomerOrderService customerOrderService;
 
-    @Autowired
-    private OrderStatsYearlyService orderStatsYearlyService;
+
+    /**
+     * Gets all order details
+     * @return returns all the order details
+     */
 
     public List<OrderDetails> getAllOrderDetails() {
         Session session = sessionFactory.getCurrentSession();
         Query query = session.createQuery("from OrderDetails");
         return query.list();
     }
+
+    /**
+     * Gets order details by order details id
+     * @param id passed from controller
+     * @return the queried order details
+     */
 
     public OrderDetails getOrderDetailsById(int id) {
         Session session = sessionFactory.getCurrentSession();
@@ -44,6 +50,11 @@ public class OrderDetailsDaoImpl implements OrderDetailsDao {
         return (OrderDetails) query.uniqueResult();
     }
 
+    /**
+     * Adds order details to the database
+     * @param orderDetails passed from controller - the order details to be added
+     */
+
     public void addOrderDetails(OrderDetails orderDetails) {
         Session session = sessionFactory.getCurrentSession();
         orderDetails.getCustomerOrder().setOrderTotal(orderDetails.getTotal());
@@ -51,6 +62,11 @@ public class OrderDetailsDaoImpl implements OrderDetailsDao {
         session.saveOrUpdate(orderDetails);
         session.flush();
     }
+
+    /**
+     * Insert a new product to the same order id.
+     * @param orderId order id passed from controller
+     */
 
     public void insertNewProduct(int orderId) {
         CustomerOrder customerOrder = customerOrderService.getCustomerOrderById(orderId);
@@ -67,12 +83,24 @@ public class OrderDetailsDaoImpl implements OrderDetailsDao {
         }
     }
 
+    /**
+     * Gets order details based on order id
+     * @param id the order id passed from controller
+     * @return list of order details with the order id
+     */
+
     public OrderDetails getOrderDetailsByOrderId(int id) {
         Session session = sessionFactory.getCurrentSession();
         Query query = session.createQuery("from OrderDetails where customerorderid = ?");
         query.setInteger(0,id);
         return (OrderDetails) query.list().get(0);
     }
+
+    /**
+     * I dont know why I created this method. Its the same one as above.
+     * @param id the order id passed from controller
+     * @return order details list based on the order id
+     */
 
     public List<OrderDetails> getAllOrderDetailsByOrderId(int id) {
         Session session = sessionFactory.getCurrentSession();
@@ -100,6 +128,11 @@ public class OrderDetailsDaoImpl implements OrderDetailsDao {
 //        return sales;
 //    }
 
+
+    /**
+     * Not used at the moment
+     * @param orderDetails passed from controller
+     */
     public void removeOrderDetails(OrderDetails orderDetails) {
 
     }

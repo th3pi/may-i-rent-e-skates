@@ -91,6 +91,8 @@
 <script src="https://code.highcharts.com/modules/series-label.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
 <script src="https://code.highcharts.com/modules/export-data.js"></script>
+
+ <%--admin panel monthly stats graph--%>
 <script>
     Highcharts.chart('chart', {
 
@@ -126,9 +128,7 @@
         },
         series: [{
             name: 'Sales per month',
-            data: [<c:forEach items="${perMonthSales}" var="m">
-                ${m} ,
-                </c:forEach> ]
+            data: [ 299, 300, 400, 500, 600]
         }],
 
         responsive: {

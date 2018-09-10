@@ -82,7 +82,7 @@
             <c:if test="${ctProduct.productID ne product.productID}">
             <div class="col-lg-2">
                 <div class="card h-20 slide-in-bck-center">
-                    <a href="#"><img src="<c:url value="/resources/img/${ctProduct.productID}.png" /> " alt="image" style="width: 380px; height: 380px"/>
+                    <a href="#"><img src="<c:url value="/resources/img/${ctProduct.productID}.png" /> " alt="image" style="width: 250px; height: 250px;"/>
                     </a>
                     <div class="card-body">
                         <h4 class="card-title">

@@ -23,12 +23,22 @@ public class OrderStatsYearlyDaoImpl implements OrderStatsYearlyDao {
     @Autowired
     private SessionFactory sessionFactory;
 
+    /**
+     * Gets all yearly order stats. Be careful when using as it will increase load time dramatically.
+     * @return the entire list of order stats.
+     */
 
     public List<OrderStatsYearly> getAllOrderStats() {
         Session session = sessionFactory.getCurrentSession();
         Query query = session.createQuery("from OrderStatsYearly");
         return query.list();
     }
+
+    /**
+     * Gets order stats by id. Irrelevant. I don't know why I created this.
+     * @param id order stats id
+     * @return the order stats.
+     */
 
     public OrderStatsYearly getOrderStatsById(int id) {
         Session session = sessionFactory.getCurrentSession();
@@ -37,12 +47,25 @@ public class OrderStatsYearlyDaoImpl implements OrderStatsYearlyDao {
         return (OrderStatsYearly) query.uniqueResult();
     }
 
+    /**
+     * Gets order stats based on product id. Useful to rank the most sold products of the year.
+     * Not implemented fully yet.
+     * @param id the product id.
+     * @return the yearly stats of the product
+     */
+
     public OrderStatsYearly getOrderStatsByProductId(int id) {
         Session session = sessionFactory.getCurrentSession();
         Query query = session.createQuery("from OrderStatsYearly where productId = ?");
         query.setInteger(0,id);
         return (OrderStatsYearly) query.uniqueResult();
     }
+
+    /**
+     * Gets yearly order stats by specific year
+     * @param date the year to be queried
+     * @return the stats for the year
+     */
 
     public OrderStatsYearly getOrderStatsByDate(String date) {
         Session session = sessionFactory.getCurrentSession();
@@ -52,11 +75,23 @@ public class OrderStatsYearlyDaoImpl implements OrderStatsYearlyDao {
         return orderStatsYearlies.get(orderStatsYearlies.size()-1);
     }
 
+    /**
+     * Adds order stats to the database. A new entity created every time there's a new order.
+     * @param orderStats passed from controller. The orderStats to be added.
+     */
+
     public void addOrderStats(OrderStatsYearly orderStats) {
         Session session = sessionFactory.getCurrentSession();
         session.saveOrUpdate(orderStats);
         session.flush();
     }
+
+    /**
+     * Gets total sales of a certain year. Does not add to sales as long order status is Order Awaiting Confirmation.
+     * Creates a new entity in the database for every sale as per business requirements. Keeps adding as long order status
+     * is valid and the date is current date.
+     * @param orderDetails passed from controller.
+     */
 
     public void getTotalSalesYTD(List<CustomerOrder> orderDetails) {
         Session session = sessionFactory.getCurrentSession();
@@ -79,6 +114,11 @@ public class OrderStatsYearlyDaoImpl implements OrderStatsYearlyDao {
             }
         }
     }
+
+    /**
+     * Irrelevant not implemented yet.
+     * @param orderStats passed from controller.
+     */
 
     public void deleteOrderStats(OrderStatsYearly orderStats) {
 

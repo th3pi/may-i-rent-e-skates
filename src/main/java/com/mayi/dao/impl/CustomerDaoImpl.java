@@ -23,6 +23,12 @@ public class CustomerDaoImpl implements CustomerDao {
     @Autowired
     private SessionFactory sessionFactory;
 
+    /**
+     * Adda a customer to the database. Initializes a new billing address, shipping address, user, cart and authorities model
+     * attached to the customer
+     * @param customer passed from controller
+     */
+
     public void addCustomer(Customer customer){
         Session session = sessionFactory.getCurrentSession();
         customer.getBillingAddress().setCustomer(customer);
@@ -56,16 +62,25 @@ public class CustomerDaoImpl implements CustomerDao {
         session.flush();
     }
 
+    /**
+     * Edits customer details and replaced current details in database
+     * @param customer passed from controller
+     */
+
     public void editCustomer(Customer customer) {
         Session session = sessionFactory.getCurrentSession();
         customer.getBillingAddress().setCustomer(customer);
         customer.getShippingAddress().setCustomer(customer);
-//        String joinDate = customer.getJoinDate();
         session.update(customer);
         session.saveOrUpdate(customer.getBillingAddress());
         session.saveOrUpdate(customer.getShippingAddress());
         session.flush();
     }
+
+    /**
+     * Deletes a customer from database. Not implemented anywhere. DO NOT USE.
+     * @param customer passed from controller
+     */
 
     public void deleteCustomer(Customer customer) {
         Session session = sessionFactory.getCurrentSession();
@@ -91,10 +106,21 @@ public class CustomerDaoImpl implements CustomerDao {
         session.flush();
     }
 
+    /**
+     * Gets a customer from the customer table based on the id
+     * @param customerId passed from controller
+     * @return the customer fetched
+     */
+
     public Customer getCustomerById (int customerId) {
         Session session = sessionFactory.getCurrentSession();
         return (Customer) session.get(Customer.class, customerId);
     }
+
+    /**
+     * Gets all customers from the database
+     * @return all the customers
+     */
 
     public List<Customer> getAllCustomers() {
         Session session = sessionFactory.getCurrentSession();
@@ -104,6 +130,12 @@ public class CustomerDaoImpl implements CustomerDao {
         return customerList;
     }
 
+    /**
+     * Gets a customer by username
+     * @param username passed from controller
+     * @return the queried customer
+     */
+
     public Customer getCustomerByUsername (String username) {
         Session session = sessionFactory.getCurrentSession();
         Query query = session.createQuery("from Customer where username = ?");
@@ -112,6 +144,11 @@ public class CustomerDaoImpl implements CustomerDao {
         return (Customer) query.uniqueResult();
     }
 
+    /**
+     * Assisngs a new cart to customer in case of malfunction or request by customer.
+     * @param customer passed from controller
+     */
+
     public void assignNewCart(Customer customer) {
         Session session = sessionFactory.getCurrentSession();
         Cart cart = new Cart();
@@ -119,6 +156,13 @@ public class CustomerDaoImpl implements CustomerDao {
         session.saveOrUpdate(customer);
         session.flush();
     }
+
+    /**
+     * Validates customer.
+     * @param id passed from controller
+     * @return validated customer
+     * @throws IOException in case customer is in valid.
+     */
 
     public Customer validate(int id) throws IOException {
         Customer customer = getCustomerById(id);

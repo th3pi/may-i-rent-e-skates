@@ -21,11 +21,22 @@ public class CartDaoImpl implements CartDao {
     @Autowired
     private CustomerOrderService customerOrderService;
 
+    /**
+     * Gets cart by id
+     * @param cartId contextual cart id
+     * @return returns cart associated with cart id
+     */
+
     public Cart getCartById(int cartId) {
         Session session = sessionFactory.getCurrentSession();
 
         return (Cart) session.get(Cart.class,cartId);
     }
+
+    /**
+     * Updates cart items and cart total
+     * @param cart passed from controller or validate method
+     */
 
     public void updateCart(Cart cart) {
         int cartId = cart.getCartId();
@@ -36,6 +47,13 @@ public class CartDaoImpl implements CartDao {
         session.saveOrUpdate(cart);
         session.flush();
     }
+
+    /**
+     * Validates the cart's existence.
+     * @param cartId passed from controller
+     * @return returns the validated cart
+     * @throws IOException incase the cart is invalid
+     */
 
     public Cart validate(int cartId) throws IOException {
         Cart cart = getCartById(cartId);
