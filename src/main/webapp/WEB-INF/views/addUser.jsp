@@ -15,7 +15,7 @@
 <%--This form is same as employee form with the only difference being, employees get the ROLE_ADMIN--%>
 
 <%@include file="/WEB-INF/views/template/header.jsp"%>
-<title>Registration | Rent eSkates</title>
+<title>Add User | Rent eSkates</title>
 <div class="container" style="padding-top: 100px">
     <div class="jumbotron">
         <div class="container">
