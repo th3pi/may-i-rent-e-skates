@@ -55,7 +55,7 @@
 </style>
 <div id="wrapper" class="animated zoomIn">
     <!-- We make a wrap around all of the content so that we can simply animate all of the content at the same time. I wanted a zoomIn effect and instead of placing the same class on all tags, I wrapped them into one div! -->
-    <a class="btn btn-dark" href="<c:url value="/login"/> "><h1 class="text-flicker-in-glow">
+    <a class="btn btn-dark" href="<c:url value="/shop"/> "><h1 class="text-flicker-in-glow">
         <!-- The <h1> tag is the reason why the text is big! -->
         <underline>SUCCESSFUL!</underline>
         <!-- The underline makes a border on the top and on the bottom of the text -->
@@ -63,9 +63,9 @@
     <br>
     <br>
     <h3 class="text-center">
-        Registration was a success! Click on "Successful!" to log in.
+        You are now logged in.
         <hr>
-        <underline>We can't wait for you to get riding!</underline>
+        <underline>Click on successful to start riding!</underline>
         <!-- The <h3> take is the description text which appear under the <h1> tag. It's there so you can display some nice message to your visitors! -->
     </h3>
 </div>

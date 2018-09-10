@@ -6,7 +6,6 @@
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
           <element id="module-output" name="rentskates" />
-          <element id="module-output" name="may-i-rent-e-skates" />
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="Maven: org.springframework:spring-aop:5.0.8.RELEASE" />
@@ -88,7 +87,6 @@
           <element id="library" level="project" name="Maven: org.springframework.security:spring-security-taglibs:3.2.5.RELEASE" />
         </element>
       </element>
-      <element id="javaee-facet-resources" facet="may-i-rent-e-skates/web/Web" />
     </root>
   </artifact>
 </component>

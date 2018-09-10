@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.util.List;
 
@@ -49,7 +51,7 @@ public class RegistrationController {
      */
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
-    public String registerCustomerPost(@Valid @ModelAttribute("customer") Customer customer, BindingResult result, Model model){
+    public String registerCustomerPost(@Valid @ModelAttribute("customer") Customer customer, BindingResult result, Model model, HttpServletRequest request){
         if(result.hasErrors()){
             return "registerCustomer";
         }
@@ -77,6 +79,11 @@ public class RegistrationController {
         customer.setUsername(customer.getCustomerEmail());
         customer.setEnabled(1);
         customerService.addCustomer(customer);
+        try {
+            request.login(customer.getUsername(),customer.getPassword());
+        } catch (ServletException e) {
+            e.printStackTrace();
+        }
 
         return "registrationSuccess";
     }
