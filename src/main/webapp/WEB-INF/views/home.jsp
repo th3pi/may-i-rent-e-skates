@@ -68,9 +68,8 @@
                     <sec:authorize access="hasRole('ROLE_ADMIN')">
                         <li class="nav-item">
                             <div class="btn-group">
-                                <a class="btn btn-warning" href="<c:url value="/admin" />">
-                                    Control Center
-                                </a>
+                                <a class="nav-link btn btn-warning lead" href="<c:url value="/admin" />" style="color: #000">
+                                    <i class="btn btn-warning material-icons">work_outline</i>Control Center</a>
                                 <button type="button" class="btn btn-warning dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <span class="sr-only">Toggle Dropdown</span>
                                 </button>
@@ -85,7 +84,7 @@
                     </sec:authorize>
                     <c:if test="${pageContext.request.userPrincipal.name != 'admin'}">
                         <li><a class="nav-link btn-dark lead" href="<c:url value="/customer/cart/"/> "><i class="btn btn-dark material-icons">shopping_cart</i>Cart</a> </li>
-                        <li><a class="nav-link btn-dark lead" href="<c:url value="/user/profile/"/> "><i class="btn btn-dark material-icons">person</i>Profile</a></li>
+                        <li><a class="nav-link btn-dark lead" href="<c:url value="/user/profile/"/> "><i class="btn btn-dark material-icons">person</i>Profile/Orders</a></li>
 
                     </c:if>
                     <li><a class="nav-link btn-dark lead" href="<c:url value="/j_spring_security_logout"/> "><i class="btn btn-dark material-icons">clear</i>Logout</a> </li>
@@ -107,7 +106,7 @@
     <div class="container-fluid">
         <div class="row bg-dark" style="padding: 450px 0 450px 0">
             <div class="col-lg-12">
-                <h2 class="welcomeText slide-in-right" style="color: #fff; text-align: center; font-size: 650%; text-shadow: 0 0 60px 5px #ffffff;">Rent <span class="text-flicker-in-glow ">e</span>Skates</h2>
+                <h2 class="welcomeText slide-in-right" style="color: #fff; text-align: center; font-size: 650%;">Rent <span class="text-flicker-in-glow ">e</span>Skates</h2>
                 <p class="lead slide-in-right" style="color: #fff; text-align: center; font-size: 250%;">New York's new Mass Transit</p>
             </div>
         </div>

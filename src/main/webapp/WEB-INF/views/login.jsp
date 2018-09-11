@@ -17,7 +17,7 @@
     </c:if>
     <div class="container" style="width: 25%;">
     <form class="form-signin fade-in" name="loginForm" action="<c:url value="/j_spring_security_check" />" method="post">
-        <img class="mb-4" src="../resources/img/rentskateslogo.png" alt="" width="250" height="250">
+        <h2 class="welcomeText" style="text-shadow: 0 2px 80px #fff; font-size: 350%">Rent eSkates</h2>
         <br>
 
         <%--Username validation error--%>

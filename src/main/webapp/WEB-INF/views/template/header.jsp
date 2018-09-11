@@ -76,7 +76,7 @@
                     </sec:authorize>
                     <c:if test="${pageContext.request.userPrincipal.name != 'admin'}">
                         <li><a class="nav-link btn-dark lead" href="<c:url value="/customer/cart/"/> "><i class="btn btn-dark material-icons">shopping_cart</i>Cart</a> </li>
-                        <li><a class="nav-link btn-dark lead" href="<c:url value="/user/profile/"/> "><i class="btn btn-dark material-icons">person</i>Profile</a></li>
+                        <li><a class="nav-link btn-dark lead" href="<c:url value="/user/profile/"/> "><i class="btn btn-dark material-icons">person</i>Profile/Orders</a></li>
 
                     </c:if>
                     <li><a class="nav-link btn-dark lead" href="<c:url value="/j_spring_security_logout"/> "><i class="btn btn-dark material-icons">clear</i>Logout</a> </li>
