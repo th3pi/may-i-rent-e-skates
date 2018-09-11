@@ -69,8 +69,14 @@
                 <c:if test="${pageContext.request.userPrincipal.name == null}">
                     <a href="<c:url value="/login"/> " class="btn btn-lg btn-light shadow-sm">Log in to Rent!</a>
                 </c:if>
-                <sec:authorize access="hasRole('ROLE_USER')"><a href="#" onclick="myAlertTop()" class="btn btn-success btn-lg" ng-click="addToCart('${product.productID}')">Add to cart: +1 day</a>
-                <a href="<spring:url value="/customer/cart"/> " class="btn btn-primary btn-lg">View Cart</a></sec:authorize>
+                <sec:authorize access="hasRole('ROLE_USER')">
+                    <c:if test="${product.productStatus eq 'Active'}">
+                        <a href="#" onclick="myAlertTop()" class="btn btn-success btn-lg" ng-click="addToCart('${product.productID}')">Add to cart: +1 day</a>
+                    </c:if>
+                    <c:if test="${product.productStatus eq 'Inactive'}">
+                        <a href="#" onclick="myAlertTop()" class="btn btn-success btn-lg disabled" ng-click="addToCart('${product.productID}')">Currently Unavailable</a>
+                    </c:if>
+                    <a href="<spring:url value="/customer/cart"/> " class="btn btn-primary btn-lg">View Cart</a></sec:authorize>
                 <sec:authorize access="hasRole('ROLE_ADMIN')"><a href="<spring:url value="/admin/product/editProduct/${product.productID}"/> " class="btn btn-lg btn-primary">Edit Product</a></sec:authorize>
             </p>
         </div>

@@ -30,6 +30,7 @@ public class Product implements Serializable {
     private String productWeight;
     private String productRechargeTime;
     private String productRentLimit;
+    private String productStatus;
 
     @NotEmpty (message = "Product quantity required")
     private String productQuantity;
@@ -49,6 +50,14 @@ public class Product implements Serializable {
 
     public List<CartItem> getCartItemList() {
         return cartItemList;
+    }
+
+    public String getProductStatus() {
+        return productStatus;
+    }
+
+    public void setProductStatus(String productStatus) {
+        this.productStatus = productStatus;
     }
 
     public void setCartItemList(List<CartItem> cartItemList) {

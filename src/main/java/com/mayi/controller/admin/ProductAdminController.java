@@ -48,7 +48,7 @@ public class ProductAdminController {
     }
 
     /**
-     * With RequestMethod.POST this method adds the product details to the database. Including image.
+     * With RequestMethod.POST this method adds the product details to the database. Sets product status inactive. Including image.
      * @param product adds the product details using the pojo class
      * @param result checks for errors
      * @param request gets the current session context
@@ -60,7 +60,7 @@ public class ProductAdminController {
         if(result.hasErrors()){
             return "addProduct";
         }
-
+        product.setProductStatus("Inactive");
         productService.addProduct(product);
 
         MultipartFile multipartFile = product.getProductImage();
@@ -146,6 +146,36 @@ public class ProductAdminController {
 
         Product product = productService.getProductById(id);
         productService.deleteProduct(product);
+        return "redirect:/admin/productInventory";
+    }
+
+    /**
+     * Marks product as active.
+     * @param id the relevant product id
+     * @param model not being used atm
+     * @return to product inventory
+     */
+
+    @RequestMapping("/product/markAsActive/{id}")
+    public String markProductAsActive(@PathVariable int id, Model model){
+        Product product = productService.getProductById(id);
+        product.setProductStatus("Active");
+        productService.editProductStatus(product);
+        return "redirect:/admin/productInventory";
+    }
+
+    /**
+     * Marks product as inactive.
+     * @param id the relevant product id
+     * @param model not being used atm
+     * @return to product inventory
+     */
+
+    @RequestMapping("/product/markAsInactive/{id}")
+    public String markProductAsInactive(@PathVariable int id, Model model){
+        Product product = productService.getProductById(id);
+        product.setProductStatus("Inactive");
+        productService.editProductStatus(product);
         return "redirect:/admin/productInventory";
     }
 }

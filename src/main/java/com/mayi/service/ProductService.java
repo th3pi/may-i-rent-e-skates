@@ -18,4 +18,6 @@ public interface ProductService {
     void editProduct(Product product);
 
     void deleteProduct(Product product);
+
+    void editProductStatus(Product product);
 }

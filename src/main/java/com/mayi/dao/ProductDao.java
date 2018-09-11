@@ -16,5 +16,7 @@ public interface ProductDao {
 
     void deleteProduct(Product product);
 
+    void editProductStatus(Product product);
+
     List<Product> getProductsByType(String type);
 }

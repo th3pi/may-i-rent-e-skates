@@ -42,6 +42,17 @@ public class ProductDaoImpl implements ProductDao {
     }
 
     /**
+     * Edits product status. Either Inactive or active. Active shows up in the store, inactive doesn't.
+     * @param product the product's status to be edited.
+     */
+
+    public void editProductStatus(Product product){
+        Session session = sessionFactory.getCurrentSession();
+        session.saveOrUpdate(product);
+        session.flush();
+    }
+
+    /**
      * Gets product with a specific product id from the database.
      * @param id the product to be fetched
      * @return the product that has been fetched

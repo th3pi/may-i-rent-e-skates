@@ -11,7 +11,7 @@
 <%@ taglib prefix="spring" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@include file="template/header.jsp"%>
 <title>Login | Rent eSkates</title>
-<body class="text-center" style="padding-top: 350px; background-color: #f5f5f5">
+<body class="text-center bg-dark" style="padding-top: 350px; background-color: #f5f5f5">
     <c:if test="${not empty msg}">
         <div class="alert alert-success">${msg}</div>
     </c:if>
@@ -24,15 +24,15 @@
         <c:if test="${not empty error}">
             <div class="error" style="color: #ff084e">${error}</div>
         </c:if>
-        <label for="username">Email </label>
+        <label for="username" style="color: #fff">Email </label>
         <input type="text" id="username" name="username" placeholder="email@gmail.com" class="form-control" required autofocus/>
         <br>
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password" placeholder="password1234" class="form-control" />
+        <label for="password" style="color: #fff">Password</label>
+        <input type="password" id="password" name="password" class="form-control" />
         <br>
-        <input type="submit" value="Log me in!" class="btn btn-lg btn-primary"/>
+        <input type="submit" value="Log me in!" class="btn btn-lg btn-light"/>
         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-        <a class="btn btn-lg btn-outline-primary" href="/register">Sign up</a>
+        <a class="btn btn-lg btn-outline-light" href="/register">Sign up</a>
     </form>
     </div>
 </body>
