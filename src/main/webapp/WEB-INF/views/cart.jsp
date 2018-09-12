@@ -45,7 +45,9 @@
                             <th>Image</th>
                             <th>Product</th>
                             <th>One Day Price</th>
-                            <th>Days</th>
+                            <th>Days <a id="refreshButton" class="btn btn-primary btn-sm heartbeat" href="<c:url value="/customer/cart/${cartId}"/>" hidden><i class="material-icons">
+                                cached
+                            </i></a> </th>
                             <th>Total Price</th>
                                 <%--<th>Action</th>--%>
                         </tr>
@@ -53,7 +55,7 @@
                             <td><img src="/resources/img/{{item.product.productID}}.png" alt="image" style="width: 85px; height: 85px;"/></td>
                             <td>{{item.product.productName}}</td>
                             <td>&#36;{{item.product.productPrice}}</td>
-                            <td>{{item.quantity}}</td>
+                            <td>{{item.quantity}} <a class="btn btn-primary btn-sm" ng-click="addToCart(item.product.productID)" onclick="showRefresh()">+1</a></td>
                             <td>&#36;{{item.totalPrice}}</td>
                                 <%--<td><a class="btn btn-danger" ng-click="removeFromCart(item.product.productId)">remove</a> </td>--%>
                         </tr>
@@ -161,5 +163,10 @@
 </c:if>
 <script src="<c:url value="/resources/js/controller.js"/> ">
 
+</script>
+<script>
+    function showRefresh() {
+        document.getElementById('refreshButton').hidden = false;
+    }
 </script>
 <%@include file="template/footer.jsp" %>
