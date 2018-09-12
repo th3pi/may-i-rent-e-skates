@@ -25,7 +25,7 @@
 </script>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
-<title>Manage Users | Admin Panel</title>
+<title>Order Control | Admin Panel</title>
 <div class="container-fluid" style="padding-top: 100px">
     <div class="jumbotron" style="height: 250px;">
         <div class="row">
