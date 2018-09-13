@@ -73,8 +73,12 @@
                             <a class="btn btn-danger btn-lg d-block" ng-click="clearCart()"><span>Clear cart</span> </a>
                         </div>
                         <div class="col-md-7">
-                            <a href="<c:url value="/order/${cartId}"/> "class="btn btn-success btn-lg d-block">Checkout</a>
-
+                            <c:if test="${more eq true}">
+                                <a id="checkoutButton" href="<c:url value="/order/${cartId}"/>" class="btn btn-danger disabled btn-lg d-block">One or more item exceeds rent days limit</a>
+                            </c:if>
+                            <c:if test="${more eq false}">
+                                <a id="checkoutButton" href="<c:url value="/order/${cartId}"/> "class="btn btn-success btn-lg d-block">Checkout</a>
+                            </c:if>
                         </div>
 
                         <div class="col-md-3">
@@ -167,6 +171,8 @@
 <script>
     function showRefresh() {
         document.getElementById('refreshButton').hidden = false;
+        $('#checkoutButton').addClass("disabled");
+        $('#checkoutButton').text('Refresh to proceed');
     }
 </script>
 <%@include file="template/footer.jsp" %>

@@ -57,10 +57,16 @@ public class CartController {
     public String getCartRedirect(@PathVariable (value = "cartId") int cartId, Model model) {
         Cart cart = cartService.getCartById(cartId);
         List<CartItem> cartItems = cart.getCartItems();
+        boolean more = false;
+        for (CartItem cartItem: cartItems) {
+            if(cartItem.getQuantity() > Integer.parseInt(cartItem.getProduct().getProductRentLimit())){
+                more = true;
+            }
+        }
         model.addAttribute("cart",cart);
         model.addAttribute("cartItems",cartItems);
         model.addAttribute("cartId", cartId);
-
+        model.addAttribute("more",more);
         return "cart";
     }
 
