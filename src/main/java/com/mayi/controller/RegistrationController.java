@@ -80,12 +80,13 @@ public class RegistrationController {
             model.addAttribute("pwMsg","Minimum 6 characters password required.");
             return "registerCustomer";
         }
-        customer.setUsername(customer.getCustomerEmail());
-        customer.setPassword(passwordEncoder.encode(customer.getPassword()));
+        String rawPassword = customer.getPassword();
         customer.setEnabled(1);
+        customer.setPassword(passwordEncoder.encode(rawPassword));
+        String encodedPassword = customer.getPassword();
         customerService.addCustomer(customer);
         try {
-            request.login(customer.getUsername(),customer.getPassword());
+            request.login(customer.getUsername(),rawPassword);
         } catch (ServletException e) {
             e.printStackTrace();
         }

@@ -6,6 +6,7 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -23,6 +24,9 @@ public class CustomerDaoImpl implements CustomerDao {
     @Autowired
     private SessionFactory sessionFactory;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     /**
      * Adda a customer to the database. Initializes a new billing address, shipping address, user, cart and authorities model
      * attached to the customer
@@ -35,6 +39,7 @@ public class CustomerDaoImpl implements CustomerDao {
         customer.getShippingAddress().setCustomer(customer);
         DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
         Date date = new Date();
+        customer.setUsername(customer.getCustomerEmail());
         customer.setJoinDate(dateFormat.format(date));
         session.saveOrUpdate(customer);
         session.saveOrUpdate(customer.getBillingAddress());
@@ -71,6 +76,7 @@ public class CustomerDaoImpl implements CustomerDao {
         Session session = sessionFactory.getCurrentSession();
         customer.getBillingAddress().setCustomer(customer);
         customer.getShippingAddress().setCustomer(customer);
+        customer.setPassword(passwordEncoder.encode(customer.getPassword()));
         session.update(customer);
         session.saveOrUpdate(customer.getBillingAddress());
         session.saveOrUpdate(customer.getShippingAddress());

@@ -14,6 +14,7 @@
 
 <%--header--%>
 <%@include file="/WEB-INF/views/template/header.jsp"%>
+<title>Success! | Rent eSkates</title>
 <style>
     @mixin vertical-align($position: relative) {
         position: $position;
