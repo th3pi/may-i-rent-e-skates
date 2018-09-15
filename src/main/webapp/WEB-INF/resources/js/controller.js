@@ -97,6 +97,10 @@ cartApp.controller("cartCtrl", function ($scope, $http){
         });
     };
 
+    $scope.addMore = function (productId) {
+        $http.put('/rest/cart/add/'+productId).success($scope.refreshCart());
+    };
+
     $scope.removeFromCart = function (productId) {
         $http.put('/rest/cart/remove/'+productId).success(function (data) {
             $scope.refreshCart();

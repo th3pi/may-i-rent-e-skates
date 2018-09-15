@@ -5,6 +5,7 @@ import com.mayi.model.Customer;
 import com.mayi.model.ShippingAddress;
 import com.mayi.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -22,6 +23,9 @@ public class RegistrationController {
 
     @Autowired
     CustomerService customerService;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     /**
      * Initializes the customer details.
@@ -77,6 +81,7 @@ public class RegistrationController {
             return "registerCustomer";
         }
         customer.setUsername(customer.getCustomerEmail());
+        customer.setPassword(passwordEncoder.encode(customer.getPassword()));
         customer.setEnabled(1);
         customerService.addCustomer(customer);
         try {

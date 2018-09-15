@@ -66,12 +66,11 @@
         <security:authentication-provider>
             <security:jdbc-user-service data-source-ref="dataSource" authorities-by-username-query="SELECT username, authority FROM authorities WHERE username = ?"
                                         users-by-username-query="SELECT username, password, enabled FROM users WHERE username = ?" />
+            <security:password-encoder ref="passwordEncoder"/>
         </security:authentication-provider>
     </security:authentication-manager>
     <bean id="webSecurityExpressionHandler" class="org.springframework.security.web.access.expression.DefaultWebSecurityExpressionHandler" />
-    <!--<bean id ="passwordEncoder" class = "org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">-->
-        <!--<constructor-arg value="100"/>-->
-    <!--</bean>-->
+    <bean id ="passwordEncoder" class = "org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>
 
     <webflow-config:flow-executor id="flowExecutor" flow-registry="flowRegistry" />
 
