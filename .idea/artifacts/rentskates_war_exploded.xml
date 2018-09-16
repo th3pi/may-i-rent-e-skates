@@ -85,6 +85,23 @@
           <element id="library" level="project" name="Maven: javax.servlet:jstl:1.2" />
           <element id="library" level="project" name="Maven: org.springframework.security:spring-security-acl:3.2.5.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework.security:spring-security-taglibs:3.2.5.RELEASE" />
+          <element id="library" level="project" name="Maven: org.hibernate:hibernate-core:5.3.6.Final" />
+          <element id="library" level="project" name="Maven: org.aspectj:aspectjweaver:1.6.1" />
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-acl:5.0.8.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-config:5.0.8.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-core:5.0.8.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-taglibs:5.0.8.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-web:5.0.8.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-aop:3.2.5.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-beans:3.2.5.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-context:3.2.5.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-core:3.2.5.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-expression:3.2.5.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-jdbc:3.2.5.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-orm:3.2.5.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-tx:3.2.5.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-web:3.2.5.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:3.2.5.RELEASE" />
         </element>
       </element>
     </root>

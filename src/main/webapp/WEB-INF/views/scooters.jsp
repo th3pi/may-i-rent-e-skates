@@ -36,7 +36,7 @@
 
         <div class="col-lg-3">
 
-            <h1 class="my-4">Skateboards</h1>
+            <h1 class="my-4">Scooters</h1>
             <div class="list-group">
                 <a href="<c:url value="/shop"/>" class="list-group-item">All Products</a>
                 <a href="<c:url value="/shop/skateboards"/>" class="list-group-item">Skateboards</a>
