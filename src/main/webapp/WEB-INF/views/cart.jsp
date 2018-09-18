@@ -77,7 +77,7 @@
                                 <a id="checkoutButton" href="<c:url value="/order/${cartId}"/>" class="btn btn-danger disabled btn-lg d-block">One or more item exceeds rent days limit</a>
                             </c:if>
                             <c:if test="${more eq false}">
-                                <a id="checkoutButton" href="<c:url value="/order/${cartId}"/> "class="btn btn-success btn-lg d-block">Checkout</a>
+                                <a id="checkoutButton" href="<c:url value="/order/${cartId}"/> " class="btn btn-success btn-lg d-block">Checkout</a>
                             </c:if>
                         </div>
 

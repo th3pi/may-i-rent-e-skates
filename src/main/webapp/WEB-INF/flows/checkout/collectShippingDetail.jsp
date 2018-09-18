@@ -80,7 +80,7 @@
                     </c:forEach>
                     <li class="list-group-item d-flex justify-content-between">
                         <span>Total (USD)</span>
-                        <strong>$${order.cart.grandTotal}</strong>
+                        <strong><fmt:formatNumber value="${order.cart.grandTotal}" type="currency" currencySymbol="$"/></strong>
                     </li>
                 </ul>
             </div>

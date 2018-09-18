@@ -83,7 +83,7 @@
                                     <td>
                                     </td>
                                     <td class="text-center text-success">
-                                        <h4>$${order.cart.grandTotal}</h4>
+                                        <h4><fmt:formatNumber value="${order.cart.grandTotal}" type="currency" currencySymbol="$"/></h4>
                                     </td>
                                 </tr>
                                 </tbody>
