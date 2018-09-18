@@ -61,7 +61,7 @@ public class OrderStatsDailyDaoImpl implements OrderStatsDailyDao {
     }
 
     /**
-     * Gets first day of each month. Unused. Not sure if it would work.
+     * Gets first day of each month.
      * @param dates array of dates passed from controller
      * @return the list of first days of months.
      */

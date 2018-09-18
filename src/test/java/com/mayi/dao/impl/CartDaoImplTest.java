@@ -9,42 +9,39 @@ import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.*;
 
+@ContextConfiguration(locations = "classpath:applicationContextTest.xml")
+@RunWith(SpringJUnit4ClassRunner.class)
 public class CartDaoImplTest {
 
     @Autowired
     private CartService cartService;
 
-    @Autowired
-    private SessionFactory sessionFactory;
-
-    @Test(expected=NullPointerException.class)
+    @Test
     public void getCartById() {
-        Customer customer = new Customer();
-        customer.setCustomerId(7);
-        Cart cart = new Cart();
-        cart.setCartId(12);
-        cart.setGrandTotal(23.98);
-        cart.setCustomer(customer);
-        Assert.assertEquals(cart,cartService.getCartById(12));
+        Cart cart = cartService.getCartById(518);
+        double expectedTotal = cart.getGrandTotal();
+        assertEquals(55.96,expectedTotal);
     }
 
 
-    @Test(expected=NullPointerException.class)
+    @Test
     public void updateCart() {
-        Customer customer = new Customer();
-        customer.setCustomerId(7);
-        Cart cart = new Cart();
-        cart.setCartId(12);
-        cart.setGrandTotal(24);
-        cart.setCustomer(customer);
+        Cart cart = cartService.getCartById(518);
+        cart.setGrandTotal(60);
         cartService.updateCart(cart);
-        assertEquals(24,cart.getGrandTotal());
+        double expectedTotal = cart.getGrandTotal();
+        assertEquals(60,expectedTotal);
     }
+
+
 }

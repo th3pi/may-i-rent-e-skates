@@ -5,79 +5,60 @@ import com.mayi.model.CartItem;
 import com.mayi.model.Customer;
 import com.mayi.model.Product;
 import com.mayi.service.CartItemService;
+import com.mayi.service.CartService;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.*;
 
+@ContextConfiguration(locations = "classpath:applicationContextTest.xml")
+@RunWith(SpringJUnit4ClassRunner.class)
 public class CartItemDaoImplTest {
 
     @Autowired
     private CartItemService cartItemService;
 
-    @Test(expected = NullPointerException.class)
+    @Autowired
+    private CartService cartService;
+
+    @Test
     public void addCartItem() {
-        Customer customer = new Customer();
-        Product product = new Product();
-        product.setProductID(12);
-        customer.setCustomerId(7);
-        Cart cart = new Cart();
-        cart.setCartId(12);
-        cart.setGrandTotal(23.98);
-        cart.setCustomer(customer);
-        CartItem cartItem = new CartItem();
+        CartItem cartItem = cartItemService.getCartItemByProductId(12);
+        Cart cart = cartService.getCartById(518);
         cartItem.setCart(cart);
-        cartItem.setTotalPrice(23.98);
-        cartItem.setQuantity(5);
-        cartItem.setCartItemId(12);
-        cartItem.setProduct(product);
         cartItemService.addCartItem(cartItem);
-        assertEquals(12,cartItemService.getCartItemByProductId(product.getProductID()).getCartItemId());
+        double expectedTotal = cart.getGrandTotal();
+        assertEquals(65.95,expectedTotal);
     }
 
-    @Test(expected = NullPointerException.class)
+    @Test
+    public void removeCartItem() {
+        CartItem cartItem = cartItemService.getCartItemByProductId(12);
+        Cart cart = cartService.getCartById(518);
+        cartItem.setCart(cart);
+        cartItemService.removeCartItem(cartItem);
+        double expectedTotal = cart.getGrandTotal();
+        assertEquals(55.96,expectedTotal);
+    }
+
+    @Test
     public void clearCart() {
-        Customer customer = new Customer();
-        Product product = new Product();
-        product.setProductID(12);
-        customer.setCustomerId(7);
-        Cart cart = new Cart();
-        cart.setCartId(12);
-        cart.setGrandTotal(23.98);
-        cart.setCustomer(customer);
-        CartItem cartItem = new CartItem();
-        cartItem.setCart(cart);
-        cartItem.setTotalPrice(23.98);
-        cartItem.setQuantity(5);
-        cartItem.setCartItemId(12);
-        cartItem.setProduct(product);
-        List<CartItem> cartItemList = new ArrayList<CartItem>();
-        cartItemList.add(cartItem);
-        cart.setCartItems(cartItemList);
-        cartItemService.addCartItem(cartItem);
+        Cart cart = cartService.getCartById(518);
         cartItemService.clearCart(cart);
-        assertEquals(0,cart.getCartItems().size());
+        assertEquals(0,cart.getGrandTotal());
     }
 
-    @Test(expected = NullPointerException.class)
+    @Test
     public void getCartItemByProductId() {
-        Customer customer = new Customer();
-        Product product = new Product();
-        product.setProductID(12);
-        customer.setCustomerId(7);
-        Cart cart = new Cart();
-        cart.setCartId(12);
-        cart.setGrandTotal(23.98);
-        cart.setCustomer(customer);
-        CartItem cartItem = new CartItem();
+        Cart cart = cartService.getCartById(518);
+        CartItem cartItem = cartItemService.getCartItemByProductId(12);
         cartItem.setCart(cart);
-        cartItem.setTotalPrice(23.98);
-        cartItem.setQuantity(5);
-        cartItem.setCartItemId(12);
-        cartItem.setProduct(product);
-        assertEquals(12,cartItemService.getCartItemByProductId(12).getCartItemId());
+        assertEquals("Boosted",cartItem.getProduct().getProductManufacturer());
     }
 }
