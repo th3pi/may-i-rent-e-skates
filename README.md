@@ -50,34 +50,34 @@
 
 # 2. Login
 #### Passwords are hashed using Bcrypt. The configuration can be found in [src/main/WEB-INF/applicationContext.xml](https://github.com/th3pi/may-i-rent-e-skates/blob/master/src/main/webapp/WEB-INF/applicationContext.xml) Only hashed passwords are stored in the database.
-![login](https://lh3.googleusercontent.com/wpP8XBaHLjWrG8OSSb7tbM03s7XQwBdfDUOpQKx66JQ2VJ9i2_3NKF5oO17CL2lKGSiu5AGU28Ns5y92z8MG16Vi0w5S505R-WqW8g3pLnM0rHdTlKCN7G6KiuJkGA9WjDf1a4xo2yvhWix4MgOcL_OCkVSVSZFRkXS1W8glnVfVSMEQhb2b0s-YZii4vI9NQV0J1EPlEObIhBvEZ5LwTAKo-ofjOUKPee2JG_tcWWbjUN6o5W-8L2N9u-HPc3-KAyL6yz0MU9NUb7_9uFzE3J-d9lWKWsKr9DocW1AqNl_WZuQKT881QL4V8AUmWMvMxOnTlNXZBfk-ul5IQ8_M6QZ9h3oKZupdsFL0X_-KQXDCQzfIzXa4LaRbgtwCULmRPYuSxYsbqcNe820qKftaIcuPii1Ai2Wt6pLXYmh2JtPiNXzWnYrrJN2tEIIifSacqWKg9qtfGlRqXSpi4mD3zgBOCkT6SX_H9pDnif5V2cvCgPyLp2FJAT5HSri6W2dGtzAnE7j9BoRShBacKQyjAW3N3mWtN4MMWiNmPvGBSb5JNpG0zRS7qoamNeD9muWpUnIbcyBC5f8amX1dlJhi5IsFJpMiazlmE00nfKmm1So6FtEHMd_n1UUh-BK03ajw=w1680-h858-no)
+![login](https://i.imgur.com/Mr2y3gg.gif)
 
 
 
 # 3. The order process
 #### Click on the add to cart button to rent the product. Everytime user clicks on add to cart +1 day is added to the cart. User cannot order for more days than allowed. Spring web-flow handles the entire checkout process. At this moment user can only have one billing address or shipping address at a time. They can be different from one another. Checkout information's autofilled with user profile details. Order can be cancelled as long as order status is "Order Awaiting Confirmation" Configuration available here -  [src/main/webapp/WEB-INF/flows/checkout/](https://github.com/th3pi/may-i-rent-e-skates/tree/master/src/main/webapp/WEB-INF/flows/checkout). 
-![timetrials](https://lh3.googleusercontent.com/XIQViiKoiTraqDB1QDxnZs7Q33Ya8wrtagfi-g1Jh0DUP1Av8x_qQpUxARU0wANbMp09a-l6StzAU461CVA9-k_ADqVlxyKll5MHlxPHMUkyHdvbBVVxunozkFwtEiMWAwPMwmrDqpMw8R7W6kLH5JAspDl1slcKD8h4cSFaVSR9bP1tIU3oKX80K9tj1EWlMIYkb93ZUxrc9pHWOVFFh7X4t6W8BufCg1su6iyAWJoERPnX76uJVLlVYR-5X26PMkda6REV4FJORq922Voj9VkRe3uPNTR4rkPGoH24BPLiXLJnBE7nM1VRfHWu5EQBpXMbc4xS77ZiELu7uYsR02skTVGviDQAZqlb1-7lED8GjA4uTxhoHi2z-jm-mmON1NMGHXKCrQariCMlNDjsylK8H2wREXxX7-xcVNTO0MlnQqBm0ZH-3ipPxwwfP9f924KX1RgWKl4WXY_Q8sVYoGLCZNOpTUSaxBBVjSbpTDmZgnY8WKJiDA884KyIyH9oESEI0FwURVxFeSZJeyZo5sNa4cCpZmLhSas759aMsQSbibm_0mK-NtI_wzWta_twx5WgYH81psoS8ygj6JF1vLmNk3miJ04ghm8g3j1P2AynLYDAoJ6HNhbQBMqFaXvk=w1680-h858-no)
+![timetrials](https://i.imgur.com/5WHpcjr.gif)
 
 
 # 4. Empty Cart/Profile
 #### Empty Cart/Profile will not just be blank. They will try to drive sales.
 
-![emptycart](https://lh3.googleusercontent.com/gaVWCvWMkQHLjXNP26LGgRNmSmj0nHwnBEkEFg1myf4XZBPTCVGnRcpQwLc5f0Kt2t1DpZ5y2zE9SMl8ACY1PShdcejmJZx3votQn7gubzgHJDVIRywuzZ69uG-9mw7SqL4bLF5eX7zrx3ZAfzsgJ6zHqLxrDtkkKRavc3Y_k4zncblH2BSFV2xrtW-gSHM5Q0GyDpDOjo1Y2xd97fbtEwLwdJEzYRebUoevGZIgqzamih67XmyK1em-fY_3-vGcVvmm9w7EFvJxeplDipQsDEu3NiMrBU2eihBZFf_dWXolBWXSIUMJxfUmPu2uQ_8eRw_Su82EefqC_meTlfRMXBOWR28I0035yqmndHlM5r-77wvdMczJL0RSGKfQsG_7zfl05an24HMVnfhPFKlJZyG4HKd3Uc-BWRubNFfHNuNVVq2vWTv2R9xJZB6LKySukAVhjgpMfeo0UbqTRe0p3eRA8caF2cbTdsGoKb-NUKUzK8z9K6aYLe6KELQ5bkYEeT3bM2v7trMN8t62lvuPYl09eF_OLqY_os41C3_BLQb5yQg0JIHabOWSEkkv3zmYxHOqziGRgtcEp-krjyCq8NvEnG2sM_SWgEImY3zWLQaCe_Z81MFnJPIaWUtva40o=w1680-h858-no)
+![emptycart](https://i.imgur.com/M4m7JfU.gif)
 
 # 4. Editing User Profile
 #### User can edit their profile (of course). User isn't allowed to change user name or email address however.
 
-![profileedit](https://lh3.googleusercontent.com/_1RyUqadWdJa1VaQ92cEgd7-1-CWfHd4NiQOCerkfVNIgvMke40kNy0N53lQValTdQouqiwIINzCIjpthJMquFsmQnIJoIxzQI9U3HlgUruywnm3waUeTSAJVTnd3zgeHzbNaZoMGzpvEuca908BaNNjcML4EsyV5vXIBFmZbUnPWTuO2Fdqvd5NiFV2ZWgNSSKU0UWKh0rb9VUAb7rTiCEYXFRr-T8UCfGdQKHJO4G5VCpCL_a-E5eqhkqCGt5J8U-TPupwy5LfaPyhh1ys4GyGX9MkMWuEFD7xq2ngxuu2YTMZebhcUUlLGA5GMs2mqH3Q_etDCyexstqR7fpfZbgLaBCnvVMdInvCRWihQP4ybm5ZnL6cZD6cB134Vns6CifB303Du9HvpMU8k7cW0WNueOrT0ZZoGR9ahQ5efdtaH9VirZd304t07Tb7Grr1dUwAmY0QoJYXSXY4FsUz3kY86nX5-paZrTEg4WIUMbaC9DNVOPmShRb2QFWrdHyfc742wT6SAkvRbf1i_8hY4I-G7MQ8S0a1mJJpD5vt4m575kaw-AMzMCmFr4ymyAzAExHx5N0VePnJariLjXsmg1zlTO21Eth2fefjve-YZ68l5aoDNJORhP7nHM7S8Y8e=w1680-h858-no)
+![profileedit](https://i.imgur.com/AryWqcH.gif)
 
 # 5. Shop filters
 #### User can search and filter in shop. Use the left navigation panel to do so.
 
-![filters](https://lh3.googleusercontent.com/a0BRqRBcZtodPeNsuZnoPo_Tt46_E3ob-BJzWgLgjj_J7S_04D9Z1_ZHv5lFKMZsgF4053JOCkO5GuWwWgyNnCR5UHum9atXQ1R_raYw5ahQGkrvRKlSOYqGf-eDDeF5UgC9GLs_UbnmHD-i14fK5qczeoKKNgYUIbvN02xuyXsEARAZVVTnXf0o5HS8xCgzCl8LAMTTcjmI_nZ0VpqEFCZgBGjdxRRe_m92uxXoh7P0m6bG7bIvZbiT7HjVUH2i4dEGs8xTSrQQlgLEDITicR_eQhRUKLpCTjaZiz2uVr04BgXt4JsUuk1dFb9vKOoa0D2C9Ayh5dZt4y4nu815p_CmV4ckEaTkNgHscXSzW_JAiDwiwOXnQpEGEFbqnI_Bpv3C8jTnA0xi19CGUIzykY-JrJcvZZjU36dY9IzoAeEvABIqPFNZ_4g8atrqOuH-q88V5Fm-OjjylHJgXl58J_5a40kdsTtciGDsOC8hESTPuItS5vDlDhn3aFmxasGLofRVpTPBri_9V4qNIYY2He5si7CP30uYb6uv9mZhjXVRq-PrBrvxRa0Vp6RKFpWLLS9vEjBkiKtpEecPLURzpsAU98yA87mh6H5wncq_88PyxUJ90bcC-ieIlNf1xcn8=w1680-h858-no)
+![filters](https://i.imgur.com/SIpwOvI.gif)
 
 # 6. Product page
 #### Product page shows all the necessary details and business constraints to the user. Product page also markets other similar products to the user.
 
-![productpage](https://lh3.googleusercontent.com/TwhuUEKgqW4D0xNFoprhCTXVBQAGU1TPRNx7NfDGTX32xxuQoNUOugTML1HU2YEDfZVUxSSQmwUTd0q87h9VXuVU615tGwYnSSwej245PllComjLIyYDAY80FukvPV5cI9RLs1ThxUO0CBXMFgfGspdCX5nzfDLaQnQj26MGuOxmFsBiKE0kYRbVTTWC-wz-BwouAnAlaUnY-75ElJE77H0DUiLXlZl1vAwWh703yM66VkFX5EtzX7ERIxYDKvPECxVls3iANPUopUCEwbF0IJsU_ueCz6g0dznnhCNaye-QLomFqw69mUaEssHp6DUgdhYkgCeUo9UKdYeg8zG1kvbAwhGeJxssEgseD9Ze07tOS4ZWIbtxJLXMKM7L_VBbxQ9uUuYbKtELqRmPlc1xun3ASI9jynzKnQAIHHQV7LTG8buh4dmUlED-R1EhriKspdxkR80dXVCDOD37bsB6-a8fzuQBpkdsIR_A0GB0WoK4bLN2D1JI9TjAsQpuesk4IjgJCatQSinm46gTu08aa1OZsP1ikqOn7hIzgTw-2CY_MYAmRUTUEqp1f1vhAJblbLPtWvJt_-n4IG2vJ7yvcCjnOSCSCanxX9NrK5iQNqTPWTaOlHOMTzxpZFqvnbPj=w1680-h858-no)
+![productpage](https://i.imgur.com/SIpwOvI.gifv)
 
 # 7. Control Center
 #### This application has a very powerful admin panel. The admin has tons of information presented to them whenever they access the Control Center. Control Center shows up on the navbar as soon as an admin logs in. Admins are not allowed the luxury to rent a skate.
