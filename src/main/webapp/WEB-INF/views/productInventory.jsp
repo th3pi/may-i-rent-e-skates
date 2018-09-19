@@ -65,8 +65,8 @@
                     <td>${ctProduct.productRentLimit} days</td>
                     <td><a class="btn btn-primary" href="<spring:url value="/viewProduct/${ctProduct.productID}" />"><i class="material-icons" data-toggle="tooltip" title="View">pageview</i></a>
                         <a class="btn btn-success" href="<spring:url value="/admin/product/editProduct/${ctProduct.productID}" />"><i class="material-icons" data-toggle="tooltip" title="Edit">edit</i></a>
-                        <a class="btn btn-outline-success" href="<spring:url value="/admin/product/markAsActive/${ctProduct.productID}" />"><i class="material-icons" data-toggle="tooltip" title="Edit">done</i></a>
-                        <a class="btn btn-outline-danger" href="<spring:url value="/admin/product/markAsInactive/${ctProduct.productID}" />"><i class="material-icons" data-toggle="tooltip" title="Edit">block</i></a>
+                        <a class="btn btn-outline-success" href="<spring:url value="/admin/product/markAsActive/${ctProduct.productID}" />"><i class="material-icons" data-toggle="tooltip" title="Enable">done</i></a>
+                        <a class="btn btn-outline-danger" href="<spring:url value="/admin/product/markAsInactive/${ctProduct.productID}" />"><i class="material-icons" data-toggle="tooltip" title="Disable">block</i></a>
                         <a class="btn btn-danger" href="<spring:url value="/admin/product/deleteProduct/${ctProduct.productID}" />"><i class="material-icons" data-toggle="tooltip" title="Delete">clear</i></a>
                         </td>
 
