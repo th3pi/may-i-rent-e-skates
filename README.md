@@ -40,7 +40,7 @@
 
 
 #### The Homepage
-![homepage](https://lh3.googleusercontent.com/8kRsJSg17jeClcSLR9EfR6naP0OH69urw0Q4GUC9DNpkgbTnWMRYhO7mAYSRs9lMBRTXVdHwMJwvmGc8A9Im8OQ2xVaKZRORlLH9rcVm8jmVoM7ZMDST1gE8wg-zYknCWXUnKjjinfm1ExJn4fhCncuIffOCYrVuX8xYovhjpnLfj-TJzJK5FvUI1bxwhLh6i0TC4L1ZT-0WkGJA7ZvK5eSafW96E6oRBMBpImPLguB_klIK3CJ0dms6vWiO3zOLbWWWJSIWJRiGtwjp1YcS3uJZxlXdTHeLpf6MASXTakU19kN3z8SoK9iyu0RwIrLsgx7zOELfsdQc5IzLRp6MTiQ7dnrree7oXvnfPcZr7rFY-Ng9bNTtVa719ey1Vbj15mkB10sddyHx19RxorUk7F2yan1sg2_LdL1ZM1impDaopsZvZA0ToS_l7me4aOdNDCMC89nvRpgRlGsN-w_jIj9r5t5xynWoMNgsT6qk_8QUkxhlyQCupZ3rOuQZ7XYjrKk8hlNRLalCc_kYuZWOuDZt4XhItqK8-4PzGgYj8BwazEy2TrKuir8-mgGJ0IBWHoDph26TILAytea55LoWntUPgTx9aV5YT8KeqAJFBdjN-dgUmA75hoiSpDXNRxG2=w2560-h1306-no)
+![homepage](https://i.imgur.com/HU3wVSf.jpg)
 
 
 
@@ -56,7 +56,7 @@
 
 # 3. The order process
 #### Click on the add to cart button to rent the product. Everytime user clicks on add to cart +1 day is added to the cart. User cannot order for more days than allowed. Spring web-flow handles the entire checkout process. At this moment user can only have one billing address or shipping address at a time. They can be different from one another. Checkout information's autofilled with user profile details. Order can be cancelled as long as order status is "Order Awaiting Confirmation" Configuration available here -  [src/main/webapp/WEB-INF/flows/checkout/](https://github.com/th3pi/may-i-rent-e-skates/tree/master/src/main/webapp/WEB-INF/flows/checkout). 
-![timetrials](https://i.imgur.com/hKgJORY.gif)
+![timetrials](https://i.imgur.com/CbcS9Cl.gif)
 
 
 # 4. Empty Cart/Profile
