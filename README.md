@@ -5,6 +5,10 @@
 
 #### [DEMO](http://renteskates-env.isymkdspky.us-east-2.elasticbeanstalk.com/)
 
+To access admin panel:
+Email - bb@gmail.com
+Password - 1234567
+
 # Features!
 
   - User friendly modern UI.
