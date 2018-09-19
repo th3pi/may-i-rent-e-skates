@@ -56,7 +56,7 @@
 
 # 3. The order process
 #### Click on the add to cart button to rent the product. Everytime user clicks on add to cart +1 day is added to the cart. User cannot order for more days than allowed. Spring web-flow handles the entire checkout process. At this moment user can only have one billing address or shipping address at a time. They can be different from one another. Checkout information's autofilled with user profile details. Order can be cancelled as long as order status is "Order Awaiting Confirmation" Configuration available here -  [src/main/webapp/WEB-INF/flows/checkout/](https://github.com/th3pi/may-i-rent-e-skates/tree/master/src/main/webapp/WEB-INF/flows/checkout). 
-![timetrials](https://i.imgur.com/5WHpcjr.gif)
+![timetrials](https://i.imgur.com/hKgJORY.gif)
 
 
 # 4. Empty Cart/Profile
@@ -77,7 +77,7 @@
 # 6. Product page
 #### Product page shows all the necessary details and business constraints to the user. Product page also markets other similar products to the user.
 
-![productpage](https://i.imgur.com/SIpwOvI.gifv)
+![productpage](https://i.imgur.com/SIpwOvI.gif)
 
 # 7. Control Center
 #### This application has a very powerful admin panel. The admin has tons of information presented to them whenever they access the Control Center. Control Center shows up on the navbar as soon as an admin logs in. Admins are not allowed the luxury to rent a skate.
@@ -86,7 +86,7 @@
 
 #### Order stats where you can see all orders with statuses that require attention.
 
-![adminpanel](https://lh3.googleusercontent.com/5OZHiEondVznrOvqRAyXuvfzcPV6Mb4nvV7ZFsDxOmFRwKNc6ljRBzqOQcTSRj6jXQenSb29oFeRwDFZkoW3a6HsyjENjJ17Vq56JH--mMAdhecVUexH4BK08X6cxmkJZNQLhXrzktkwmcwe61M6996dFYyNwYWfRRofI2CHRUG4984HIsky6iitQhrEn3Ey-hG2qjMder7Ml1JOHHh8t1VER8VZNS7U8gOuG7UostHTEY1AE5-Z-LzVU3-uOoW7CXZyoW8YK7bPLDBwKV1PZqQggPSTvEhVW2noKDS6XtMM5MboTcWVO-bQ_kouZiWp2oWFDBcgaj8dIv8q-vmpEZtzHdEq9GekHFVVkJYeYgFkeqJ6wSSuhKYelcg4dnCDs_gPni6GSLDIqx-lB9TiphbewnrWDkXyPOochGqeJfEESQh-GMQHHDQOn91CsUGNKupxvcDIS-J3LYtY0weNgpUtAgK0kgX88qInB2excpz81kr7P7klZh7Vkk2Ty8RpypmUc2Qi2S8SnvKyG5AW8JvxeEDCfqw7ug4FzfqjGP0sP-7mRG2IDJVQmU_xu26Pf9aY9VKdIWjP_4mYNSMbSuzM2J4mrYXvkfhyHeG8kZyo8uGg44rADSG_1FXmRoPG=w1680-h858-no)
+![adminpanel](https://i.imgur.com/dPWfe8M.gif)
 
 # 8. Managing Products
 
