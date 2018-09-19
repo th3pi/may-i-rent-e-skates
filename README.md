@@ -46,7 +46,7 @@
 
 # 1. Registration
 #### Registration controller checks for existing email addresses in the database before letting user successfully register, validation is also present for password being handled by both JavaScript and Controller. User is automatically logged in after registration.
-![registration](https://lh3.googleusercontent.com/O2HFdfCUiDU3hw-SQVJVLr3k4PvvBXw_MwAHJ4A1DG9Eov3AN51XM2RiaLthOprF5h0DrmTAkEleFPxdKLJP60v7m-M9QyBBeGf_X9-7DbVWPqSe0gcOQAKdxm6hKeHHGn-0ot98uWEe1ssIsaA2ArGtFeIMdo_2nvgwuvtbOtboxTnElHQcaZDQXonOoGtdafwWzjkJFwjhlen7__lmRLYiC57XCLuIE5uz-5hABr2Ya4zYpzJAfsW9YWCrQffSQbqxuL4LETxS8RbaJQoXThOzcszUWHXd7jlH49Vr9P0iEPMxPXHTbXjTf6noEO0OFGMY0UKdonkYCkS_QN9vHfvbnCv56zlzMvZzYsUFMAgg7s2wXEiIGSwwPTq0yA7PRtntpq052vOLpG-LXJbpN_R6OZ8T2y2d92YShHrZV68_Aghx7cMYOxCsnqRmYmpujarTMeyWg5aJ2KG11NCKQxpgLwVKZv9zKUXFHzH-RF6zkjmajJ178sJap7MApXaIpd5ZGMnoVpF9eBTjRaByd_92Z3oA2KrcNgGFzQzFHGl500T9XoAj4OzxpPs0Bh_FNqT-AyLEIWaLoIkeEESlDpa9WNMtgh6uXQd-N2rAZq6kdAyEODSvDcqIRgcd4AVh=w1680-h858-no)
+![registration](https://i.imgur.com/dgXqESy.gif)
 
 # 2. Login
 #### Passwords are hashed using Bcrypt. The configuration can be found in [src/main/WEB-INF/applicationContext.xml](https://github.com/th3pi/may-i-rent-e-skates/blob/master/src/main/webapp/WEB-INF/applicationContext.xml) Only hashed passwords are stored in the database.
