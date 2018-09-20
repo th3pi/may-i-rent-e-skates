@@ -9,6 +9,14 @@ To access admin panel:
 Email - bb@gmail.com
 Password - 1234567
 
+# Table Of Content
+- [Features](https://github.com/th3pi/may-i-rent-e-skates#features)
+- [Tech Used](https://github.com/th3pi/may-i-rent-e-skates#tech-used)
+- [Video Demonstrations](https://github.com/th3pi/may-i-rent-e-skates#1-registration)
+- [What happens when...](https://github.com/th3pi/may-i-rent-e-skates#what-happens-when)
+- [Installation](https://github.com/th3pi/may-i-rent-e-skates#installation)
+
+
 # Features!
 
   - User friendly modern UI.
@@ -68,22 +76,22 @@ Password - 1234567
 
 ![emptycart](https://i.imgur.com/M4m7JfU.gif)
 
-# 4. Editing User Profile
+# 5. Editing User Profile
 #### User can edit their profile (of course). User isn't allowed to change user name or email address however.
 
 ![profileedit](https://i.imgur.com/AryWqcH.gif)
 
-# 5. Shop filters
+# 6. Shop filters
 #### User can search and filter in shop. Use the left navigation panel to do so.
 
 ![filters](https://i.imgur.com/SIpwOvI.gif)
 
-# 6. Product page
+# 7. Product page
 #### Product page shows all the necessary details and business constraints to the user. Product page also markets other similar products to the user.
 
 ![productpage](https://i.imgur.com/SIpwOvI.gif)
 
-# 7. Control Center
+# 8. Control Center
 #### This application has a very powerful admin panel. The admin has tons of information presented to them whenever they access the Control Center. Control Center shows up on the navbar as soon as an admin logs in. Admins are not allowed the luxury to rent a skate.
 
 #### As you can see as soon as you enter the page you're greeted with a monthly sales graph that updates every time an order is confirmed. Sames goes for the Financial Stats section. 
@@ -92,7 +100,7 @@ Password - 1234567
 
 ![adminpanel](https://i.imgur.com/dPWfe8M.gif)
 
-# 8. Managing Products
+# 9. Managing Products
 
 #### Admin can disable or enable products. Products disabled can no longer be ordered until re-enabled. However, they will still show up in User's order receipt.
 ![disableproduct](https://i.imgur.com/bwUbQug.gif)
@@ -100,7 +108,7 @@ Password - 1234567
 #### Admin can edit product details. However there is a bug right now, after admin edits product details - the rent limit disappears. Admin has to disable and enable the product to fix that.
 ![editproduct](https://i.imgur.com/fSslXRq.gif)
 
-# 8. Managing Users
+# 10. Managing Users
 
 #### Admin can view user profile and edit user details.
 ![viewedituser](https://i.imgur.com/G0bGf9M.gif)
@@ -111,7 +119,7 @@ Password - 1234567
 #### Admin can search for a specific user by any column.
 ![addemployee](https://i.imgur.com/yZztd8h.gif)
 
-# 9. Managing Orders
+# 11. Managing Orders
 
 #### Admin can update order status. Even has the abilitiy to cancel orders. Admin can view order details.
 ![orderupdate](https://i.imgur.com/eP7lV6j.gif)
@@ -163,3 +171,17 @@ Password - 1234567
 18. Done! You should be welcomed to my beautiful homepage.
 ![beaut](https://i.imgur.com/e20QgK7.jpg)
 
+### [User stories](https://drive.google.com/file/d/1wLP_nYrwuUwp1nIyIUghWqVkJ9WoH-zT/view?usp=sharing)
+
+### [E/R Diagram](https://drive.google.com/file/d/1KyVTXG4D7yP1iUBFVB8ckL4Jyh8gxiaO/view?usp=sharing)
+
+### Approach Taken 
+Building this application was a learn as you go process. I basically learned most of the Spring Framework technologies as I was building this web application. Followed the standard SDLC approach - Planning, Requirement Analysis, Design, Development, Testing, Implementation and Maintenance. This project was heavily dependent on TDD method. I used [Trello](https://trello.com/) for project management. It is an amazing free application. IDE used was IntelliJ (the best - let's face it). 
+    #### The Research Process
+    Working on this project was fun but challenging as I was not very familiar with the Spring framework. But hey, what's the fun without a little challenge? I started by watching videos and reading articles on the Spring Framework as a whole. Then slowly moved on to Spring MVC - the Model View Controller ideology and how it works. Once I figured that out, I still didn't jump into development until I found a better way to work with the Database than plain old thousands of lines of Result Set and Prepared Statement lines. That is when I first met Hibernate. It was love it first sight. I quickly dived into learning how hibernate works and how I can implement it. Next was the....
+    #### The Development Process
+    I started by setting up my Dependencies in [pom.xml](https://github.com/th3pi/may-i-rent-e-skates/blob/master/pom.xml), configuring [web.xml](https://github.com/th3pi/may-i-rent-e-skates/blob/master/src/main/webapp/WEB-INF/web.xml), creating and configuring [dispatcher-servlet.xml](https://github.com/th3pi/may-i-rent-e-skates/blob/master/src/main/webapp/WEB-INF/dispatcher-servlet.xml) and [applicationContext.xml](https://github.com/th3pi/may-i-rent-e-skates/blob/master/src/main/webapp/WEB-INF/applicationContext.xml). Converted all the entities from my [E/R Diagram](https://drive.google.com/file/d/1KyVTXG4D7yP1iUBFVB8ckL4Jyh8gxiaO/view?usp=sharing) to [models](https://github.com/th3pi/may-i-rent-e-skates/tree/master/src/main/java/com/mayi/model). Then it was time for controllers and views. My first three controllers were the [HomeController](https://github.com/th3pi/may-i-rent-e-skates/blob/master/src/main/java/com/mayi/controller/HomeController.java), [LoginController](https://github.com/th3pi/may-i-rent-e-skates/blob/master/src/main/java/com/mayi/controller/LoginController.java) and the [RegistrationController](https://github.com/th3pi/may-i-rent-e-skates/blob/master/src/main/java/com/mayi/controller/RegistrationController.java). The [LoginController](https://github.com/th3pi/may-i-rent-e-skates/blob/master/src/main/java/com/mayi/controller/LoginController.java) is no longer the same as it used. Eventually I implemented Spring Security to handle login. Then it was time to implement hibernate. My hibernate is configured in the [applicationContext.xml](https://github.com/th3pi/may-i-rent-e-skates/blob/master/src/main/webapp/WEB-INF/applicationContext.xml). I was able to set up everything without any issues and it ran the first time I tried. Then it was basically the same process throughout the rest of the project. I put as much focus on the project on admin-side as I did on the customer-side - both sides of the project is a polished experience. When I reached checkout, I went back into research phase, because I felt like there has to be a better way to handle checkout other than just linking submit to the next jsp page. Then I remember Spring Web-flow from when I was studying about the Spring Framework - PERFECT! I learned how to implement it and I did. When the project was done, I uploaded to AWS Elastic beanstalk.
+    #### The Un-mentioned
+    There are ton's of other technologies I used through the entire project, like AngularJS, jQuery, Semantic UI, Bootstrap, JSTL, AWS and what not. If I keep on writing about how I implemented them and my thought process - I could write a series as long as the Harry Potter.
+    #### Issues I faced
+    There were thousands. But what's important is I overcame them. One of the issues I'm still facing is, can't get that AngularJS calendar - where user could select the dates from when to when they want to rent - to play nice with Spring.
