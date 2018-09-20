@@ -15,6 +15,9 @@ Password - 1234567
 - [Video Demonstrations](https://github.com/th3pi/may-i-rent-e-skates#1-registration)
 - [What happens when...](https://github.com/th3pi/may-i-rent-e-skates#what-happens-when)
 - [Installation](https://github.com/th3pi/may-i-rent-e-skates#installation)
+- [User Stories](https://github.com/th3pi/may-i-rent-e-skates#user-stories)
+- [E/R Diagram](https://github.com/th3pi/may-i-rent-e-skates#er-diagram)
+- [Approach Taken](https://github.com/th3pi/may-i-rent-e-skates#er-diagram)
 
 
 # Features!
