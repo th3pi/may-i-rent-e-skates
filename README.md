@@ -3,12 +3,6 @@
 
 #### A full-stack web application where you can rent electric skateboards, scooters and cycles.
 
-#### [DEMO](http://renteskates-env.isymkdspky.us-east-2.elasticbeanstalk.com/)
-
-To access admin panel:
-Email - bb@gmail.com
-Password - 1234567
-
 # Table Of Content
 - [Features](https://github.com/th3pi/may-i-rent-e-skates#features)
 - [Tech Used](https://github.com/th3pi/may-i-rent-e-skates#tech-used)
